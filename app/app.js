@@ -1364,7 +1364,7 @@ function App() {
       return !v;
     });
   }
-  // 曲：覚える＝地上、テスト（覚える画面の10問チェックも）＝地下、クッパ城＝城
+  // 曲：覚える（暗記カード）＝地上、テスト（覚えるの10問テストも）＝地下、クッパ城＝城（全コース共通）
   function testTrack() {
     return testMode === "exam" || testMode === "exammiss" ? "castle" : "underground";
   }
