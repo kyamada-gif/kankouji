@@ -4,3 +4,4 @@ node_modules/
 data/raw/
 data/standin_kenchiku/
 *.npy
+app/check.html

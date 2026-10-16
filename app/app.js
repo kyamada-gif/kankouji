@@ -162,7 +162,7 @@ function Hero({
     px: px,
     style: style,
     className: "hero " + pose,
-    title: who === "mario" ? "マリオ" : "ルイージ"
+    title: HERO_NAMES[who]
   });
 }
 // 頭の上に小さく名前を付けたマリオ／ルイージ
@@ -173,6 +173,7 @@ const HERO_NAMES = {
 function NamedHero({
   who,
   style,
+  king = false,
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("span", {
@@ -180,7 +181,7 @@ function NamedHero({
       display: "inline-flex",
       flexDirection: "column",
       alignItems: "center",
-      gap: 5
+      gap: king ? 9 : 5
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -190,7 +191,9 @@ function NamedHero({
       lineHeight: 1,
       whiteSpace: "nowrap"
     }
-  }, HERO_NAMES[who]), /*#__PURE__*/React.createElement(Hero, _extends({
+  }, HERO_NAMES[who]), king ? /*#__PURE__*/React.createElement(KingHero, _extends({
+    style: style
+  }, rest)) : /*#__PURE__*/React.createElement(Hero, _extends({
     who: who,
     style: style
   }, rest)));
@@ -352,9 +355,27 @@ function Castle({
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      gap: 14
+      gap: 14,
+      position: "relative"
     }
-  }, /*#__PURE__*/React.createElement("span", {
+  }, rescued && /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 70 48",
+    width: 70,
+    height: 48,
+    style: {
+      position: "absolute",
+      inset: 0
+    },
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("g", {
+    fill: "none",
+    stroke: "#1a1a1a",
+    strokeWidth: "2.5"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "8,0 14,10 6,18 12,30"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "62,48 56,36 64,28 58,20"
+  }))), /*#__PURE__*/React.createElement("span", {
     style: {
       width: 9,
       height: 16,
@@ -417,7 +438,36 @@ function Castle({
       height: 76,
       position: "relative"
     }
-  }, /*#__PURE__*/React.createElement("span", {
+  }, rescued &&
+  /*#__PURE__*/
+  /* ピーチを救出したあとは城にヒビ */
+  React.createElement("svg", {
+    viewBox: "0 0 150 76",
+    width: 150,
+    height: 76,
+    style: {
+      position: "absolute",
+      inset: 0
+    },
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("g", {
+    fill: "none",
+    stroke: "#1a1a1a",
+    strokeWidth: "2.5",
+    strokeLinejoin: "miter"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "18,0 24,14 16,24 26,38 20,52"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "24,14 34,18"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "132,0 126,12 136,22 128,36"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "136,22 146,26"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "60,76 66,64 58,56 64,46"
+  }), /*#__PURE__*/React.createElement("polyline", {
+    points: "98,0 94,10 102,16"
+  }))), /*#__PURE__*/React.createElement("span", {
     style: {
       position: "absolute",
       left: "50%",
@@ -571,6 +621,129 @@ function FlyingToad() {
 }
 // プクプク 16×15（右向き・ファミコン風）。R=体 W=背びれ・顔 T=ひれ・くちびる K=目・口
 const CHEEP = ["......TTTTTT....", "..WW.RRRRRR.....", ".WWWRRRRRRRTT...", ".WWWWRRRRWWWWT..", "..WWWRRRWWWWWW..", "..WWRRRRWWKWWK..", "...WRRRRWWKWWK..", "...RRRRRRWWWWWR.", "..RRRRRRRRWWRR..", "T.RRRRRRRRRTTTT.", "TTRRRRRRRRTKKKT.", "TTTRRRRRRTTKKK..", "TT.RRRRRWWTTT...", "T...RRRWWWW.....", "......WWWW......"];
+// 宝箱（ふた LID ＋ 箱 CHEST_BODY）。K=輪郭 B=木 Y=金具 y=中の光
+const CHEST_LID = [".KKKKKKKKKKKK.", "KBBYBBBBBBYBBK", "KBBYBBBBBBYBBK", "KYYYYYYYYYYYYK"];
+const CHEST_BODY = ["KKKKKKYYKKKKKK", "KBBYBBYYBBYBBK", "KBBYBBKKBBYBBK", "KBBYBBBBBBYBBK", "KYYYYYYYYYYYYK", "KBBYBBBBBBYBBK", "KKKKKKKKKKKKKK"];
+const CHEST_PAL = {
+  K: "#3b2a1a",
+  B: "#a8501c",
+  Y: "#f8c800",
+  y: "#fff6a0"
+};
+function Chest({
+  open = false,
+  px = 3
+}) {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "relative",
+      display: "inline-flex",
+      flexDirection: "column",
+      alignItems: "center"
+    }
+  }, open && /*#__PURE__*/React.createElement(Pixel, {
+    rows: CROWN,
+    palette: CROWN_PAL,
+    px: px,
+    className: "treasure-pop",
+    style: {
+      position: "absolute",
+      top: -14 * px,
+      zIndex: 2
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: open ? "chest-lid-open" : "",
+    style: {
+      transformOrigin: "left bottom"
+    }
+  }, /*#__PURE__*/React.createElement(Pixel, {
+    rows: CHEST_LID,
+    palette: CHEST_PAL,
+    px: px
+  })), /*#__PURE__*/React.createElement(Pixel, {
+    rows: CHEST_BODY,
+    palette: CHEST_PAL,
+    px: px
+  }));
+}
+// 王冠 9×5。Y=金 R=赤い宝石 B=青い宝石
+const CROWN = ["Y...Y...Y", "YY.YYY.YY", "YYYYYYYYY", "YRYYBYYRY", "YYYYYYYYY"];
+const CROWN_PAL = {
+  Y: "#f8c800",
+  R: "#e52521",
+  B: "#2038ec"
+};
+// 王様のゆーくん：王冠と、白い毛皮の縁どりの赤いマント
+function KingHero({
+  px = 3,
+  pose = "",
+  style
+}) {
+  return /*#__PURE__*/React.createElement("span", {
+    className: "hero " + pose,
+    style: {
+      position: "relative",
+      display: "inline-block",
+      width: 12 * px,
+      height: 16 * px,
+      ...style
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 16 11",
+    width: 16 * px,
+    height: 11 * px,
+    style: {
+      position: "absolute",
+      left: -2 * px,
+      top: 6.5 * px
+    },
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2 1 H14 L16 11 H0 Z",
+    fill: "#c8102e"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "1.5",
+    y: "0",
+    width: "13",
+    height: "2",
+    fill: "#ffffff"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "4",
+    y: "0.6",
+    width: "1",
+    height: "0.8",
+    fill: "#1a1a1a"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "8",
+    y: "0.6",
+    width: "1",
+    height: "0.8",
+    fill: "#1a1a1a"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "12",
+    y: "0.6",
+    width: "1",
+    height: "0.8",
+    fill: "#1a1a1a"
+  })), /*#__PURE__*/React.createElement(Pixel, {
+    rows: HERO,
+    palette: PALETTES.mario,
+    px: px,
+    style: {
+      position: "relative"
+    },
+    title: "\u738B\u69D8\u306E\u3086\u30FC\u304F\u3093"
+  }), /*#__PURE__*/React.createElement(Pixel, {
+    rows: CROWN,
+    palette: CROWN_PAL,
+    px: px * 0.8,
+    style: {
+      position: "absolute",
+      left: 3.2 * px,
+      top: -3.4 * px
+    }
+  }));
+}
 // カロン 16×24（右向き・立ち姿）。K=輪郭 W=骨 Y=目 g=こうら S=こうらの白 B=くつ O=くつ底
 const DRYBONES = [".......KKKK.....", "......KWWWWK....", ".....KWWWWWWK...", ".....KWWWKYWK...", ".....KWWWKKWWK..", "....KWWWWWWWWWK.", "....KWWWWWWWWWWK", "....KWWWWWgKKKK.", ".....KWWWWWWWK..", "......KKWWWKK...", "......KWWWK.....", "...KKKKWWWK.....", "..KgggKWWWWK....", ".KgSgSgKWWWK....", ".KgggggKWWWKK...", "KgSgSggKWWWWWK..", "KgggggKWWWWWKK..", "KggSggKWWWWK....", ".KgggKWWWWWK....", "..KKKKWWWWWK....", "....KWWK.KWWK...", "...KBBBK.KBBBK..", "..KBBBBK.KBBBBK.", "..KOOOOK.KOOOOK."];
 const DRYBONES_PAL = {
@@ -1365,7 +1538,8 @@ const BRIDGE_SEGS = 10;
 function CastleClear({
   gold,
   mode = "another",
-  remaining = 0
+  remaining = 0,
+  treasure = null
 }) {
   const rescue = mode === "rescue";
   return /*#__PURE__*/React.createElement("div", {
@@ -1374,7 +1548,7 @@ function CastleClear({
       marginTop: 14
     }
   }, (gold || rescue) && /*#__PURE__*/React.createElement(Confetti, {
-    base: rescue ? 3.4 : 2.3
+    base: rescue ? 3.4 : treasure && treasure.got ? 4.5 : 2.3
   }), /*#__PURE__*/React.createElement("div", {
     "aria-hidden": "true",
     style: {
@@ -1437,6 +1611,7 @@ function CastleClear({
       animationDelay: `${0.3 + (BRIDGE_SEGS - 1 - i) * 0.09}s`
     }
   })), /*#__PURE__*/React.createElement("span", {
+    className: mode === "thanks" ? "axe-out" : "",
     style: {
       position: "absolute",
       right: 12,
@@ -1485,7 +1660,63 @@ function CastleClear({
       lineHeight: 1.5,
       textAlign: "left"
     }
-  }, "\u3042\u308A\u304C\u3068\u3046 \u30DE\u30EA\u30AA\uFF01", /*#__PURE__*/React.createElement("br", null), "\u3067\u3082 \u30D4\u30FC\u30C1\u59EB\u306F \u3079\u3064\u306E\u57CE\u306B \u3044\u308B\u3088\u2026") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+  }, "\u3042\u308A\u304C\u3068\u3046 \u3086\u30FC\u304F\u3093\uFF01", /*#__PURE__*/React.createElement("br", null), "\u3067\u3082 \u30D4\u30FC\u30C1\u59EB\u306F \u3079\u3064\u306E\u57CE\u306B \u3044\u308B\u3088\u2026") : mode === "thanks" ?
+  /*#__PURE__*/
+  /* 救出後：ピーチの代わりに宝箱（裏仕様：9割以上を10回で開く。回数はどこにも出さない） */
+  React.createElement(React.Fragment, null, (() => {
+    // まだ開かない宝箱：回数は見せず、近づくほど揺れと光とひと言が変わって「続けると何かありそう」と思わせる
+    // 救出後のクリア回数ごとに毎回ようすが変わる（0〜1回目→4回目でだんだん激しく、5回目で開く）
+    const c = treasure ? treasure.count : 0,
+      open = !!(treasure && treasure.open);
+    const stage = open ? 0 : Math.max(1, Math.min(4, c));
+    const hint = ["", "……宝箱がある。びくともしない", "宝箱が カタッと うごいた…？", "宝箱が ガタガタ ゆれている…！", "宝箱から 光がもれている…！"][stage];
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+      className: "peach-in",
+      style: {
+        position: "absolute",
+        right: 2,
+        top: 84
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: stage ? `chest-shake chest-shake${stage}` : "",
+      style: {
+        filter: stage === 4 ? "drop-shadow(0 0 8px #fff6a0)" : "none"
+      }
+    }, /*#__PURE__*/React.createElement(Chest, {
+      open: open,
+      px: 3
+    }))), stage > 0 && /*#__PURE__*/React.createElement("span", {
+      className: "peach-in",
+      style: {
+        position: "absolute",
+        right: 8,
+        top: 18,
+        background: "#fff",
+        border: "2px solid #a8501c",
+        borderRadius: 8,
+        padding: "2px 8px",
+        fontSize: 11,
+        fontWeight: 800,
+        color: "#1f1a14",
+        whiteSpace: "nowrap"
+      }
+    }, hint));
+  })(), treasure && treasure.got && /*#__PURE__*/React.createElement("span", {
+    className: "peach-in",
+    style: {
+      position: "absolute",
+      right: 52,
+      top: 18,
+      background: "#fff",
+      border: "2px solid #f8c800",
+      borderRadius: 8,
+      padding: "2px 8px",
+      fontSize: 11.5,
+      fontWeight: 800,
+      color: "#1f1a14",
+      whiteSpace: "nowrap"
+    }
+  }, "\u5B9D\u3092\u624B\u306B\u5165\u308C\u305F\uFF01\u738B\u51A0\u3068\u30DE\u30F3\u30C8\u3060\uFF01")) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "peach-in",
     style: {
       position: "absolute",
@@ -1511,7 +1742,54 @@ function CastleClear({
       color: "#1f1a14",
       whiteSpace: "nowrap"
     }
-  }, rescue ? "ありがとう マリオ！" : "また来てくれたのね！")), rescue &&
+  }, rescue ? "ありがとう ゆーくん！" : "また来てくれたのね！")), treasure && treasure.got &&
+  /*#__PURE__*/
+  /* 宝を手に入れたシーン：ふたが開いて王冠が飛び出したあと、金色の画面に王様のゆーくん */
+  React.createElement("div", {
+    className: "treasure-scene",
+    style: {
+      position: "absolute",
+      inset: 0,
+      background: "radial-gradient(circle at 50% 45%, #fff6c0, #f8c800 70%, #d98e00)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "treasure-sparkle",
+    style: {
+      fontSize: 26
+    }
+  }, "\u2728"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      alignItems: "flex-end",
+      gap: 12,
+      marginTop: 6
+    }
+  }, /*#__PURE__*/React.createElement(KingHero, {
+    px: 3,
+    pose: "idle"
+  }), /*#__PURE__*/React.createElement(Chest, {
+    open: true,
+    px: 2
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 10,
+      fontSize: 14,
+      fontWeight: 900,
+      letterSpacing: 1,
+      color: "#7a3d00"
+    }
+  }, "TREASURE GET!"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 2,
+      fontSize: 12,
+      fontWeight: 800,
+      color: "#3b2a1a"
+    }
+  }, "\u738B\u51A0\u3068\u738B\u69D8\u306E\u30DE\u30F3\u30C8\u3092\u624B\u306B\u5165\u308C\u305F\uFF01")), rescue &&
   /*#__PURE__*/
   /* 救出シーン：マリオとピーチが並び、ハートが浮かぶ */
   React.createElement("div", {
@@ -1557,7 +1835,7 @@ function CastleClear({
       letterSpacing: 1,
       color: "#c83c78"
     }
-  }, "THANK YOU MARIO!"))), /*#__PURE__*/React.createElement("div", {
+  }, "THANK YOU YU-KUN!"))), /*#__PURE__*/React.createElement("div", {
     className: "clear-title castle-title",
     style: {
       fontSize: 26,
@@ -1567,7 +1845,7 @@ function CastleClear({
       textShadow: "2px 2px 0 #e52521, 4px 4px 0 #3b2a1a",
       marginTop: 10
     }
-  }, rescue ? "ピーチ姫を救出！" : "かめおをたおした！"), /*#__PURE__*/React.createElement("div", {
+  }, rescue ? "ピーチ姫を救出！" : treasure && treasure.got ? "宝を手に入れた！" : "かめおをたおした！"), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 15,
       fontWeight: 900,
@@ -2149,6 +2427,21 @@ function App() {
   // ── 総合テストの修了バッジ表示 ──
   const examGoldCount = examSlots.filter(s => s === "gold").length;
   const examComplete = examSlots.length >= EXAM_SLOTS; // 5枠コンプ
+  // 裏仕様：かめおの城を累計10回クリア（＝ピーチ救出の5回＋その後の5回）で宝箱が開き、トップのゆーくんが王冠と赤いマントに
+  const TREASURE_NEED = EXAM_SLOTS; // 救出後にクリアする回数
+  const [treasure, setTreasure] = useState(() => {
+    try {
+      return +localStorage.getItem("kankouji-treasure") || 0;
+    } catch {
+      return 0;
+    }
+  });
+  useEffect(() => {
+    try {
+      localStorage.setItem("kankouji-treasure", String(treasure));
+    } catch (e) {}
+  }, [treasure]);
+  const hasTreasure = treasure >= TREASURE_NEED;
   // 今いるワールド＝まだ3コースともクリアしていない一番若いワールド（全部クリアなら最後のワールド）
   const groupNos = [...new Set(blocks.map(b => b.group))];
   const groupCleared = g => blocks.every((b, k) => b.group !== g || records[k] && records[k].badge);
@@ -2156,7 +2449,35 @@ function App() {
   const [pendingWorld, setPendingWorld] = useState(null); // ワールドを全クリアした直後：ホームに戻ったら演出
   const [worldIntro, setWorldIntro] = useState(null); // 演出中のワールド番号
   // 演出の途中は前のワールドの景色のまま、演出が終わってから新しい景色へ
-  const currentWorld = worldIntro ? worldIntro : pendingWorld ? pendingWorld - 1 : clearedWorld;
+  // トップの景色＝今いるワールド（演出の途中は前のワールドのまま、演出が終わってから新しい景色へ）
+  // ピーチを救出したあとは、平和になった草原（ワールド1）の景色に戻る
+  const currentWorld = worldIntro ? worldIntro : pendingWorld ? pendingWorld - 1 : examComplete ? 1 : clearedWorld;
+  // ワールドの解放：前のワールドを3コースともクリアすると次のワールドに進める
+  const isLocked = k => !!blocks[k] && blocks[k].group > clearedWorld;
+  const allWorldsCleared = groupNos.every(groupCleared); // かめおの城は全ワールドクリアで挑戦できる
+  // 【確認用・公開前に削除】?debug=1 でテスト中に「全問正解で終える」「6割正解で終える」、トップに「記録をリセット」
+  const [debug] = useState(() => new URLSearchParams(location.search).get("debug") === "1");
+  const [debugFinish, setDebugFinish] = useState(false);
+  function debugEnd(ratio) {
+    const n = Math.ceil(testQueue.length * ratio);
+    setTestResults(testQueue.map((q, k) => ({
+      id: q.id,
+      ok: k < n
+    })));
+    setTestPos(testQueue.length - 1);
+    setDebugFinish(true);
+  }
+  // コースを開いた先（覚える・テスト選択・テスト・結果・演出）は、そのコースのワールドの景色
+  const courseWorld = (() => {
+    if (screen === "home") return null;
+    if (screen === "study" || screen === "testpick") return blocks[secIdx] && blocks[secIdx].group;
+    if (screen === "test" || screen === "result") {
+      if (testMode === "section" || testMode === "study") return blocks[secIdx] && blocks[secIdx].group;
+      if (testMode === "random" && lastRandom && lastRandom.scopeIdx >= 0) return blocks[lastRandom.scopeIdx] && blocks[lastRandom.scopeIdx].group;
+    }
+    return null;
+  })();
+  const sceneWorld = worldIntro ? currentWorld : courseWorld || currentWorld;
   useEffect(() => {
     if (screen === "home" && pendingWorld) {
       setWorldIntro(pendingWorld);
@@ -2202,7 +2523,7 @@ function App() {
   const wrap = {
     minHeight: "100vh",
     boxSizing: "border-box",
-    background: worldTheme(currentWorld).bg,
+    background: worldTheme(sceneWorld).bg,
     transition: "background .6s",
     color: "#1f1a14",
     fontFamily: "system-ui, -apple-system, 'Hiragino Sans', sans-serif",
@@ -2340,6 +2661,12 @@ function App() {
   }
   // 「正解するまで繰り返す」覚えるモード挙動を使うモード（暗記10問／ランダム演習／総合テストの覚え直し／要復習）。
   const isCram = m => m === "study" || m === "random" || m === "exammiss" || m === "flagged";
+  useEffect(() => {
+    if (debugFinish) {
+      setDebugFinish(false);
+      nextTest();
+    }
+  }, [debugFinish]);
   function nextTest() {
     const next = testPos + 1;
     if (next >= testQueue.length) {
@@ -2398,6 +2725,14 @@ function App() {
         const examMissedIds = new Set(testResults.filter(r => !r.ok).map(r => r.id));
         const examMissed = testQueue.filter(q => examMissedIds.has(q.id));
         const rescue = pass && examSlots.length === EXAM_SLOTS - 1; // 今回の合格で修了バッジが揃う＝ピーチ救出
+        // 救出後にクリアしたら宝箱の回数を進める（救出後5回目＝累計10回目で宝を手に入れる）
+        const tCount = examComplete && pass ? Math.min(TREASURE_NEED, treasure + 1) : treasure;
+        if (tCount !== treasure) setTreasure(tCount);
+        const treasureInfo = {
+          count: tCount,
+          open: tCount >= TREASURE_NEED,
+          got: tCount >= TREASURE_NEED && treasure < TREASURE_NEED
+        };
         setLastScore({
           correct,
           total,
@@ -2407,7 +2742,8 @@ function App() {
           gold,
           tier: pass ? tier : null,
           missed: examMissed,
-          rescue
+          rescue,
+          treasure: treasureInfo
         });
         setScreen("result");
       } else if (testMode === "exammiss") {
@@ -2505,13 +2841,10 @@ function App() {
   // 結果が出たら効果音（クリア＝ファンファーレ / 未達＝土管の音）
   useEffect(() => {
     if (screen === "result" && lastScore && lastScore.badge) {
-      play("popper");
-      play("flagpole");
-      const t1 = setTimeout(() => play("popper"), 1300),
-        t2 = setTimeout(() => play("stageClear"), 1450);
+      play("flagpole"); // クラッカーは見た目だけ（音はうるさいので鳴らさない）
+      const t = setTimeout(() => play("stageClear"), 1450);
       return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
+        clearTimeout(t);
         stopJingles();
       };
     }
@@ -2521,6 +2854,7 @@ function App() {
       const ts = [setTimeout(() => play("bridge"), 300), setTimeout(() => play("fall"), 1400), setTimeout(() => play("stageClear"), 2300)];
       if (lastScore.gold && !lastScore.rescue) ts.push(setTimeout(() => play("popper"), 2400));
       if (lastScore.rescue) ts.push(setTimeout(() => play("popper"), 3400));
+      if (lastScore.treasure && lastScore.treasure.got) ts.push(setTimeout(() => play("coin"), 3200), setTimeout(() => play("popper"), 4500));
       return () => {
         ts.forEach(clearTimeout);
         stopJingles();
@@ -2686,7 +3020,7 @@ function App() {
   const styleTag = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Scenery, {
     home: screen === "home",
     rescued: rescued,
-    world: currentWorld
+    world: sceneWorld
   }), worldIntro && /*#__PURE__*/React.createElement(WorldIntro, {
     world: worldIntro
   }), screen === "home" && /*#__PURE__*/React.createElement("div", {
@@ -2751,6 +3085,8 @@ function App() {
       .peach-in{ animation: peach-in .5s 2.6s ease-out both; }
       @keyframes peach-in{ from{ transform: translateY(-14px); opacity:0 } to{ transform: none; opacity:1 } }
       .castle-title{ animation-delay: 2.3s; }
+      .treasure-scene{ animation: rescue-in .6s 4.4s ease-out both; }
+      .treasure-sparkle{ display:inline-block; animation: clear-pop .5s 4.9s cubic-bezier(.3,1.6,.5,1) both; }
       .rescue-scene{ animation: rescue-in .6s 3.3s ease-out both; }
       @keyframes rescue-in{ from{ opacity:0 } to{ opacity:1 } }
       .heart-pop{ display:inline-block; animation: clear-pop .5s 3.8s cubic-bezier(.3,1.6,.5,1) both; }
@@ -2759,6 +3095,20 @@ function App() {
       .hideans{ filter: blur(6px); cursor: pointer; transition: filter .12s; border-radius: 5px; }
       .hideans:hover, .hideans.shown{ filter: none; }
       .row:hover{ border-color:#3b2a1a !important; }
+      .axe-out{ animation: axe-out .3s 2.5s ease-in both; }
+      @keyframes axe-out{ to{ opacity:0; transform: translateY(-8px) } }
+      .chest-shake{ animation-delay: 3.2s; animation-iteration-count: infinite; animation-timing-function: steps(2); }
+      .chest-shake1{ animation-name: shake1; animation-duration: 3s; }
+      .chest-shake2{ animation-name: shake2; animation-duration: 1.6s; }
+      .chest-shake3{ animation-name: shake2; animation-duration: .8s; }
+      .chest-shake4{ animation-name: shake3; animation-duration: .7s; }
+      @keyframes shake1{ 0%,90%{ transform: none } 95%{ transform: rotate(-2deg) } }
+      @keyframes shake2{ 0%,70%{ transform: none } 78%{ transform: rotate(-4deg) } 86%{ transform: rotate(4deg) } 94%{ transform: rotate(-3deg) } }
+      @keyframes shake3{ 0%,40%{ transform: none } 50%{ transform: translateY(-3px) rotate(-5deg) } 60%{ transform: rotate(5deg) } 70%{ transform: translateY(-2px) rotate(-4deg) } 80%{ transform: rotate(3deg) } }
+      .chest-lid-open{ animation: lid-open .5s 2.8s ease-out both; }
+      @keyframes lid-open{ to{ transform: translate(-6px,-10px) rotate(-35deg) } }
+      .treasure-pop{ animation: treasure-pop .8s 3.2s ease-out both; filter: drop-shadow(0 0 6px #fff6a0); }
+      @keyframes treasure-pop{ from{ opacity:0; transform: translateY(20px) scale(.4) } to{ opacity:1; transform: translateY(0) scale(1) } }
       .world-intro{ animation: world-intro 2.8s ease both; }
       @keyframes world-intro{ 0%{ opacity:0 } 10%{ opacity:1 } 85%{ opacity:1 } 100%{ opacity:0 } }
       .bubble-up{ position:absolute; bottom:30px; border-radius:50%; border:2px solid #ffffffcc; background:#ffffff33; animation: bubble-up linear infinite; }
@@ -2896,7 +3246,8 @@ function App() {
     }), /*#__PURE__*/React.createElement(NamedHero, {
       who: "mario",
       px: 3,
-      pose: "idle"
+      pose: "idle",
+      king: hasTreasure
     }), /*#__PURE__*/React.createElement(NamedHero, {
       who: "luigi",
       px: 3,
@@ -2916,7 +3267,50 @@ function App() {
       }
     }, /*#__PURE__*/React.createElement(Bubble, {
       who: "mario"
-    }, "\u9EC4\u8272\u3044\u30DE\u30FC\u30AB\u30FC\u304C", /*#__PURE__*/React.createElement("b", null, "\u6B63\u8AA4\u306E\u6C7A\u3081\u624B"), "\u3060\uFF01\u305D\u3053\u3060\u3051\u899A\u3048\u3066\u53CD\u5C04\u3067\u9078\u307C\u3046\u3002", /*#__PURE__*/React.createElement("br", null), "\u5404\u30B3\u30FC\u30B9\u306E\u30C6\u30B9\u30C8\u30679\u5272\u3092\u53D6\u308B\u3068\u30B4\u30FC\u30EB\u306E\u65D7\uD83D\uDEA9\u3092\u30B2\u30C3\u30C8\u3002", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "\u5168", sections.length, "\u672C\u306E\u65D7\u3092\u96C6\u3081\u305F\u3089\u3001\u6E96\u5099\u5B8C\u4E86\uFF01"))), flaggedList.length > 0 && /*#__PURE__*/React.createElement("button", {
+    }, "\u9EC4\u8272\u3044\u30DE\u30FC\u30AB\u30FC\u304C", /*#__PURE__*/React.createElement("b", null, "\u6B63\u8AA4\u306E\u6C7A\u3081\u624B"), "\u3060\uFF01\u305D\u3053\u3060\u3051\u899A\u3048\u3066\u53CD\u5C04\u3067\u9078\u307C\u3046\u3002", /*#__PURE__*/React.createElement("br", null), "\u5404\u30B3\u30FC\u30B9\u306E\u30C6\u30B9\u30C8\u30679\u5272\u3092\u53D6\u308B\u3068\u30B4\u30FC\u30EB\u306E\u65D7\uD83D\uDEA9\u3092\u30B2\u30C3\u30C8\u3002", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("b", null, "\u5168", sections.length, "\u672C\u306E\u65D7\u3092\u96C6\u3081\u305F\u3089\u3001\u6E96\u5099\u5B8C\u4E86\uFF01"))), debug && /*#__PURE__*/React.createElement("button", {
+      "data-sfx": "none",
+      onClick: () => {
+        setRecords({});
+        setExamSlots([]);
+        setTreasure(0);
+        setPendingWorld(null);
+        setPickedSec(null);
+      },
+      style: {
+        width: "100%",
+        marginBottom: 10,
+        padding: "8px",
+        fontSize: 12,
+        fontWeight: 800,
+        border: "2px dashed #7b2c9c",
+        borderRadius: 8,
+        background: "#f4e8ff",
+        color: "#5a1a7a",
+        cursor: "pointer"
+      }
+    }, "\u3010\u78BA\u8A8D\u7528\u3011\u30B3\u30FC\u30B9\u3068\u304B\u3081\u304A\u306E\u57CE\u306E\u8A18\u9332\u3092\u30EA\u30BB\u30C3\u30C8"), debug && /*#__PURE__*/React.createElement("button", {
+      "data-sfx": "none",
+      onClick: () => {
+        setRecords(Object.fromEntries(sections.map((_, k) => [k, {
+          best: 100,
+          badge: true
+        }])));
+        setPendingWorld(null);
+        setPickedSec(null);
+      },
+      style: {
+        width: "100%",
+        marginBottom: 10,
+        padding: "8px",
+        fontSize: 12,
+        fontWeight: 800,
+        border: "2px dashed #7b2c9c",
+        borderRadius: 8,
+        background: "#f4e8ff",
+        color: "#5a1a7a",
+        cursor: "pointer"
+      }
+    }, "\u3010\u78BA\u8A8D\u7528\u3011\u30EF\u30FC\u30EB\u30C96-3\u307E\u3067\u5168\u90E8\u30AF\u30EA\u30A2\u3057\u305F\u72B6\u614B\u306B\u3059\u308B"), flaggedList.length > 0 && /*#__PURE__*/React.createElement("button", {
       "data-sfx": "warp",
       onClick: startFlagged,
       className: "secbtn",
@@ -2943,7 +3337,8 @@ function App() {
         best: 0,
         badge: false
       };
-      const picked = pickedSec === i;
+      const locked = isLocked(i);
+      const picked = pickedSec === i && !locked;
       const blk = blocks[i] || {
         no: i + 1,
         kind: "",
@@ -2965,7 +3360,7 @@ function App() {
         }
       }, /*#__PURE__*/React.createElement("span", {
         className: "world-tag"
-      }, "WORLD ", blk.group), /*#__PURE__*/React.createElement("span", {
+      }, blk.group > clearedWorld ? "🔒 " : "", "WORLD ", blk.group), /*#__PURE__*/React.createElement("span", {
         style: {
           fontSize: 12,
           fontWeight: 800,
@@ -2984,9 +3379,10 @@ function App() {
           fontWeight: 800,
           color: worldClear === worldIdx.length ? "#1f9e3a" : "#3b3024"
         }
-      }, "\uD83D\uDEA9 ", worldClear, "/", worldIdx.length)), /*#__PURE__*/React.createElement("div", {
-        className: "seccard",
+      }, blk.group > clearedWorld ? `WORLD ${blk.group - 1} をクリアで解放` : `🚩 ${worldClear}/${worldIdx.length}`)), /*#__PURE__*/React.createElement("div", {
+        className: locked ? "" : "seccard",
         style: {
+          opacity: locked ? 0.6 : 1,
           background: "#ffffff",
           border: `1px solid ${picked ? "#1d7a2f" : rec.badge ? "#1f9e3a33" : "#d9c7a0"}`,
           borderRadius: 13,
@@ -2996,6 +3392,7 @@ function App() {
       }, /*#__PURE__*/React.createElement("button", {
         onClick: () => setPickedSec(picked ? null : i),
         className: "secrow",
+        disabled: locked,
         "aria-expanded": picked,
         "aria-label": `${sectionLabels[i]}・${blk.kind}${rec.badge ? "・達成" : rec.best > 0 ? `・${rec.best}%` : "・未挑戦"}`,
         style: {
@@ -3055,7 +3452,7 @@ function App() {
           whiteSpace: "nowrap",
           color: rec.badge ? "#1f9e3a" : rec.best > 0 ? "#d98e00" : "#5e4f3c"
         }
-      }, rec.badge ? "🚩 CLEAR" : rec.best > 0 ? `${rec.best}%` : "未挑戦"), /*#__PURE__*/React.createElement("span", {
+      }, locked ? "🔒 未解放" : rec.badge ? "🚩 CLEAR" : rec.best > 0 ? `${rec.best}%` : "未挑戦"), !locked && /*#__PURE__*/React.createElement("span", {
         "aria-hidden": "true",
         style: {
           flex: "0 0 auto",
@@ -3205,7 +3602,7 @@ function App() {
         marginTop: 8,
         color: examMastered ? "#d98e00" : examComplete ? "#1f9e3a" : "#4a3d2e"
       }
-    }, examMastered ? "🎉 完全制覇！" : `修了バッジ ${examSlots.length} / ${EXAM_SLOTS}`), /*#__PURE__*/React.createElement("button", {
+    }, examMastered ? "🎉 完全制覇！" : `修了バッジ ${examSlots.length} / ${EXAM_SLOTS}`), allWorldsCleared ? /*#__PURE__*/React.createElement("button", {
       "data-sfx": "warp",
       onClick: startExam,
       style: {
@@ -3221,7 +3618,21 @@ function App() {
         border: "none",
         boxShadow: "0 0 20px #1f9e3a33"
       }
-    }, "\uD83C\uDFF0 \u304B\u3081\u304A\u306E\u57CE\u306B\u6311\u6226\uFF08", Math.min(EXAM_SIZE, questions.length), "\u554F\uFF09")), /*#__PURE__*/React.createElement("div", {
+    }, "\uD83C\uDFF0 \u304B\u3081\u304A\u306E\u57CE\u306B\u6311\u6226\uFF08", Math.min(EXAM_SIZE, questions.length), "\u554F\uFF09") : /*#__PURE__*/React.createElement("button", {
+      disabled: true,
+      style: {
+        width: "100%",
+        marginTop: 13,
+        padding: "13px 0",
+        borderRadius: 11,
+        fontSize: 14,
+        fontWeight: 900,
+        color: "#5e4f3c",
+        background: "#e8dcc0",
+        border: "none",
+        opacity: 0.8
+      }
+    }, "\uD83D\uDD12 \u5168\u30EF\u30FC\u30EB\u30C9\u3092\u30AF\u30EA\u30A2\u3059\u308B\u3068\u6311\u6226\u3067\u304D\u308B")), /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         gap: 18,
@@ -3459,7 +3870,7 @@ function App() {
         ...linkBtn,
         marginTop: 16
       }
-    }, "\u30B3\u30FC\u30B9\u4E00\u89A7\u3078"))));
+    }, "\u30EF\u30FC\u30EB\u30C9\u9078\u629E\u306B\u623B\u308B"))));
   }
 
   // ════════════════ RANDOMPICK（ランダム演習＝復習用: ブロックを選ぶ） ════════════════
@@ -3552,13 +3963,15 @@ function App() {
         key: i,
         onClick: () => startRandom(i, RANDOM_BLOCK_N),
         className: "secbtn",
+        disabled: isLocked(i),
         style: {
+          opacity: isLocked(i) ? 0.5 : 1,
           display: "flex",
           alignItems: "center",
           gap: 12,
           padding: "13px 14px",
           borderRadius: 12,
-          cursor: "pointer",
+          cursor: isLocked(i) ? "default" : "pointer",
           background: "#fff8e7",
           border: "1px solid #3b2a1a",
           color: "#1f1a14",
@@ -3802,7 +4215,7 @@ function App() {
           ...linkBtn,
           marginTop: 6
         }
-      }, "\u30B3\u30FC\u30B9\u4E00\u89A7\u3078"))));
+      }, "\u30EF\u30FC\u30EB\u30C9\u9078\u629E\u306B\u623B\u308B"))));
     }
     // learn: 現在の10問を覚える
     return /*#__PURE__*/React.createElement("div", {
@@ -4102,7 +4515,41 @@ function App() {
       style: {
         fontWeight: 700
       }
-    }, runTitle), /*#__PURE__*/React.createElement("span", null, testPos + 1, " / ", qTotal)), /*#__PURE__*/React.createElement("div", {
+    }, runTitle), /*#__PURE__*/React.createElement("span", null, testPos + 1, " / ", qTotal)), debug && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 8,
+        marginTop: 8
+      }
+    }, /*#__PURE__*/React.createElement("button", {
+      "data-sfx": "none",
+      onClick: () => debugEnd(1),
+      style: {
+        flex: 1,
+        padding: "6px",
+        fontSize: 12,
+        fontWeight: 800,
+        border: "2px dashed #7b2c9c",
+        borderRadius: 8,
+        background: "#f4e8ff",
+        color: "#5a1a7a",
+        cursor: "pointer"
+      }
+    }, "\u3010\u78BA\u8A8D\u7528\u3011\u5168\u554F\u6B63\u89E3\u3067\u7D42\u3048\u308B"), /*#__PURE__*/React.createElement("button", {
+      "data-sfx": "none",
+      onClick: () => debugEnd(0.6),
+      style: {
+        flex: 1,
+        padding: "6px",
+        fontSize: 12,
+        fontWeight: 800,
+        border: "2px dashed #7b2c9c",
+        borderRadius: 8,
+        background: "#f4e8ff",
+        color: "#5a1a7a",
+        cursor: "pointer"
+      }
+    }, "\u3010\u78BA\u8A8D\u7528\u30116\u5272\u6B63\u89E3\u3067\u7D42\u3048\u308B")), /*#__PURE__*/React.createElement("div", {
       style: {
         height: 6,
         background: "#e8dcc0",
@@ -4462,7 +4909,8 @@ function App() {
       }, "\u6B63\u89E3\uFF08", s.pct, "%\uFF09\u30FB\u5408\u683C\u30E9\u30A4\u30F3 ", EXAM_PASS, "\u554F"), s.pass ? /*#__PURE__*/React.createElement(CastleClear, {
         gold: s.gold,
         mode: s.rescue ? "rescue" : examComplete ? "thanks" : "another",
-        remaining: EXAM_SLOTS - examSlots.length
+        remaining: EXAM_SLOTS - examSlots.length,
+        treasure: s.treasure
       }) : /*#__PURE__*/React.createElement(React.Fragment, null, heroes(false), /*#__PURE__*/React.createElement("div", {
         style: {
           marginTop: 18
@@ -4871,7 +5319,7 @@ function App() {
         ...linkBtn,
         marginTop: 18
       }
-    }, "\u30B3\u30FC\u30B9\u4E00\u89A7\u3078")));
+    }, "\u30EF\u30FC\u30EB\u30C9\u9078\u629E\u306B\u623B\u308B")));
   }
   return /*#__PURE__*/React.createElement("div", {
     style: wrap,
