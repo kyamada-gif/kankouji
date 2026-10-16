@@ -2252,6 +2252,9 @@ function App() {
       .hideans{ filter: blur(6px); cursor: pointer; transition: filter .12s; border-radius: 5px; }
       .hideans:hover, .hideans.shown{ filter: none; }
       .row:hover{ border-color:#3b2a1a !important; }
+      .world-tag{ font-size:12px; font-weight:900; letter-spacing:1px; color:#fff; padding:3px 9px; border:2px solid #3b2a1a; border-radius:4px;
+        background:#c84c0c; background-image: linear-gradient(#3b2a1a55 1px, transparent 1px), linear-gradient(90deg, #3b2a1a55 1px, transparent 1px); background-size: 12px 7px;
+        text-shadow: 1px 1px 0 #3b2a1a; white-space:nowrap; }
       .seccard:hover{ background:#e8dcc0 !important; }  /* 開いた状態でもカード全体の色が変わるように、行ではなくカードに付ける */
       .secrow:active{ background:#f3e9d2 !important; }
       .panel-in{ animation: panelin .2s ease; }
@@ -2419,11 +2422,41 @@ function App() {
         chapSpan: "",
         group: 1
       };
-      const odd = blk.group % 2 === 1;
-      const tagColor = odd ? "#1d7a2f" : "#1f9e3a"; // グループごとに青/緑を交互
-      const tagBg = odd ? "#e6f6e1" : "#e3f7df";
-      return /*#__PURE__*/React.createElement("div", {
-        key: i,
+      // ワールドの区切り：グループが変わるところに見出し（ワールド番号・対象回・クリア数）
+      const newWorld = i === 0 || (blocks[i - 1] && blocks[i - 1].group) !== blk.group;
+      const worldIdx = blocks.map((b, k) => b.group === blk.group ? k : -1).filter(k => k >= 0);
+      const worldClear = worldIdx.filter(k => records[k] && records[k].badge).length;
+      return /*#__PURE__*/React.createElement(React.Fragment, {
+        key: i
+      }, newWorld && /*#__PURE__*/React.createElement("div", {
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          marginTop: i === 0 ? 0 : 14
+        }
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "world-tag"
+      }, "WORLD ", blk.group), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 12,
+          fontWeight: 800,
+          color: "#1f1a14"
+        }
+      }, blocks[worldIdx[0]].chapSpan.split("〜")[0], "\u301C", blocks[worldIdx[worldIdx.length - 1]].chapSpan.split("〜").pop()), /*#__PURE__*/React.createElement("span", {
+        style: {
+          flex: 1,
+          height: 2,
+          background: "#3b2a1a33",
+          borderRadius: 1
+        }
+      }), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 12,
+          fontWeight: 800,
+          color: worldClear === worldIdx.length ? "#1f9e3a" : "#3b3024"
+        }
+      }, "\uD83D\uDEA9 ", worldClear, "/", worldIdx.length)), /*#__PURE__*/React.createElement("div", {
         className: "seccard",
         style: {
           background: "#ffffff",
@@ -2481,18 +2514,7 @@ function App() {
           fontSize: 15,
           fontWeight: 800
         }
-      }, sectionLabels[i], /*#__PURE__*/React.createElement("span", {
-        style: {
-          fontSize: 10,
-          fontWeight: 800,
-          letterSpacing: 0.5,
-          color: tagColor,
-          background: tagBg,
-          border: `1px solid ${tagColor}44`,
-          borderRadius: 6,
-          padding: "1px 6px"
-        }
-      }, blk.kind)), /*#__PURE__*/React.createElement("span", {
+      }, sectionLabels[i]), /*#__PURE__*/React.createElement("span", {
         style: {
           fontSize: 11,
           fontWeight: 600,
@@ -2549,7 +2571,7 @@ function App() {
           border: "2px solid #1d7a2f",
           color: "#1d7a2f"
         }
-      }, "\u30C6\u30B9\u30C8")));
+      }, "\u30C6\u30B9\u30C8"))));
     })), /*#__PURE__*/React.createElement("div", {
       style: {
         marginTop: 22,

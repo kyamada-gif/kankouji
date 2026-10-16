@@ -1239,6 +1239,9 @@ export default function App() {
       .hideans{ filter: blur(6px); cursor: pointer; transition: filter .12s; border-radius: 5px; }
       .hideans:hover, .hideans.shown{ filter: none; }
       .row:hover{ border-color:#3b2a1a !important; }
+      .world-tag{ font-size:12px; font-weight:900; letter-spacing:1px; color:#fff; padding:3px 9px; border:2px solid #3b2a1a; border-radius:4px;
+        background:#c84c0c; background-image: linear-gradient(#3b2a1a55 1px, transparent 1px), linear-gradient(90deg, #3b2a1a55 1px, transparent 1px); background-size: 12px 7px;
+        text-shadow: 1px 1px 0 #3b2a1a; white-space:nowrap; }
       .seccard:hover{ background:#e8dcc0 !important; }  /* 開いた状態でもカード全体の色が変わるように、行ではなくカードに付ける */
       .secrow:active{ background:#f3e9d2 !important; }
       .panel-in{ animation: panelin .2s ease; }
@@ -1309,11 +1312,21 @@ export default function App() {
               const rec = records[i] || { best: 0, badge: false };
               const picked = pickedSec === i;
               const blk = blocks[i] || { no: i + 1, kind: "", chapSpan: "", group: 1 };
-              const odd = blk.group % 2 === 1;
-              const tagColor = odd ? "#1d7a2f" : "#1f9e3a";      // グループごとに青/緑を交互
-              const tagBg = odd ? "#e6f6e1" : "#e3f7df";
+              // ワールドの区切り：グループが変わるところに見出し（ワールド番号・対象回・クリア数）
+              const newWorld = i === 0 || (blocks[i - 1] && blocks[i - 1].group) !== blk.group;
+              const worldIdx = blocks.map((b, k) => (b.group === blk.group ? k : -1)).filter((k) => k >= 0);
+              const worldClear = worldIdx.filter((k) => records[k] && records[k].badge).length;
               return (
-                <div key={i} className="seccard" style={{ background: "#ffffff", border: `1px solid ${picked ? "#1d7a2f" : rec.badge ? "#1f9e3a33" : "#d9c7a0"}`, borderRadius: 13, overflow: "hidden", transition: "border-color .15s" }}>
+                <React.Fragment key={i}>
+                {newWorld && (
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: i === 0 ? 0 : 14 }}>
+                    <span className="world-tag">WORLD {blk.group}</span>
+                    <span style={{ fontSize: 12, fontWeight: 800, color: "#1f1a14" }}>{blocks[worldIdx[0]].chapSpan.split("〜")[0]}〜{blocks[worldIdx[worldIdx.length - 1]].chapSpan.split("〜").pop()}</span>
+                    <span style={{ flex: 1, height: 2, background: "#3b2a1a33", borderRadius: 1 }} />
+                    <span style={{ fontSize: 12, fontWeight: 800, color: worldClear === worldIdx.length ? "#1f9e3a" : "#3b3024" }}>🚩 {worldClear}/{worldIdx.length}</span>
+                  </div>
+                )}
+                <div className="seccard" style={{ background: "#ffffff", border: `1px solid ${picked ? "#1d7a2f" : rec.badge ? "#1f9e3a33" : "#d9c7a0"}`, borderRadius: 13, overflow: "hidden", transition: "border-color .15s" }}>
                   {/* 行本体（1行・タップで開閉） */}
                   <button onClick={() => setPickedSec(picked ? null : i)} className="secrow"
                     aria-expanded={picked} aria-label={`${sectionLabels[i]}・${blk.kind}${rec.badge ? "・達成" : rec.best > 0 ? `・${rec.best}%` : "・未挑戦"}`}
@@ -1324,7 +1337,6 @@ export default function App() {
                     <span style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column", gap: 2 }}>
                       <span style={{ display: "flex", alignItems: "center", gap: 7, fontSize: 15, fontWeight: 800 }}>
                         {sectionLabels[i]}
-                        <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: 0.5, color: tagColor, background: tagBg, border: `1px solid ${tagColor}44`, borderRadius: 6, padding: "1px 6px" }}>{blk.kind}</span>
                       </span>
                       <span style={{ fontSize: 11, fontWeight: 600, color: "#5e4f3c" }}>{blk.chapSpan} ・ {sec.length}問</span>
                     </span>
@@ -1341,6 +1353,7 @@ export default function App() {
                     </div>
                   )}
                 </div>
+                </React.Fragment>
               );
             })}
           </div>
