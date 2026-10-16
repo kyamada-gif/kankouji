@@ -1,0 +1,268 @@
+<title>2級管工事 過去問 重複分析</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Sans:wght@500;600&display=swap">
+<style>
+/* layout: 要約（KPI）→ 回ごとの推移 → 論点 → 問題マップ → 一覧。1カラム、幅1100px上限 */
+:root{
+  --bg:#f7f7f4; --surface:#fcfcfb; --fg:#0b0b0b; --fg2:#52514e; --muted:#898781; --grid:#e1e0d9; --line:#c3c2b7;
+  --accent:#2a78d6; --accent-soft:#cde2fb; --ring:rgba(11,11,11,.10);
+  --seq1:#cde2fb; --seq2:#86b6ef; --seq3:#3987e5; --seq4:#1c5cab; --seq5:#0d366b; --neutral:#d6d5ce;
+  --font-body:"Noto Sans JP","Hiragino Sans","Yu Gothic UI",system-ui,sans-serif; --font-num:"IBM Plex Sans","Noto Sans JP",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0f0f0e; --surface:#1a1a19; --fg:#f0efec; --fg2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --line:#383835;
+  --accent:#3987e5; --accent-soft:#184f95; --ring:rgba(255,255,255,.10);
+  --seq1:#184f95; --seq2:#256abf; --seq3:#3987e5; --seq4:#6da7ec; --seq5:#b7d3f6; --neutral:#3a3a37; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0f0f0e; --surface:#1a1a19; --fg:#f0efec; --fg2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --line:#383835;
+  --accent:#3987e5; --accent-soft:#184f95; --ring:rgba(255,255,255,.10);
+  --seq1:#184f95; --seq2:#256abf; --seq3:#3987e5; --seq4:#6da7ec; --seq5:#b7d3f6; --neutral:#3a3a37; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:14px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:1100px;margin:0 auto}
+header{padding-block:28px 8px}
+h1{font-size:clamp(22px,3vw,30px);margin:0 0 6px;font-weight:700;letter-spacing:.01em;text-wrap:balance}
+.sub{color:var(--fg2);margin:0;max-width:70ch}
+h2{font-size:17px;margin:40px 0 4px;font-weight:700}
+h2 small{color:var(--muted);font-weight:400;font-size:12px;margin-left:8px}
+.lead{color:var(--fg2);margin:0 0 14px;max-width:80ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:18px}
+.kpi{background:var(--surface);border:1px solid var(--ring);border-radius:8px;padding:14px 16px;min-width:0}
+.kpi .l{font-size:12px;color:var(--fg2);letter-spacing:.04em}
+.kpi .v{font-family:var(--font-num);font-size:34px;font-weight:600;line-height:1.1;margin:6px 0 2px}
+.kpi .v small{font-size:14px;font-weight:500;color:var(--fg2);margin-left:2px}
+.kpi .d{font-size:12px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:8px;padding:12px 14px;min-width:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.row2{grid-template-columns:1fr}}
+.chart{width:100%;min-height:300px;overflow:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--fg2);margin:4px 0 8px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 12px}
+.filters label{font-size:12px;color:var(--fg2)}
+select,button.chip{font:inherit;font-size:13px;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 10px}
+button.chip{cursor:pointer}
+button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+button.chip:focus-visible,select:focus-visible,details summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--grid);vertical-align:top}
+th{color:var(--fg2);font-weight:500;font-size:12px;white-space:nowrap}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.kind{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.kind.k4{background:var(--seq5);color:#fff;border-color:var(--seq5)} .kind.k3{background:var(--seq4);color:#fff;border-color:var(--seq4)}
+.kind.k2{background:var(--seq2);color:#0b0b0b;border-color:var(--seq2)} .kind.k1{background:var(--seq1);color:var(--fg);border-color:var(--seq1)} .kind.k0{background:var(--neutral);color:var(--fg)}
+:root[data-theme="dark"] .kind.k2, :root[data-theme="dark"] .kind.k1{color:#fff}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .kind.k2, :root:not([data-theme="light"]) .kind.k1{color:#fff} }
+details.pair{border-bottom:1px solid var(--grid);padding:8px 0}
+details.pair summary{cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:start;list-style:none}
+details.pair summary::-webkit-details-marker{display:none}
+.pid{font-family:var(--font-num);font-size:12px;color:var(--muted);white-space:nowrap}
+.pairbody{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;font-size:13px}
+@media (max-width:760px){.pairbody{grid-template-columns:1fr}}
+.pairbody ol{margin:4px 0 0 20px;padding:0}
+.pairbody li.match{background:var(--accent-soft);border-radius:3px;padding:0 3px}
+.pairbody .ans{color:var(--fg2);font-size:12px}
+.badges span{display:inline-block;font-size:11px;background:var(--neutral);border-radius:4px;padding:0 6px;margin:0 4px 4px 0;font-variant-numeric:tabular-nums}
+.note{font-size:12px;color:var(--muted)}
+.method{font-size:13px;color:var(--fg2);max-width:80ch}
+.method dt{font-weight:700;color:var(--fg);margin-top:8px}
+.method dd{margin:0}
+@media (prefers-reduced-motion: no-preference){ button.chip{transition:background .15s} }
+</style>
+<div class="wrap">
+<header>
+  <h1>2級管工事施工管理技術検定 第一次検定 過去問の重複・類似分析</h1>
+  <p class="sub">平成28年度後期〜令和8年度前期の18回・936問を対象に、問題文と選択肢の再利用、論点の出題傾向を集計しました。「同一」は選択肢まで一致する再出題、「ほぼ同一」は選択肢1つの差替えや軽微な修正、「類似」は選択肢の一部を再利用、「同一論点」はテーマが同じで文は別のものです。</p>
+</header>
+
+<section id="kpis" class="kpis"></section>
+
+<h2>ユニーク度の内訳 <small>936問それぞれを、他の17回との最も強い関係で分類</small></h2>
+<p class="lead" id="uniq-lead"></p>
+<div class="card">
+  <div class="legend" id="legend-uniq"></div>
+  <div id="ch-uniq" class="chart" style="min-height:120px" role="img" aria-label="936問のユニーク度の内訳"></div>
+  <div class="tablewrap"><table id="tbl-uniq"><thead><tr><th>分野</th><th class="num">問題数</th><th class="num">完全ユニーク</th><th class="num">割合</th><th class="num">選択肢の再利用なし（同一論点のみ含む）</th><th class="num">割合</th></tr></thead><tbody></tbody></table></div>
+  <details style="margin-top:10px"><summary class="note" style="cursor:pointer">完全ユニークな問題の一覧を開く</summary><div class="tablewrap"><table id="tbl-uniq-list"><thead><tr><th>回</th><th>No.</th><th>分野</th><th>問題文</th></tr></thead><tbody></tbody></table></div></details>
+</div>
+
+<h2>回ごとの既出度 <small>各回52問を、過去の回との最も近い関係で分類</small></h2>
+<p class="lead">平成30年度の年2回化以降、過去問の選択肢を再利用した問題（同一＋ほぼ同一＋類似）が増え、直近4回では平均7割を超えます。</p>
+<div class="card">
+  <div class="legend" id="legend-kind"></div>
+  <div id="ch-session" class="chart" role="img" aria-label="回ごとの既出度の積み上げ棒グラフ"></div>
+</div>
+
+<div class="row2" style="margin-top:14px">
+  <div class="card">
+    <h2 style="margin-top:4px">選択肢の再利用率 <small>その回の208肢のうち、過去回に同文（一致率0.9以上）があった割合</small></h2>
+    <div id="ch-choice" class="chart" role="img" aria-label="選択肢の再利用率の推移"></div>
+  </div>
+  <div class="card">
+    <h2 style="margin-top:4px">分野別の出題数 <small>令和3年度に施工管理法が10問＋基礎的な能力4問へ</small></h2>
+    <div id="ch-cat" class="chart" role="img" aria-label="分野別出題数の推移"></div>
+  </div>
+</div>
+
+<h2>論点の出題マップ <small>TF-IDF＋単語ベクトル → UMAP → HDBSCAN で自動抽出した論点クラスタ × 回</small></h2>
+<p class="lead">濃いほどその回に多く出題。ほぼ毎回出る論点（横一列に埋まる行）が、学習の優先候補です。行の並びは論点の出題総数順です。</p>
+<div class="card">
+  <div class="filters"><label for="topic-n">表示する論点数</label><select id="topic-n"><option>30</option><option selected>45</option><option>84</option></select></div>
+  <div id="ch-topic" class="chart" role="img" aria-label="論点×回のヒートマップ"></div>
+</div>
+
+<h2>問題マップ <small>936問を2次元に配置。近い点ほど内容が近い</small></h2>
+<p class="lead">分野を選ぶとその分野の問題だけを強調します。点にカーソルを合わせると問題文が出ます。</p>
+<div class="card">
+  <div class="filters" id="cat-chips" role="group" aria-label="分野の選択"></div>
+  <div id="ch-umap" class="chart" style="min-height:460px" role="img" aria-label="問題の2次元配置図"></div>
+</div>
+
+<h2>頻出の問題ファミリー <small>同一・ほぼ同一でつながる問題群（110件・251問）</small></h2>
+<div class="card tablewrap">
+  <table id="tbl-fam"><thead><tr><th>出題回数</th><th>分野</th><th>問題文（初出）</th><th>出題された回</th></tr></thead><tbody></tbody></table>
+</div>
+
+<h2>再出題ペア一覧 <small>同一 127、ほぼ同一 55、類似 677 ペア</small></h2>
+<div class="filters">
+  <label for="f-kind">関係</label><select id="f-kind"><option value="all">すべて</option><option value="同一" selected>同一</option><option value="ほぼ同一">ほぼ同一</option><option value="類似">類似</option></select>
+  <label for="f-cat">分野</label><select id="f-cat"><option value="all">すべて</option></select>
+  <label for="f-sess">回</label><select id="f-sess"><option value="all">すべて</option></select>
+  <span class="note" id="f-count"></span>
+</div>
+<div class="card" id="pairs"></div>
+
+<h2>方法と注意</h2>
+<dl class="method">
+  <dt>データ</dt><dd>問題文・選択肢は公式問題PDFの複製（14回分はミラーサイトのHTML、4回分はPDFから復元）。正答は公式正答肢PDFから取得。図表問題は本文のみで比較しています。</dd>
+  <dt>字面の近さ</dt><dd>文字3-gramのJaccard（MinHash LSHで候補抽出）と差分一致率。選択肢は一致率0.9以上を「同じ肢」とみなしました。</dd>
+  <dt>意味の近さ</dt><dd>GiNZA（ja_ginza）で形態素解析した名詞・動詞のTF-IDFコサインと、単語ベクトル平均のコサイン。言い換えの検出に使用。</dd>
+  <dt>論点クラスタ</dt><dd>TF-IDF を SVD で60次元に圧縮し単語ベクトルと結合、UMAP で5次元に落として HDBSCAN でクラスタリング。ラベルは c-TF-IDF の上位語です。84クラスタ、外れ値58問。</dd>
+  <dt>正答番号の分布</dt><dd id="ansdist"></dd>
+  <dt>限界</dt><dd>閾値は目視サンプルで調整した経験的なものです。日本語特化の埋め込みモデル（Ruri v3 等）に差し替えると言い換え問題の検出精度が上がります。</dd>
+</dl>
+</div>
+<script id="data" type="application/json">__DATA__</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js"></script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const KINDS = ['同一','ほぼ同一','類似','同一論点','新規'];
+const KCLS = {'同一':'k4','ほぼ同一':'k3','類似':'k2','同一論点':'k1','新規':'k0'};
+const CATS = ['一般基礎','空調・衛生','設備（機器・材料・設計図書）','施工管理法','法規','施工管理法（基礎的な能力）'];
+const QI = Object.fromEntries(D.questions.map(q => [q.id, q]));
+const SLABEL = Object.fromEntries(D.order.map((s,i) => [s, D.labels[i]]));
+const fmtPct = x => (x*100).toFixed(1) + '%';
+
+function kpis(){
+  const s = D.stats;
+  const items = [
+    ['収録問題', s.n_questions, '問', `18回 × 52問（平成28年度後期〜令和8年度前期）`],
+    ['同一問題（再出題）', s.q_same, '問', `${s.pairs['同一']}ペア。問題文と選択肢4つが一致`],
+    ['ほぼ同一まで含めた問題ファミリー', s.families, '件', `${s.family_questions}問が属する。選択肢1つ差替えを含む`],
+    ['直近4回の既出率', fmtPct(s.recent_reuse_rate), '', `選択肢の一部以上が過去回と一致。ほぼそのままは ${fmtPct(s.recent_near_rate)}`],
+    ['選択肢の再利用', Math.round(s.choice_reused / s.choice_total * 100) + '%', '', `${s.choice_total}肢中 ${s.choice_reused}肢が別の回にも登場`],
+    ['完全ユニークな問題', s.unique, '問', `全体の ${(s.unique/s.n_questions*100).toFixed(1)}%。他のどの回とも同一・類似・同一論点の関係がない`],
+    ['論点クラスタ', s.n_clusters, '件', `自動抽出。外れ値 ${s.noise}問`],
+  ];
+  document.getElementById('kpis').innerHTML = items.map(([l,v,u,d]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}<small>${u}</small></div><div class="d">${d}</div></div>`).join('');
+  const ad = s.answer_distribution; document.getElementById('ansdist').textContent = Object.entries(ad).map(([k,v]) => `${k}番 ${v}問`).join('、') + '（偏りなし。2解答問題は両方を計上）';
+}
+
+function baseLayout(extra){
+  return Object.assign({paper_bgcolor:'rgba(0,0,0,0)', plot_bgcolor:'rgba(0,0,0,0)', font:{family:css('--font-body'), color:css('--fg2'), size:12},
+    margin:{l:48,r:12,t:8,b:48}, hoverlabel:{bgcolor:css('--surface'), bordercolor:css('--line'), font:{color:css('--fg'), size:12}},
+    xaxis:{gridcolor:css('--grid'), linecolor:css('--line'), zeroline:false, tickfont:{size:11}}, yaxis:{gridcolor:css('--grid'), linecolor:css('--line'), zeroline:false, tickfont:{size:11}},
+    showlegend:false}, extra || {});
+}
+const CFG = {displayModeBar:false, responsive:true};
+
+function chSession(){
+  const colors = {'同一':css('--seq5'),'ほぼ同一':css('--seq4'),'類似':css('--seq2'),'同一論点':css('--seq1'),'新規':css('--neutral')};
+  document.getElementById('legend-kind').innerHTML = KINDS.map(k => `<span><i style="background:${colors[k]}"></i>${k}</span>`).join('');
+  const traces = KINDS.map(k => ({type:'bar', name:k, x:D.labels, y:D.per_session.map(r => r[k]), marker:{color:colors[k], line:{width:1, color:css('--surface')}},
+    hovertemplate:'%{x}　' + k + ' %{y}問<extra></extra>'}));
+  Plotly.newPlot('ch-session', traces, baseLayout({height:440, barmode:'stack', bargap:.35, yaxis:{title:{text:'問',font:{size:11}}, range:[0,52], dtick:13, gridcolor:css('--grid'), zeroline:false}, xaxis:{tickangle:-45, tickfont:{size:11}}, margin:{l:40,r:8,t:8,b:90}}), CFG);
+}
+function chChoice(){
+  const y = D.per_session.map(r => r.choice_prev_rate*100);
+  const tr = {type:'scatter', mode:'lines+markers', x:D.labels, y, line:{color:css('--accent'), width:2}, marker:{size:8, color:css('--accent'), line:{width:2, color:css('--surface')}},
+    hovertemplate:'%{x}　%{y:.1f}%<extra></extra>'};
+  const last = {type:'scatter', mode:'text', x:[D.labels.at(-1)], y:[y.at(-1)], text:[y.at(-1).toFixed(0)+'%'], textposition:'top center', textfont:{color:css('--fg'), size:12}, hoverinfo:'skip'};
+  Plotly.newPlot('ch-choice', [tr,last], baseLayout({height:360, yaxis:{range:[0,50], ticksuffix:'%', gridcolor:css('--grid'), zeroline:false}, xaxis:{tickangle:-45, tickfont:{size:11}}, margin:{l:44,r:12,t:12,b:90}}), CFG);
+}
+function chCat(){
+  const seq = [css('--seq5'), css('--seq4'), css('--seq3'), css('--seq2'), css('--seq1'), css('--neutral')];
+  const traces = CATS.map((c,i) => ({type:'bar', name:c, x:D.labels, y:D.order.map(s => (D.category_by_session[c]||{})[s]||0), marker:{color:seq[i], line:{width:1, color:css('--surface')}}, hovertemplate:'%{x}　'+c+' %{y}問<extra></extra>'}));
+  Plotly.newPlot('ch-cat', traces, baseLayout({height:360, barmode:'stack', bargap:.35, yaxis:{range:[0,52], dtick:13, gridcolor:css('--grid'), zeroline:false}, xaxis:{tickangle:-45, tickfont:{size:11}}, margin:{l:40,r:8,t:12,b:90}}), CFG);
+  const lg = document.createElement('div'); lg.className='legend'; lg.innerHTML = CATS.map((c,i)=>`<span><i style="background:${seq[i]}"></i>${c}</span>`).join('');
+  document.getElementById('ch-cat').before(lg);
+}
+function chTopic(){
+  const n = +document.getElementById('topic-n').value;
+  const T = D.topics.slice(0, n);
+  const narrow = document.getElementById('ch-topic').clientWidth < 640;
+  const z = T.map(t => t.per), ylab = T.map(t => narrow ? t.label.slice(0, 11) : `${t.label}（${t.category.replace('（機器・材料・設計図書）','').replace('（基礎的な能力）','能力')}）`);
+  const text = T.map(t => t.per.map((v,i) => `${t.label}<br>${D.labels[i]}　${v}問<br>${t.size}問・${t.sessions}回に出題<br>例: ${t.example}`));
+  const tr = {type:'heatmap', z, x:D.labels, y:ylab, text, hoverinfo:'text', xgap:2, ygap:2, zmin:0, zmax:3,
+    colorscale:[[0,css('--surface')],[0.01,css('--seq1')],[0.5,css('--seq3')],[1,css('--seq5')]], showscale:true,
+    colorbar:{thickness:8, len:.4, y:1, yanchor:'top', tickvals:[0,1,2,3], ticktext:['0','1','2','3+'], outlinewidth:0, tickfont:{size:10}}};
+  Plotly.newPlot('ch-topic', [tr], baseLayout({height: (narrow ? 20 : 24)*n + 110, margin:{l: narrow ? 120 : 230, r: narrow ? 8 : 40, t:8, b:90}, yaxis:{autorange:'reversed', tickfont:{size: narrow ? 9 : 10}, gridcolor:'rgba(0,0,0,0)'}, xaxis:{tickangle:-45, tickfont:{size: narrow ? 9 : 11}, side:'bottom'}}), CFG);
+}
+let curCat = CATS[0];
+function chUmap(){
+  const grey = css('--neutral'), acc = css('--accent');
+  const sel = D.questions.filter(q => q.c === curCat), rest = D.questions.filter(q => q.c !== curCat);
+  const mk = (qs, color, size, op) => ({type:'scattergl', mode:'markers', x:qs.map(q=>q.x), y:qs.map(q=>q.y), marker:{color, size, opacity:op, line:{width:1, color:css('--surface')}},
+    text:qs.map(q => `<b>${SLABEL[q.s]} No.${q.n}</b>　${q.c}<br>${q.stem.slice(0,60)}${q.stem.length>60?'…':''}<br>過去回との関係: ${q.prev}`), hoverinfo:'text', hoverlabel:{align:'left'}});
+  Plotly.newPlot('ch-umap', [mk(rest, grey, 6, .7), mk(sel, acc, 9, .95)], baseLayout({height:460, margin:{l:8,r:8,t:8,b:8}, xaxis:{visible:false}, yaxis:{visible:false}, hovermode:'closest'}), CFG);
+}
+function chips(){
+  const el = document.getElementById('cat-chips');
+  el.innerHTML = CATS.map(c => `<button class="chip" type="button" data-cat="${c}" aria-pressed="${c===curCat}">${c}</button>`).join('');
+  el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { curCat = b.dataset.cat; el.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x===b)); chUmap(); }));
+}
+function families(){
+  const tb = document.querySelector('#tbl-fam tbody');
+  tb.innerHTML = D.families.slice(0,25).map(f => `<tr><td class="num">${f.size}</td><td>${f.category}</td><td>${f.stem}</td><td class="badges">${f.sessions.map(s=>`<span>${s}</span>`).join('')}</td></tr>`).join('');
+}
+function pairs(){
+  const kind = document.getElementById('f-kind').value, cat = document.getElementById('f-cat').value, sess = document.getElementById('f-sess').value;
+  let rows = D.pairs.filter(p => (kind==='all'||p.kind===kind) && (cat==='all'||QI[p.a].c===cat||QI[p.b].c===cat) && (sess==='all'||QI[p.a].s===sess||QI[p.b].s===sess));
+  rows.sort((a,b) => D.order.indexOf(QI[b.b].s) - D.order.indexOf(QI[a.b].s) || b.fr - a.fr);
+  document.getElementById('f-count').textContent = `${rows.length}ペア${rows.length>200?'（先頭200件を表示）':''}`;
+  const near = (x, ys) => ys.some(y => sim(x,y) >= 0.9);
+  document.getElementById('pairs').innerHTML = rows.slice(0,200).map(p => {
+    const A = QI[p.a], B = QI[p.b]; const [E, L] = D.order.indexOf(A.s) <= D.order.indexOf(B.s) ? [A,B] : [B,A];
+    const li = (q, other) => q.ch.map((c,i) => `<li class="${near(c, other.ch)?'match':''}">${c}${q.ans.includes(i+1)?' <span class="ans">（正答）</span>':''}</li>`).join('');
+    return `<details class="pair"><summary><span class="kind ${KCLS[p.kind]}">${p.kind}</span><span><span class="pid">${SLABEL[E.s]} No.${E.n} → ${SLABEL[L.s]} No.${L.n}　一致肢 ${p.cm}/4</span><br>${L.stem.slice(0,90)}</span></summary>
+      <div class="pairbody"><div><div class="pid">${SLABEL[E.s]} No.${E.n}（${E.c}）</div>${E.stem}<ol>${li(E,L)}</ol></div><div><div class="pid">${SLABEL[L.s]} No.${L.n}（${L.c}）</div>${L.stem}<ol>${li(L,E)}</ol></div></div></details>`;
+  }).join('') || '<p class="note">該当なし</p>';
+}
+// 簡易一致率（ダイス係数、文字bigram）
+function sim(a,b){ const g = s => { const m = new Map(); for (let i=0;i<s.length-1;i++){ const k=s.slice(i,i+2); m.set(k,(m.get(k)||0)+1);} return m; };
+  const A=g(a.replace(/\s/g,'')), B=g(b.replace(/\s/g,'')); let inter=0; for (const [k,v] of A) if (B.has(k)) inter += Math.min(v,B.get(k)); const tot=[...A.values()].reduce((x,y)=>x+y,0)+[...B.values()].reduce((x,y)=>x+y,0); return tot? 2*inter/tot : 0; }
+function fillFilters(){
+  const fc = document.getElementById('f-cat'); CATS.forEach(c => fc.insertAdjacentHTML('beforeend', `<option value="${c}">${c}</option>`));
+  const fs = document.getElementById('f-sess'); D.order.forEach((s,i) => fs.insertAdjacentHTML('beforeend', `<option value="${s}">${D.labels[i]}</option>`));
+  ['f-kind','f-cat','f-sess'].forEach(id => document.getElementById(id).addEventListener('change', pairs));
+  document.getElementById('topic-n').addEventListener('change', chTopic);
+}
+function chUniq(){
+  const s = D.stats, colors = {'同一':css('--seq5'),'ほぼ同一':css('--seq4'),'類似':css('--seq2'),'同一論点':css('--seq1'),'新規':css('--neutral')};
+  const names = {'新規':'完全ユニーク'};
+  document.getElementById('legend-uniq').innerHTML = KINDS.map(k => `<span><i style="background:${colors[k]}"></i>${names[k]||k} ${s.best_any[k]||0}問</span>`).join('');
+  const traces = KINDS.map(k => ({type:'bar', orientation:'h', x:[s.best_any[k]||0], y:['936問'], name:k, marker:{color:colors[k], line:{width:1, color:css('--surface')}},
+    text:[(s.best_any[k]||0) >= 60 ? `${names[k]||k} ${((s.best_any[k]||0)/s.n_questions*100).toFixed(0)}%` : ''], textposition:'inside', insidetextanchor:'middle', textfont:{color:'#fff', size:12}, hovertemplate:(names[k]||k)+' %{x}問<extra></extra>'}));
+  Plotly.newPlot('ch-uniq', traces, baseLayout({height:120, barmode:'stack', bargap:.2, margin:{l:8,r:8,t:8,b:28}, xaxis:{range:[0,s.n_questions], dtick:234, gridcolor:css('--grid'), zeroline:false, tickfont:{size:11}}, yaxis:{visible:false}}), CFG);
+  document.getElementById('uniq-lead').textContent = `他のどの回にも同一・類似・同一論点の相手がない「完全ユニーク」な問題は ${s.unique}問（${(s.unique/s.n_questions*100).toFixed(1)}%）。選択肢の再利用が一切ない問題（完全ユニーク＋同一論点のみ）は ${s.no_reuse}問（${(s.no_reuse/s.n_questions*100).toFixed(0)}%）、残りの ${s.n_questions - s.no_reuse}問（${((s.n_questions - s.no_reuse)/s.n_questions*100).toFixed(0)}%）は選択肢の少なくとも1つが別の回にも出ています。`;
+  document.querySelector('#tbl-uniq tbody').innerHTML = Object.entries(s.unique_by_cat).map(([c,v]) => `<tr><td>${c}</td><td class="num">${v.total}</td><td class="num">${v.unique}</td><td class="num">${(v.unique/v.total*100).toFixed(1)}%</td><td class="num">${v.no_reuse}</td><td class="num">${(v.no_reuse/v.total*100).toFixed(0)}%</td></tr>`).join('');
+  document.querySelector('#tbl-uniq-list tbody').innerHTML = D.unique_list.map(q => `<tr><td>${SLABEL[q.s]}</td><td class="num">${q.n}</td><td>${q.c}</td><td>${q.stem}${q.fig?' <span class="note">（図あり）</span>':''}</td></tr>`).join('');
+}
+function drawAll(){ chUniq(); chSession(); chChoice(); chCat(); chTopic(); chUmap(); }
+kpis(); chips(); fillFilters(); families(); pairs(); drawAll();
+const mq = matchMedia('(prefers-color-scheme: dark)'); mq.addEventListener('change', () => { document.querySelector('#ch-cat').previousElementSibling.remove(); drawAll(); });
+new MutationObserver(() => { document.querySelector('#ch-cat').previousElementSibling.remove(); drawAll(); }).observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+</script>

@@ -1,0 +1,669 @@
+{
+ "total": 936,
+ "groups": 892,
+ "merged_groups": [
+  {
+   "kept": "H30_kouki_06",
+   "dropped": [
+    "H29_kouki_06"
+   ]
+  },
+  {
+   "kept": "H30_kouki_18",
+   "dropped": [
+    "H29_kouki_18"
+   ]
+  },
+  {
+   "kept": "H30_kouki_21",
+   "dropped": [
+    "H29_kouki_21"
+   ]
+  },
+  {
+   "kept": "H30_kouki_31",
+   "dropped": [
+    "H29_kouki_31"
+   ]
+  },
+  {
+   "kept": "H30_kouki_34",
+   "dropped": [
+    "H29_kouki_34"
+   ]
+  },
+  {
+   "kept": "R01_zenki_05",
+   "dropped": [
+    "H30_zenki_05"
+   ]
+  },
+  {
+   "kept": "R01_zenki_19",
+   "dropped": [
+    "H30_zenki_19"
+   ]
+  },
+  {
+   "kept": "R01_zenki_32",
+   "dropped": [
+    "H30_zenki_32"
+   ]
+  },
+  {
+   "kept": "R01_zenki_40",
+   "dropped": [
+    "H30_zenki_40"
+   ]
+  },
+  {
+   "kept": "R01_kouki_20",
+   "dropped": [
+    "H30_kouki_20"
+   ]
+  },
+  {
+   "kept": "R01_kouki_23",
+   "dropped": [
+    "H30_kouki_23"
+   ]
+  },
+  {
+   "kept": "R04_zenki_30",
+   "dropped": [
+    "H30_kouki_30"
+   ]
+  },
+  {
+   "kept": "R01_kouki_32",
+   "dropped": [
+    "H30_kouki_32"
+   ]
+  },
+  {
+   "kept": "R01_kouki_42",
+   "dropped": [
+    "H30_kouki_42"
+   ]
+  },
+  {
+   "kept": "R02_kouki_42",
+   "dropped": [
+    "R01_zenki_42"
+   ]
+  },
+  {
+   "kept": "R02_kouki_49",
+   "dropped": [
+    "R01_zenki_49"
+   ]
+  },
+  {
+   "kept": "R03_zenki_07",
+   "dropped": [
+    "R01_kouki_07"
+   ]
+  },
+  {
+   "kept": "R03_zenki_21",
+   "dropped": [
+    "R01_kouki_21"
+   ]
+  },
+  {
+   "kept": "R03_zenki_32",
+   "dropped": [
+    "R01_kouki_33"
+   ]
+  },
+  {
+   "kept": "R03_kouki_20",
+   "dropped": [
+    "R02_kouki_20"
+   ]
+  },
+  {
+   "kept": "R03_kouki_29",
+   "dropped": [
+    "R02_kouki_29"
+   ]
+  },
+  {
+   "kept": "R03_kouki_37",
+   "dropped": [
+    "R02_kouki_41"
+   ]
+  },
+  {
+   "kept": "R04_zenki_31",
+   "dropped": [
+    "R03_zenki_31"
+   ]
+  },
+  {
+   "kept": "R04_zenki_36",
+   "dropped": [
+    "R03_zenki_36"
+   ]
+  },
+  {
+   "kept": "R07_zenki_15",
+   "dropped": [
+    "R03_kouki_15"
+   ]
+  },
+  {
+   "kept": "R04_kouki_36",
+   "dropped": [
+    "R03_kouki_36"
+   ]
+  },
+  {
+   "kept": "R04_kouki_38",
+   "dropped": [
+    "R03_kouki_38"
+   ]
+  },
+  {
+   "kept": "R04_kouki_48",
+   "dropped": [
+    "R03_kouki_48"
+   ]
+  },
+  {
+   "kept": "R05_kouki_08",
+   "dropped": [
+    "R04_kouki_08"
+   ]
+  },
+  {
+   "kept": "R05_kouki_21",
+   "dropped": [
+    "R04_kouki_21"
+   ]
+  },
+  {
+   "kept": "R05_kouki_39",
+   "dropped": [
+    "R04_kouki_39"
+   ]
+  },
+  {
+   "kept": "R06_zenki_20",
+   "dropped": [
+    "R05_zenki_20"
+   ]
+  },
+  {
+   "kept": "R06_zenki_22",
+   "dropped": [
+    "R05_zenki_22"
+   ]
+  },
+  {
+   "kept": "R06_zenki_31",
+   "dropped": [
+    "R05_zenki_31"
+   ]
+  },
+  {
+   "kept": "R06_zenki_41",
+   "dropped": [
+    "R05_zenki_41"
+   ]
+  },
+  {
+   "kept": "R06_kouki_23",
+   "dropped": [
+    "R05_kouki_23"
+   ]
+  },
+  {
+   "kept": "R06_kouki_31",
+   "dropped": [
+    "R05_kouki_31"
+   ]
+  },
+  {
+   "kept": "R07_zenki_18",
+   "dropped": [
+    "R06_zenki_18"
+   ]
+  },
+  {
+   "kept": "R07_zenki_29",
+   "dropped": [
+    "R06_zenki_29"
+   ]
+  },
+  {
+   "kept": "R07_kouki_21",
+   "dropped": [
+    "R06_kouki_21"
+   ]
+  },
+  {
+   "kept": "R07_kouki_25",
+   "dropped": [
+    "R06_kouki_25"
+   ]
+  },
+  {
+   "kept": "R07_kouki_29",
+   "dropped": [
+    "R06_kouki_29"
+   ]
+  },
+  {
+   "kept": "R07_kouki_32",
+   "dropped": [
+    "R06_kouki_32"
+   ]
+  },
+  {
+   "kept": "R07_kouki_49",
+   "dropped": [
+    "R06_kouki_49"
+   ]
+  }
+ ],
+ "figure_excluded": [
+  "H28_kouki_08",
+  "H28_kouki_14",
+  "H28_kouki_16",
+  "H28_kouki_28",
+  "H28_kouki_30",
+  "H29_kouki_07",
+  "H29_kouki_28",
+  "H29_kouki_30",
+  "H30_zenki_08",
+  "H30_zenki_14",
+  "H30_zenki_28",
+  "H30_zenki_29",
+  "H30_kouki_28",
+  "R04_zenki_30",
+  "R01_zenki_08",
+  "R01_zenki_28",
+  "R01_zenki_29",
+  "R01_zenki_31",
+  "R01_zenki_41",
+  "R01_kouki_08",
+  "R01_kouki_10",
+  "R01_kouki_28",
+  "R01_kouki_30",
+  "R02_kouki_08",
+  "R02_kouki_14",
+  "R02_kouki_28",
+  "R03_kouki_29",
+  "R02_kouki_31",
+  "R03_zenki_08",
+  "R03_zenki_28",
+  "R03_zenki_30",
+  "R03_kouki_08",
+  "R03_kouki_28",
+  "R03_kouki_30",
+  "R04_zenki_08",
+  "R04_zenki_14",
+  "R04_zenki_28",
+  "R05_kouki_08",
+  "R04_kouki_28",
+  "R04_kouki_30",
+  "R05_zenki_07",
+  "R05_zenki_28",
+  "R05_zenki_30",
+  "R05_kouki_28",
+  "R05_kouki_30",
+  "R06_zenki_04",
+  "R06_zenki_06",
+  "R06_zenki_28",
+  "R06_zenki_30",
+  "R06_kouki_03",
+  "R06_kouki_08",
+  "R06_kouki_28",
+  "R06_kouki_30",
+  "R06_kouki_43",
+  "R07_zenki_02",
+  "R07_zenki_08",
+  "R07_zenki_28",
+  "R07_zenki_30",
+  "R07_kouki_03",
+  "R07_kouki_08",
+  "R07_kouki_28",
+  "R07_kouki_30",
+  "R08_zenki_08",
+  "R08_zenki_28",
+  "R08_zenki_30"
+ ],
+ "broken_excluded": [
+  "R03_kouki_23",
+  "R04_kouki_23",
+  "R06_kouki_02"
+ ],
+ "kept": 824,
+ "blocks": [
+  {
+   "block": 1,
+   "group": 1,
+   "sessions": [
+    "H28_kouki",
+    "H29_kouki",
+    "H30_zenki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 14,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 11,
+    "施工管理法（基礎的な能力）": 0,
+    "法規": 10
+   }
+  },
+  {
+   "block": 2,
+   "group": 1,
+   "sessions": [
+    "H28_kouki",
+    "H29_kouki",
+    "H30_zenki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 5,
+    "空調・衛生": 14,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 12,
+    "施工管理法（基礎的な能力）": 0,
+    "法規": 10
+   }
+  },
+  {
+   "block": 3,
+   "group": 1,
+   "sessions": [
+    "H28_kouki",
+    "H29_kouki",
+    "H30_zenki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 5,
+    "空調・衛生": 14,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 12,
+    "施工管理法（基礎的な能力）": 0,
+    "法規": 10
+   }
+  },
+  {
+   "block": 4,
+   "group": 2,
+   "sessions": [
+    "H30_kouki",
+    "R01_zenki",
+    "R01_kouki"
+   ],
+   "size": 46,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 11,
+    "施工管理法（基礎的な能力）": 0,
+    "法規": 10
+   }
+  },
+  {
+   "block": 5,
+   "group": 2,
+   "sessions": [
+    "H30_kouki",
+    "R01_zenki",
+    "R01_kouki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 11,
+    "施工管理法（基礎的な能力）": 0,
+    "法規": 9
+   }
+  },
+  {
+   "block": 6,
+   "group": 2,
+   "sessions": [
+    "H30_kouki",
+    "R01_zenki",
+    "R01_kouki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 14,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 11,
+    "施工管理法（基礎的な能力）": 0,
+    "法規": 10
+   }
+  },
+  {
+   "block": 7,
+   "group": 3,
+   "sessions": [
+    "R02_kouki",
+    "R03_zenki",
+    "R03_kouki"
+   ],
+   "size": 46,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 8,
+    "施工管理法（基礎的な能力）": 3,
+    "法規": 10
+   }
+  },
+  {
+   "block": 8,
+   "group": 3,
+   "sessions": [
+    "R02_kouki",
+    "R03_zenki",
+    "R03_kouki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 8,
+    "施工管理法（基礎的な能力）": 3,
+    "法規": 9
+   }
+  },
+  {
+   "block": 9,
+   "group": 3,
+   "sessions": [
+    "R02_kouki",
+    "R03_zenki",
+    "R03_kouki"
+   ],
+   "size": 44,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 8,
+    "施工管理法（基礎的な能力）": 2,
+    "法規": 10
+   }
+  },
+  {
+   "block": 10,
+   "group": 4,
+   "sessions": [
+    "R04_zenki",
+    "R04_kouki",
+    "R05_zenki"
+   ],
+   "size": 47,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 9,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 9
+   }
+  },
+  {
+   "block": 11,
+   "group": 4,
+   "sessions": [
+    "R04_zenki",
+    "R04_kouki",
+    "R05_zenki"
+   ],
+   "size": 47,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 8,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 10
+   }
+  },
+  {
+   "block": 12,
+   "group": 4,
+   "sessions": [
+    "R04_zenki",
+    "R04_kouki",
+    "R05_zenki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 14,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 9,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 9
+   }
+  },
+  {
+   "block": 13,
+   "group": 5,
+   "sessions": [
+    "R05_kouki",
+    "R06_zenki",
+    "R06_kouki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 5,
+    "空調・衛生": 16,
+    "設備（機器・材料・設計図書）": 3,
+    "施工管理法": 8,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 9
+   }
+  },
+  {
+   "block": 14,
+   "group": 5,
+   "sessions": [
+    "R05_kouki",
+    "R06_zenki",
+    "R06_kouki"
+   ],
+   "size": 45,
+   "categories": {
+    "一般基礎": 5,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 8,
+    "施工管理法（基礎的な能力）": 3,
+    "法規": 10
+   }
+  },
+  {
+   "block": 15,
+   "group": 5,
+   "sessions": [
+    "R05_kouki",
+    "R06_zenki",
+    "R06_kouki"
+   ],
+   "size": 44,
+   "categories": {
+    "一般基礎": 5,
+    "空調・衛生": 15,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 7,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 10
+   }
+  },
+  {
+   "block": 16,
+   "group": 6,
+   "sessions": [
+    "R07_zenki",
+    "R07_kouki",
+    "R08_zenki"
+   ],
+   "size": 49,
+   "categories": {
+    "一般基礎": 6,
+    "空調・衛生": 16,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 9,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 10
+   }
+  },
+  {
+   "block": 17,
+   "group": 6,
+   "sessions": [
+    "R07_zenki",
+    "R07_kouki",
+    "R08_zenki"
+   ],
+   "size": 48,
+   "categories": {
+    "一般基礎": 5,
+    "空調・衛生": 16,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 9,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 10
+   }
+  },
+  {
+   "block": 18,
+   "group": 6,
+   "sessions": [
+    "R07_zenki",
+    "R07_kouki",
+    "R08_zenki"
+   ],
+   "size": 48,
+   "categories": {
+    "一般基礎": 5,
+    "空調・衛生": 16,
+    "設備（機器・材料・設計図書）": 4,
+    "施工管理法": 9,
+    "施工管理法（基礎的な能力）": 4,
+    "法規": 10
+   }
+  }
+ ]
+}

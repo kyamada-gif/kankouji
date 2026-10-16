@@ -1,0 +1,6 @@
+node_modules/
+.DS_Store
+# 元データ（ダウンロードしたPDF・HTML）と作業用の一時ファイルは入れない
+data/raw/
+data/standin_kenchiku/
+*.npy

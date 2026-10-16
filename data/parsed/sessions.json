@@ -1,0 +1,20 @@
+[
+ {"key": "H28_kouki", "era": "平成28年度", "year": 2016, "term": "後期", "exam": "学科試験", "format": "old", "exam_date": "2016-11-20", "questions_pdf": null, "answers": "ok"},
+ {"key": "H29_kouki", "era": "平成29年度", "year": 2017, "term": "後期", "exam": "学科試験", "format": "old", "exam_date": "2017-11-19", "questions_pdf": null, "answers": "ok (manual transcription)"},
+ {"key": "H30_zenki", "era": "平成30年度", "year": 2018, "term": "前期", "exam": "学科試験", "format": "old", "exam_date": "2018-06-03", "questions_pdf": "http://www.jctc.jp/kentei/180604k_isey83/kan01.pdf", "answers": "ok"},
+ {"key": "H30_kouki", "era": "平成30年度", "year": 2018, "term": "後期", "exam": "学科試験", "format": "old", "exam_date": "2018-11-18", "questions_pdf": "http://www.jctc.jp/kentei/181119k_fw44eg/kan01.pdf", "answers": "ok"},
+ {"key": "R01_zenki", "era": "令和元年度", "year": 2019, "term": "前期", "exam": "学科試験", "format": "old", "exam_date": "2019-06-02", "questions_pdf": "http://www.jctc.jp/kentei/190603k_5guddf/kan01.pdf", "answers": "ok"},
+ {"key": "R01_kouki", "era": "令和元年度", "year": 2019, "term": "後期", "exam": "学科試験", "format": "old", "exam_date": "2019-11-17", "questions_pdf": "http://www.jctc.jp/kentei/191118k_h983oo/kan01.pdf", "answers": "ok"},
+ {"key": "R02_kouki", "era": "令和2年度", "year": 2020, "term": "後期", "exam": "学科試験", "format": "old", "exam_date": "2020-11-15", "questions_pdf": "http://www.jctc.jp/kentei/201116k_niergy/kan01.pdf", "answers": "ok", "note": "前期は新型コロナウイルスの影響で中止"},
+ {"key": "R03_zenki", "era": "令和3年度", "year": 2021, "term": "前期", "exam": "第一次検定", "format": "new", "exam_date": "2021-06-06", "questions_pdf": "https://www.jctc.jp/kentei/210607k_a798k5/kan01.pdf", "answers": "ok"},
+ {"key": "R03_kouki", "era": "令和3年度", "year": 2021, "term": "後期", "exam": "第一次検定", "format": "new", "exam_date": "2021-11-21", "questions_pdf": "https://www.jctc.jp/kentei/211122k_ip89as/kan01.pdf", "answers": "ok"},
+ {"key": "R04_zenki", "era": "令和4年度", "year": 2022, "term": "前期", "exam": "第一次検定", "format": "new", "exam_date": "2022-06-05", "questions_pdf": "https://www.jctc.jp/kentei/220606k_4giohi/kan01.pdf", "answers": "ok"},
+ {"key": "R04_kouki", "era": "令和4年度", "year": 2022, "term": "後期", "exam": "第一次検定", "format": "new", "exam_date": "2022-11-20", "questions_pdf": "https://www.jctc.jp/kentei/221121k_5futiy/221121k_mondai_1.pdf", "answers": "ok"},
+ {"key": "R05_zenki", "era": "令和5年度", "year": 2023, "term": "前期", "exam": "第一次検定", "format": "new", "exam_date": "2023-06-04", "questions_pdf": null, "answers": "ok"},
+ {"key": "R05_kouki", "era": "令和5年度", "year": 2023, "term": "後期", "exam": "第一次検定", "format": "new", "exam_date": "2023-11-19", "questions_pdf": null, "answers": "ok"},
+ {"key": "R06_zenki", "era": "令和6年度", "year": 2024, "term": "前期", "exam": "第一次検定", "format": "new", "exam_date": "2024-06-02", "questions_pdf": null, "answers": "ok"},
+ {"key": "R06_kouki", "era": "令和6年度", "year": 2024, "term": "後期", "exam": "第一次検定", "format": "new", "exam_date": "2024-11-17", "questions_pdf": null, "answers": "ok"},
+ {"key": "R07_zenki", "era": "令和7年度", "year": 2025, "term": "前期", "exam": "第一次検定", "format": "new", "exam_date": "2025-06-01", "questions_pdf": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/06/20250602k_mondai.pdf", "answers": "ok"},
+ {"key": "R07_kouki", "era": "令和7年度", "year": 2025, "term": "後期", "exam": "第一次検定", "format": "new", "exam_date": "2025-11-16", "questions_pdf": null, "answers": "ok"},
+ {"key": "R08_zenki", "era": "令和8年度", "year": 2026, "term": "前期", "exam": "第一次検定", "format": "new", "exam_date": "2026-06-07", "questions_pdf": null, "answers": "ok"}
+]

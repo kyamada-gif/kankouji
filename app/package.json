@@ -1,0 +1,14 @@
+{
+  "name": "kankouji-reflex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "2級管工事施工管理技士 第一次検定 瞬間想起トレーナー（lpic-reflex と同じ仕組み）",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-react": "^7.29.7"
+  }
+}

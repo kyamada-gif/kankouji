@@ -1,0 +1,1618 @@
+[
+ {
+  "id": "H30_zenki_01",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 1,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "空気環境に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "二酸化炭素は、直接人体に有害ではない気体で、空気より軽い。",
+   "一酸化炭素は、無色無臭で、人体に有害な気体である。",
+   "浮遊粉じん量は、室内空気の汚染度を示す指標の一つである。",
+   "揮発性有機化合物(VOCs)は、シックハウス症候群の主要因とされている。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_02",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 2,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "水に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "1気圧における水の密度は、0°Cの氷の密度より大きい。",
+   "1気圧における空気の水に対する溶解度は、温度上昇とともに増加する。",
+   "pHが7である水は、中性である。",
+   "DOは、水中に溶けている酸素の量である。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_03",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 3,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "水平管中の流体について、全圧、静圧及び動圧の関係を表した式として、正しいものはどれか。\nただし、Pt:全圧、Ps:静圧、ρ:流体の密度、v:流速とする。",
+  "choices": [
+   "Pt = Ps + ρv",
+   "Ps = Pt + ρv",
+   "Pt = Ps + ρv^2 / 2",
+   "Ps = Pt + ρv^2 / 2"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_04",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 4,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "熱に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "固体が直接気体になる相変化を昇華という。",
+   "単位質量の物体の温度を1°C上げるのに必要な熱量を比熱という。",
+   "気体では、定容比熱より定圧比熱のほうが大きい。",
+   "温度変化を伴わずに、物体の相変化のみに消費される熱を顕熱という。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_05",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 5,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "電気工事に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "飲料用冷水機の電源回路には、漏電遮断器を設置する。",
+   "CD管は、コンクリートに埋設して施設する。",
+   "電動機の電源配線は、金属管内で接続しない。",
+   "絶縁抵抗の測定には、接地抵抗計を用いる。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_06",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 6,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "鉄筋コンクリート造の鉄筋工事に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "鉄筋のかぶり厚さは、建築基準法に定められている。",
+   "鉄筋のかぶり厚さが大きくなると、一般的に、鉄筋コンクリートの耐久性が高くなる。",
+   "現場での鉄筋の折曲げ加工は、加熱して行う。",
+   "鉄筋の継手は、一か所への集中を避け、応力の小さいところに設ける。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_07",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 7,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "空気調和方式に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "ダクト併用ファンコイルユニット方式では、空調対象室への熱媒体として空気と水の両方が使用される。",
+   "ダクト併用ファンコイルユニット方式は、全空気方式に比べてダクトスペースが大きくなる。",
+   "マルチパッケージ形空気調和方式は、屋内機ごとに運転、停止ができる。",
+   "マルチパッケージ形空気調和方式には、屋内機に加湿器を組み込んだものがある。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_08",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 8,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "下に示す冷房時の湿り空気線図のb点に対応する空気調和システム図中の位置として、適当なものはどれか。",
+  "choices": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [
+   "https://www.kankouji-sekou.com/wp-content/uploads/2019/08/平成30年度前　2級管工事　学科8-300x118.jpg"
+  ],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_09",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 9,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "冷房の熱負荷に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "照明器具による熱負荷は、顕熱のみである。",
+   "人体や事務機器からの負荷を室内負荷として考慮する。",
+   "外気負荷は、潜熱のみである。",
+   "ガラス面からの熱負荷には、温度差による通過熱負荷と透過日射熱負荷がある。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_10",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 10,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "エアフィルターの種類と主な除去対象又は用途との組合せのうち、適当でないものはどれか。\n---(種類)---------(主な除去対象又は用途)",
+  "choices": [
+   "活性炭フィルター------屋外粉じんの除去",
+   "電気集じん器--------屋内粉じんの除去",
+   "HEPA フィルター------クリーンルーム用",
+   "パネルフィルター------ファンコイルユニット用"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_11",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 11,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "温水暖房設備の特徴に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "配管径は、一般的に、蒸気暖房に比べて小さくなる。",
+   "室内の温度制御は、蒸気暖房に比べて容易である。",
+   "ウォーミングアップにかかる時間は、蒸気暖房に比べて長い。",
+   "配管の耐食性は、一般的に、蒸気暖房に比べて優れている。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_12",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 12,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "直だき吸収冷温水機の冷房運転時の特徴に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "運転時の振動は、圧縮式冷凍機に比べて小さい。",
+   "立上がり時間は、一般的に、圧縮式冷凍機に比べて長い。",
+   "電力消費量は、圧縮式冷凍機に比べて大きい。",
+   "冷却塔の能力は、圧縮式冷凍機に比べて大きくなる。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_13",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 13,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "次の室のうち、第三種機械換気方式を用いることが、適当でないものはどれか。",
+  "choices": [
+   "便所",
+   "ボイラー室",
+   "浴室",
+   "更衣室"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_14",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 14,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "床面積の合計が100m2を超える住宅の調理室に設置するこんろの上方に、下図に示すレンジフード(排気フードI型)を設置した場合、換気扇等の有効換気量の最小値として、「建築基準法」上、正しいものはどれか。\nただし、K:燃料の単位燃焼量当たりの理論廃ガス量[m3/(kW・h)]\nQ:火を使用する設備又は器具の実況に応じた燃料消費量[kW]",
+  "choices": [
+   "2KQ[m3/h]",
+   "20KQ[m3/h]",
+   "30KQ[m3/h]",
+   "40KQ[m3/h]"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [
+   "https://www.kankouji-sekou.com/wp-content/uploads/2019/08/平成30年度前　2級管工事　学科14.jpg"
+  ],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_15",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 15,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "上水道における配水管の布設に関する文中、 内に当てはまる数値及び語句の組合せとして、適当なものはどれか。\n配水管を他の地下埋設物と交差又は近接して布設するときは、少なくとも A m以上の間隔を保って布設する。また、地下水位が高い場所に布設する場合には、管の B を講じる。\n--(A)--------(B)",
+  "choices": [
+   "0.3-------沈下対策",
+   "0.6-------沈下対策",
+   "0.3-------浮上防止策",
+   "0.6-------浮上防止策"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_16",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 16,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "硬質土の地盤に、可とう性を有する下水道管きょを布設する場合、管きょの基礎として、適当なものはどれか。",
+  "choices": [
+   "コンクリート基礎",
+   "はしご胴木基礎",
+   "くい打ち基礎",
+   "砂基礎"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_17",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 17,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "給水設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "飲料用給水タンクのオーバーフロー管にはトラップを設け、虫の侵入を防止する。",
+   "散水栓のホース接続水栓は、バキュームブレーカ付きとする。",
+   "ウォーターハンマーを防止するには、給水管内の流速を小さくする。",
+   "逆サイホン作用とは、水受け容器中に吐き出された水等が、給水管内に逆流することである。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_18",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 18,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "給湯設備に関する文中、 内に当てはまる数値及び語句の組合せとして、適当なものはどれか。\nガス瞬間湯沸器の能力は、水温の上昇温度を A °C とした場合の出湯量1L/minを1号としている。住宅のシャワーなどへの給湯用にガス瞬間湯沸器を使用する場合には、 B が適している。\n--(A)------(B)",
+  "choices": [
+   "15-----元止め式",
+   "25-----先止め式",
+   "15-----先止め式",
+   "25-----元止め式"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_19",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 19,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "排水・通気設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "各個通気方式は、自己サイホン作用の防止に有効である。",
+   "通気立て管の下部は、最低位の排水横枝管より下部で排水立て管に接続するか、又は排水横主管に接続する。",
+   "各個通気管は、器具のトラップ下流側の排水管より取り出す。",
+   "排水立て管の管径は、下階になるに従い排水負荷に応じて大きくする。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_20",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 20,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "排水・通気設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "伸頂通気方式は、通気立て管を設けず、排水立て管上部を延長し通気管として使用するものである。",
+   "ループ通気管は、通気立て管又は伸頂通気管に接続するか、あるいは大気に開放する。",
+   "伸頂通気方式は、ループ通気方式に比べて機能上優れている。",
+   "最上階を除き、大便器8個以上を受け持つ排水横枝管には、ループ通気管を設けるほかに、逃し通気管を設ける。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_21",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 21,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "次の設備のうち、「消防法」上、消防の用に供する設備に該当しないものはどれか。",
+  "choices": [
+   "屋内消火栓設備",
+   "連結散水設備",
+   "スプリンクラー設備",
+   "泡消火設備"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_22",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 22,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "ガス漏れ警報器に関する文中、 内に当てはまる数値及び語句の組合せとして、適当なものはどれか。\n液化石油ガスのガス漏れ警報器の検知部は、ガス機器からの水平距離が A m 以内で、かつ、 B から30cm以内の位置に設置しなければならない。\n--(A)-----(B)",
+  "choices": [
+   "8------床面",
+   "4------床面",
+   "8------天井面",
+   "4------天井面"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_23",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 23,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "FRP製浄化槽の施工に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "槽本体の固定金具や浮上防止金具の取付け位置の墨出しは、均しコンクリート上に行う。",
+   "槽本体の水平は、内壁に示されている水準目安線、水位などで確認する。",
+   "槽本体の漏水検査は、満水状態にして24時間放置し、漏水のないことを確認する。",
+   "槽周囲の埋戻しは、水張りしない状態で、良質土又は山砂により行う。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_24",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 24,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "遠心ポンプに関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "ポンプの吐出量の調整は、吸込み側に設けた弁で行う。",
+   "実用範囲における揚程は、吐出量の増加とともに低くなる。",
+   "同一系統において、ポンプを並列運転して得られる吐出量は、それぞれのポンプを単独運転した吐出量の和よりも小さくなる。",
+   "軸動力は、吐出量の増加とともに増加する。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_25",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 25,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "保温材に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "ロックウール保温材の最高使用温度は、グラスウール保温材より高い。",
+   "グラスウール保温板は、その密度により区分されている。",
+   "ポリスチレンフォーム保温材は、蒸気管には使用できない。",
+   "ポリエチレンフォーム保温筒は、吸湿性が高い。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_26",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 26,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "配管材料及び配管付属品に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "伸縮管継手は、流体の温度変化に伴う配管の伸縮を吸収するために設ける。",
+   "硬質ポリ塩化ビニル管のVU管は、VP管に比べ耐圧性が高い。",
+   "銅管は、肉厚の大きい順にK、L、Mタイプがあり、一般的に、Mタイプを用いることが多い。",
+   "フレキシブルジョイントは、ゴム製とステンレス製に大別され、使用流体の種類、温度及び圧力により使い分ける必要がある。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_27",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 27,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "ダクト及びダクト付属品に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "長方形ダクトのアスペクト比(長辺/短辺)は、小さい方が圧力損失の面から有利である。",
+   "防火ダンパーは、ヒューズが溶解してダンパーが閉じるものである。",
+   "長方形ダクトの板厚は、ダクトの周長により決定する。",
+   "ダクトの曲り部にガイドベーンを入れると、局部抵抗を減少できる。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_28",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 28,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "機器とその仕様として設計図書に記載する項目の組合せのうち、適当でないものはどれか。\n---(機器)---------(記載項目)",
+  "choices": [
+   "遠心ポンプ-------吸込口径",
+   "エアフィルター-----初期圧力損失",
+   "ユニット形空気調和機--有効加湿量",
+   "貯湯式ガス湯沸器----号数"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_29",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 29,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "設計図書(図面、特記仕様書、標準仕様書、現場説明書及び質問回答書)の一般的な優先順位に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "特記仕様書より標準仕様書が優先する。",
+   "現場説明書より質問回答書が優先する。",
+   "図面より特記仕様書が優先する。",
+   "標準仕様書より現場説明書が優先する。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_30",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 30,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "工程表と関連する用語の組合せのうち、適当でないものはどれか。\n--(工程表)--------(関連する用語)",
+  "choices": [
+   "ネットワーク工程表---イベント",
+   "ネットワーク工程表---アクティビティー",
+   "バーチャート工程表---予定進度曲線",
+   "バーチャート工程表---ダミー"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_31",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 31,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "工程表に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "バーチャート工程表は、ネットワーク工程表に比べて作業遅れへの対策が立てやすい。",
+   "ネットワーク工程表は、ガントチャート工程表に比べて、各作業の関係がわかりやすい。",
+   "ガントチャート工程表は、各作業の現時点における進行状態を達成度により示すものである。",
+   "バーチャート工程表は、一般的に、横軸に暦日がとられ、各作業の施工時期や所要日数がわかりやすい。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_32",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 32,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "抜取検査を行う場合の必要条件として、適当でないものはどれか。",
+  "choices": [
+   "ロットの中からサンプルの抜取りがランダムにできること。",
+   "合格したロットの中に、不良品の混入が許されないこと。",
+   "品質基準が明確であり、再現性が確保されること",
+   "検査対象がロットとして処理できること。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_33",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 33,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "建設工事現場の安全管理に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "一つの荷物で重量が100kg以上のものを貨物自動車に積む作業を行うときは、当該作業を指揮する者を定める。",
+   "ゴンドラの操作の業務を行う作業に労働者をつかせるときは、当該業務に関する安全又は衛生の特別の教育を行う。",
+   "作業床の高さが1mの可搬式作業台には、手掛かり棒を取り付ける。",
+   "高さが2mの作業場所に作業床を設ける場合は、床材間のすき間は4cm以下になるようにする。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_34",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 34,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "機器の基礎に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "ポンプのコンクリート基礎は、基礎表面の排水溝に排水目皿を設け、間接排水できるものとする。",
+   "ユニット形空気調和機の基礎の高さは、ドレンパンからの排水管に空調機用トラップを設けるため150mm程度とする。",
+   "大型ボイラーの基礎は、床スラブ上に打設した無筋コンクリート基礎とする。",
+   "送風機のコンクリート基礎の幅は、送風機架台より100〜200mm程度大きくする。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_35",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 35,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "機器の据付けに関する記述のうち、適当でないものはどれか",
+  "choices": [
+   "飲料用受水タンクの上部には、空調用配管、排水管等を設けないようにする。",
+   "揚水ポンプの吐出し側には、ポンプに近い順に、防振継手、仕切弁、逆止め弁を取り付ける。",
+   "パッケージ形空気調和機の屋外機の騒音対策として、防音壁を設置する。",
+   "飲料用受水タンクは、高さ60cmの梁形コンクリート基礎上に据え付ける。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_36",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 36,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "配管の施工に関する記述のうち、適当でないものはどれか",
+  "choices": [
+   "呼び径100Aの屋内排水管の勾配(最小)は、1/100とする。",
+   "飲料用タンクに設ける間接排水管の排水口空間(最小)は、100mmとする。",
+   "合流式の敷地排水管に雨水管を接続する場合には、トラップますを介して接続する。",
+   "屋外排水管の方向変換箇所には、原則として、排水ますを設ける。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_37",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 37,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "配管の支持及び固定に関する記述のうち、適当でないものはどれか",
+  "choices": [
+   "伸縮する配管は、横走り管のすべての支持点で堅固に固定する。",
+   "屋内立て管には、管の座屈を防止するため振れ止めを設ける。",
+   "立て管最下部の固定は、配管荷重に十分耐えうる構造とする。",
+   "配管の曲がり部、分岐部は、その近くの位置で支持する。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_38",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 38,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "ダクト及びダクト付属品の施工に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "浴室の排気に長方形ダクトを使用する場合は、ダクトの継目が下面にならないように取り付ける。",
+   "共板フランジ工法ダクトの最大つり支持間隔は、アングルフランジ工法ダクトより短い。",
+   "防火ダンパーの温度ヒューズの溶融温度は、一般排気系統及び厨房排気系統ともに72°Cとする。",
+   "風量調整ダンパーは、原則として、気流の整流されたところに取り付ける。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_39",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 39,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "ダクト及びダクト付属品の施工に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "横走りのダクトには、形鋼による振れ止めを行う。",
+   "外壁ガラリに接続するチャンバーは、浸入した雨水を排除できるように勾配を設ける。",
+   "吹出し口を配置する際は、煙感知器と近接しないよう離隔距離を確保する。",
+   "共板フランジ工法ダクトの接続は、フランジ押え金具のみで行い、ボルト・ナットを使用しない。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_40",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 40,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "保温、保冷及び塗装に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "保温施工において、ポリエチレンフィルムは、保温材の脱落を防ぐために使用する。",
+   "保温の厚さとは、一般的に、保温材、外装材、補助材のうち保温材自体の厚さのことである。",
+   "ポンプ廻りの防振継手は、原則として、保温を行わない。",
+   "配管の塗装仕上げには、一般的に、合成樹脂調合ペイント等が使用される。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_41",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 41,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "自然流下の排水設備の試験として、適当でないものはどれか。",
+  "choices": [
+   "満水試験",
+   "通水試験",
+   "煙試験",
+   "水圧試験"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_42",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 42,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "多翼送風機の試運転調整に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "Vベルトの張り具合は、たわみ量が適正値に収まるように調整する。",
+   "送風機の軸を手で回し、接触や異常音がなく円滑に回転することを確認する。",
+   "吐出し側の風量調整ダンパーを全開の状態から徐々に絞って、規定風量になるように調整する。",
+   "瞬時運転を行い、回転方向が正しいことを確認する。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_43",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 43,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "移動式クレーンの運転業務に関する文中、 内に当てはまる、「労働安全衛生法」上に定められている数値として、正しいものはどれか。\n事業者は、つり上げ荷重が1トン以上の移動式クレーンの運転(道路交通法に規定する道路上を走行させる運転を除く。)の業務については、移動式クレーン運転士免許を受けた者でなければ、当該業務に就かせてはならない。ただし、つり上げ荷重が1トン以上、 トン未満の移動式クレーンの運転の業務については、小型移動式クレーン運転技能講習を修了した者を当該業務に就かせることができる。",
+  "choices": [
+   "3",
+   "4",
+   "5",
+   "6"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_44",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 44,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "未成年者の労働に関する記述のうち、「労働基準法」上、誤っているものはどれか。",
+  "choices": [
+   "親権者又は後見人は、未成年者に代って労働契約を締結することができる。",
+   "親権者若しくは後見人又は行政官庁は、労働契約が未成年者に不利であると認める場合においては、将来に向ってこれを解除することができる。",
+   "未成年者は、独立して賃金を請求することができる。",
+   "親権者又は後見人は、未成年者の賃金を代って受け取ってはならない。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_45",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 45,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "次の建築物のうち、「建築基準法」上、特殊建築物でないものはどれか。",
+  "choices": [
+   "寄宿舎",
+   "共同住宅",
+   "事務所",
+   "自動車車庫"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_46",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 46,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建築物に設ける中央管理方式の空気調和設備によって、居室の空気が適合しなければならない基準として、「建築基準法」上、誤っているものはどれか。",
+  "choices": [
+   "一酸化炭素の含有率は、おおむね 100万分の 10以下とする。",
+   "炭酸ガスの含有率は、おおむね 100万分の 1,000以下とする。",
+   "相対湿度は、おおむね 40 %以上 70 %以下とする。",
+   "気流は、おおむね1秒間につき 1.0m以上 2.0m以下とする。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_47",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 47,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "「建設業法」の用語に関する記述のうち、誤っているものはどれか。",
+  "choices": [
+   "「発注者」とは、建設工事の注文者のうち、他の者から請け負った建設工事の注文者を除いた者をいう。",
+   "「元請負人」とは、下請契約における注文者をいい、建設業者であるものに限らない。",
+   "「建設業」とは、建設工事の完成を請け負う営業をいい、元請、下請その他いかなる名義をもってするかは問わない。",
+   "管工事は、「建設工事」に含まれる。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_48",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 48,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建設業の許可に関する記述のうち、「建設業法」上、誤っているものはどれか。",
+  "choices": [
+   "都道府県知事の許可を受けた建設業者は、許可を受けた都道府県以外では、工事を請け負うことができない。",
+   "一般建設業の許可を受けた建設業者は、工事の一部を下請負人として請け負った場合でも、主任技術者を置く必要がある。",
+   "2級管工事施工管理技士は、管工事業に係る一般建設業の許可を受ける建設業者が営業所ごとに専任で置く技術者としての要件を満たしている。",
+   "一般建設業の許可を受けた建設業者は、請け負おうとする工事を自ら施工する場合、請負金額の大小にかかわらず請け負うことができる。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_49",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 49,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "屋内消火栓設備に関する文中、 内に当てはまる数値として、「消防法」上、正しいものはどれか。\n消防用ホースの構造を一人で操作できるものとした2号消火栓(広範囲型を除く)は、その階の各部分から一のホース接続口までの水平距離が m以下となるように設けなければならない。",
+  "choices": [
+   "15",
+   "20",
+   "25",
+   "30"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_50",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 50,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "解体工事の届け出に関する文中、 内に当てはまる数値及び語句の組合せとして、「建設工事に係る資材の再資源化等に関する法律」上、正しいものはどれか。\n特定建設資材を用いた建築物等に係る解体工事であって、その規模が政令等で定める基準以上のものの発注者又は自主施工者は、工事に着手する日の A 日前までに、主務省令で定めるところにより、解体する建築物等の構造、工事着手の時期及び工程の概要等の事項を B に届け出なければならない。\n--(A)------(B)",
+  "choices": [
+   "7-----都道府県知事",
+   "7-----国土交通大臣",
+   "14-----都道府県知事",
+   "14-----国土交通大臣"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_51",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 51,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "指定地域内において行われる特定建設作業に伴って発生する騒音について、災害その他非常の事態の発生により当該特定建設作業を緊急に行う必要がある場合においても、「騒音規制法」上の規制が適用されるものはどれか。",
+  "choices": [
+   "深夜に行われる作業に伴って発生する騒音",
+   "作業の場所の敷地の境界線において、85デシベルを超える大きさの騒音",
+   "日曜日に行われる作業に伴って発生する騒音",
+   "1日14時間を超えて行われる作業に伴って発生する騒音"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H30_zenki_52",
+  "session": "H30_zenki",
+  "era": "平成30年度",
+  "year": 2018,
+  "term": "前期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 52,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "廃棄物の処理に関する記述のうち、「廃棄物の処理及び清掃に関する法律」上、誤っているものはどれか。",
+  "choices": [
+   "紙くず(建設業に係るもの(工作物の新築、改築又は除去に伴って生じたものに限る。))は、産業廃棄物である。",
+   "建設発生土(建設工事に伴い副次的に得られた土砂(浚渫土を含む。)をいう。)は、産業廃棄物である。",
+   "廃電子レンジ(国内における日常生活に伴って生じたものに限る。)に含まれるポリ塩化ビフェニルを使用する部品は、特別管理一般廃棄物である。",
+   "建築物等に用いられる材料であって石綿を含むもののうち石綿建材除去事業により除去された石綿保温材は、特別管理産業廃棄物である。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H30_zenki.html",
+   "pdf": "data/raw/questions/H30_zenki_mondai.pdf"
+  }
+ }
+]

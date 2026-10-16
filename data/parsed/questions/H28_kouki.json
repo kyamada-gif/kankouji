@@ -1,0 +1,1614 @@
+[
+ {
+  "id": "H28_kouki_01",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 1,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "次の指標のうち、室内空気環境と関係のないものはどれか。",
+  "choices": [
+   "新有効温度(ET*)",
+   "揮発性有機化合物(VOCs)濃度",
+   "化学的酸素要求量(COD)",
+   "作用温度(OT)"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_02",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 2,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "湿り空気に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "飽和湿り空気の乾球温度と湿球温度は等しい。",
+   "相対湿度とは、湿り空気中に含まれる乾き空気1kgに対する水蒸気の質量をいう。",
+   "湿球温度とは、一般に、感熱部を水で湿らせた布で包んだアスマン通風乾湿計で測定した温度をいう。",
+   "湿り空気がその露点温度より低い物体に触れると、物体の表面に結露が生じる。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_03",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 3,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "ピトー管に関する文中、 内に当てはまる用語の組合せとして、適当なものはどれか。\nピトー管は、全圧と A の差を測定する計器で、この測定値から B を算出することができる。\n---(A)------(B)",
+  "choices": [
+   "静圧------流速",
+   "静圧------摩擦損失",
+   "動圧------流速",
+   "動圧------摩擦損失"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_04",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 4,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "熱に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "熱が低温の物体から高温の物体へ自然に移ることはない。",
+   "真空中では、熱放射による熱エネルギーの移動はない。",
+   "0°Cの氷が0°Cの水になるために必要な熱は潜熱である。",
+   "物体の温度を1°C上げるのに必要な熱量を熱容量という。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_05",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 5,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "交流電気回路に設けた進相コンデンサによる力率改善の効果と最も関係のないものはどれか。",
+  "choices": [
+   "電路及び変圧器内の電力損失の軽減",
+   "電圧降下の改善",
+   "電力供給設備余力の増加",
+   "感電事故の予防"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_06",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 6,
+  "category": "一般基礎",
+  "required": true,
+  "selection_note": "6問必須",
+  "stem": "コンクリート工事に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "打込み後、硬化中のコンクリートに振動及び外力を加えないようにする。",
+   "型枠の最小存置期間は、平均気温が低いほど長くする。",
+   "コンクリートのスランプ値が大きくなると、ワーカビリティーが悪くなる。",
+   "夏期の打込み後のコンクリートは、急激な乾燥を防ぐために湿潤養生を行う。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_07",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 7,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "空気調和方式に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "ダクト併用ファンコイルユニット方式は、全空気方式に比べてダクトスペースが大きくなる。",
+   "ダクト併用ファンコイルユニット方式は、空調する室に熱媒体として空気と水を供給する方式である。",
+   "マルチパッケージ形空気調和方式は、屋内機ごとに運転、停止ができる。",
+   "マルチパッケージ形空気調和方式では、屋内機に加湿器を組み込んだものがある。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_08",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 8,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "定風量単一ダクト方式における湿り空気線図上のプロセスに関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "図は、冷房時の状態変化を示したものである。",
+   "室内空気の状態点は、1である。",
+   "導入外気の状態点は、2である。",
+   "空気調和機出口空気の状態点は、3である。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_09",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 9,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "空気調和の熱負荷計算に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "暖房負荷計算では、一般に、日射負荷は考慮しない。",
+   "構造体の構成材質が同じであれば、厚さの薄い方が熱通過率は小さくなる。",
+   "外気による熱負荷を計算する場合、顕熱と潜熱を考慮する。",
+   "窓ガラス面からの冷房負荷計算では、ひさしや袖壁の影響も考慮する。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_10",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 10,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "ろ過式エアフィルターのろ材に求められる特性として、適当でないものはどれか。",
+  "choices": [
+   "空気抵抗が大きいこと。",
+   "吸湿性が小さいこと。",
+   "腐食及びかびの発生が少ないこと。",
+   "難燃性又は不燃性であること。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_11",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 11,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "パッケージ形空気調和機に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "天井カセット形では、ドレン配管の自由度を高めるためドレンアップする方式のものが多い。",
+   "ヒートポンプ式には、空気熱源ヒートポンプと水熱源ヒートポンプがある。",
+   "ヒートポンプ式では、屋外機を屋内機より高い位置に設置することはできない。",
+   "ガスエンジンヒートポンプ式は、エンジンの排熱が利用できるため寒冷地にも適している。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_12",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 12,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "温水暖房における膨張タンクに関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "密閉式膨張タンクを用いる場合には、安全弁などの安全装置が必要である。",
+   "密閉式膨張タンクは、一般に、ダイヤフラム内に封入された空気の圧縮性を利用している。",
+   "開放式膨張タンクは、装置内の空気の排出口として利用できる。",
+   "開放式膨張タンクに接続する膨張管は、循環ポンプの吸込み側には設けない。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_13",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 13,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "換気設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "厨房の換気に、給排気側にそれぞれ送風機を設けた。",
+   "ボイラー室の換気に、給排気側にそれぞれ送風機を設けた。",
+   "便所や浴室の換気に、排気側のみに送風機を設けた。",
+   "有害なガスが発生する部屋の換気に、給気側のみに送風機を設けた。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_14",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 14,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "床面積の合計が100m2を超える住宅の調理室に設置するこんろの上方に、図に示すレンジフード(排気フードI型)を設置した場合、換気扇等の有効換気量の最小値として、「建築基準法」上、正しいものはどれか。\nただし、K:燃料の単位燃焼量当たりの理論廃ガス量[m3/(kW・h)]・Q:火を使用する設備又は器具の実況に応じた燃料消費量[kW]",
+  "choices": [
+   "2KQ[m3/h]",
+   "20KQ[m3/h]",
+   "30KQ[m3/h]",
+   "40KQ[m3/h]"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_15",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 15,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "上水道に関する文中、 内に当てはまる用語の組合せとして、適当なものはどれか。\n給水管を不断水工法により配水支管から取り出す場合、一般に、給水管の口径が25mm以下のときにはサドル付分水栓、75mm以上のときには A によって取り出す。この給水管及びこれに直結する給水用具を、「水道法」上、 B という。\n---(A)--------(B)",
+  "choices": [
+   "T字管-------給水設備",
+   "割T字管------給水装置",
+   "T字管-------給水装置",
+   "割T字管------給水設備"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_16",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 16,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "図に示す排水に用いられるますの名称として、適当なものはどれか",
+  "choices": [
+   "ためます",
+   "ドロップます",
+   "雨水浸透ます",
+   "トラップます"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_17",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 17,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "給水設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "クロスコネクションとは、飲料水配管とそれ以外の配管とが直接接続されることをいう。",
+   "ウォーターハンマーを防止するため、給水管にエアチャンバーを設置した。",
+   "水道直結増圧方式の給水栓にかかる圧力は、水道本管の圧力に応じて変化する。",
+   "水道直結増圧方式は、高置タンク方式に比べて、ポンプの吐出量が大きくなる。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_18",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 18,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "給湯設備に関する文中、 内に当てはまる数値、用語の組合せとして、適当なものはどれか。\nガス瞬間湯沸器の能力は、一般に号数で呼ばれ、水温の上昇温度を A °Cとした場\n合の出湯量1L/minを1号としている。住宅のシャワーなどへの給湯用には、 B が適している。\n--(A)------(B)",
+  "choices": [
+   "15-----元止め式",
+   "25-----元止め式",
+   "15-----先止め式",
+   "25-----先止め式"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_19",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 19,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "排水設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "間接排水とする水受け容器には、トラップを設けない。",
+   "ドラムトラップは、非サイホン式のトラップである。",
+   "排水横主管の管径は、これに接続する排水立て管の管径以上とする。",
+   "サイホン式のトラップは、封水が少なく、非サイホン式のトラップに比較して封水が破れやすい。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_20",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 20,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "排水・通気設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "伸頂通気方式は、通気立て管を設けず、排水立て管上部を延長し通気管として使用するものである。",
+   "ループ通気方式は、各個通気方式に比べて機能上優れている。",
+   "ループ通気管は、通気立て管又は伸頂通気管に接続するか、あるいは大気に開放する。",
+   "最上階を除き、大便器\f8個以上を受け持つ排水横枝管には、ループ通気管を設けるほかに、逃し通気管を設ける。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_21",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 21,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "屋内消火栓設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "屋内消火栓設備には、非常電源を設ける。",
+   "屋内消火栓箱の上部には、設置の標示のために赤色の灯火を設ける。",
+   "広範囲型を除く2号消火栓は、防火対象物の階ごとに、その階の各部分からの水平距離が25m以下となるように設置する。",
+   "屋内消火栓の開閉弁は、自動式のものでない場合、床面からの高さが 1.5m以下の位置に設置する。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_22",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 22,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "ガス設備に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "LPG用のガス漏れ警報器の取付け高さは、その下端が天井面等の下方0.3m以内となるようにする。",
+   "LPG用の充てん容器には、10kg容器、20kg容器、50kg容器などがある。",
+   "都市ガスの内管とは、需要家に引き込まれる導管のうち、敷地境界線からガス栓までの導管をいう。",
+   "LNGは、メタンを主成分とした天然ガスを液化したものである。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_23",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 23,
+  "category": "空調・衛生",
+  "required": false,
+  "selection_note": "17問中9問選択",
+  "stem": "工場生産浄化槽の施工に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "地下水位による槽の浮上防止対策として、槽の周囲に山砂を入れ、突き固めて水締めを行う。",
+   "本体の水平調整はライナーなどで行い、槽と底版コンクリートの隙間が大きいときは、隙間にモルタルを充てんする。",
+   "埋戻しは、土圧による本体及び内部設備の変形を防止するため、槽に水張りした状態で行う。",
+   "底版コンクリートは、打設後、所要の強度が確認できるまで養生する。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_24",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 24,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "遠心ポンプに関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "実用範囲における揚程は、吐出量の増加とともに低くなる。",
+   "ポンプの吐出量の調整は、吸込み側に設けた弁で行う。",
+   "同一配管系において、ポンプを並列運転して得られる吐出量は、それぞれのポンプを単独運転した吐出量の和よりも小さくなる。",
+   "軸動力は、吐出量の増加とともに増加する。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_25",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 25,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "保温材に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "グラスウール保温材は、ポリスチレンフォーム保温材に比べて透湿性が小さい。",
+   "ポリスチレンフォーム保温材は、主に保冷用として使用される。",
+   "ロックウール保温板、グラスウール保温板の種類は、密度によって区分される。",
+   "繊維系保温材の種類には、保温板、保温帯、保温筒などがある。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_26",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 26,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "配管材料及び配管付属品に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "硬質ポリ塩化ビニル管は、その種類により設計圧力の範囲が異なる。",
+   "仕切弁は、玉形弁に比べて流量を調整するのに適している。",
+   "水道用硬質塩化ビニルライニング鋼管D(SGP-VD)は、地中埋設配管に用いられる。",
+   "定水位調整弁は、受水タンクへの給水に使用される。"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_27",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 27,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "ダクトに関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "コーナーボルト工法には、共板フランジ工法とスライドオンフランジ工法がある。",
+   "ダクトの拡大は、15度以内とすることが望ましい。",
+   "ダクトの拡大部・縮小部における空気のうず流は、縮小部の方が発生しやすい。",
+   "長方形ダクトの曲り部の圧力損失が大きい箇所に、案内羽根(ガイドベーン)付きエルボを設置した。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_28",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 28,
+  "category": "設備（機器・材料・設計図書）",
+  "required": true,
+  "selection_note": "5問必須",
+  "stem": "次のうち、「公共工事標準請負契約約款」上、設計図書に含まれないものはどれか。",
+  "choices": [
+   "現場説明書",
+   "現場説明に対する質問回答書",
+   "設計図面",
+   "請負代金内訳書"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_29",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 29,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "公共工事における施工計画に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "施工計画書は、作業員に工事の詳細を徹底させるために使用されるもので、監督員の承諾は必要ない。",
+   "工事に使用する機材は、設計図書に特別の定めがない場合は新品とするが、仮設材は新品でなくてもよい。",
+   "着工前業務には、工事組織の編成、実行予算書の作成、工程・労務計画の作成などがある。",
+   "施工図は、作成範囲、順序、作成予定日等を定めた施工図作成計画表に基づき、時機を失うことのないように完成させる。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_30",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 30,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "図に示すネットワーク工程表に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "作業Gは、作業Eと作業Cが完了していなければ開始できない。",
+   "作業C、作業D及び作業Eは、並行して行うことができない。",
+   "作業Jは、作業Hが完了していても、作業G、作業Fが完了していなければ開始できない。",
+   "クリティカルパスの所要日数は、13日である"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": true,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_31",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 31,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "工程表に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "ガントチャート工程表は、各作業の現時点における進行状態が達成度により把握でき、作成も容易である。",
+   "ネットワーク工程表は、ガントチャート工程表に比べて、他工事との関係がわかりやすい。",
+   "バーチャート工程表は、ネットワーク工程表より遅れに対する対策が立てやすい。",
+   "バーチャート工程表は、通常、横軸に暦日がとられ、各作業の施工時期や所要日数がわかりやすい。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_32",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 32,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "品質を確認するための試験・検査に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "防火区画貫通箇所の穴埋めの確認は、抜取検査とした。",
+   "ダクトの板厚や寸法などの確認は、抜取検査とした。",
+   "排水配管の通水試験実施にあたり、立会計画を立て監督員に試験の立会いを求めた。",
+   "完成検査時に、契約書や設計図書のほか、工事記録写真、試運転記録などを用意した。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_33",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 33,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "建設工事現場の安全に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "脚立は、脚と水平面との角度を80度とし、その角度を保つための金具を備えたものとした。",
+   "事業者は、作業主任者を選任したので、その者の氏名及び行わせる事項を作業場の見やすい箇所に掲示した。",
+   "移動はしごは、すべり止め装置の取付けその他転位を防止するために必要な措置を講じたものとした。",
+   "つり上げ荷重5トンの移動式クレーンを使用した玉掛け業務に、玉掛け技能講習を修了した者を就けた。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_34",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 34,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "機器の据付けに関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "冷凍機の据付けにあっては、凝縮器のチューブ引出し用として、有効な空間を確保する。",
+   "遠心送風機の据付けにあっては、レベルを水準器で検査し、水平が出ていない場合は基礎と共通架台の間にライナーを入れて調整する。",
+   "壁掛け形ルームエアコンの取付けにあっては、内装材や下地材に応じて補強を施す。",
+   "地上設置のポンプの吸込み管は、ポンプに向かって下がり勾配とする。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_35",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 35,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "機器の据付けに関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "揚水ポンプの吐出し側に、ポンプに近い順に、防振継手、仕切弁、逆止め弁を取り付けた。",
+   "飲料用受水タンクの上部に、空調配管、排水管等を設けないようにした。",
+   "パッケージ形空気調和機の屋外機の騒音対策として、防音壁を設置した。",
+   "飲料用受水タンクを高さ60cmの梁形コンクリート基礎上に据え付けた。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_36",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 36,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "給水管及び排水管の施工に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "横走り給水管から枝管を取り出す際に、配管の上部から取り出した。",
+   "便所の床下排水管は、勾配を考慮して、排水管を給水管より優先して施工した。",
+   "飲料用冷水器の排水は、雑排水系統の排水管に直接接続した。",
+   "横走り給水管の管径を縮小する際に、径違いソケットを使用した。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_37",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 37,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "配管の施工に関する記述のうち、適当でないものはどれか",
+  "choices": [
+   "フレキシブルジョイントは、温水配管の収縮を吸収するために使用される。",
+   "給水配管において、電位差が大きい異種金属を接合する場合は、絶縁フランジなどによる措置が必要である。",
+   "さや管ヘッダー配管方式のさや管と実管を同時に施工してはならない。",
+   "ポンプ振動の配管への伝播を防止するためには、防振継手を設ける。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_38",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 38,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "ダクトの施工に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "長方形ダクトの長辺と短辺の比は、4以下とした。",
+   "共板フランジ工法ダクトのフランジは、ダクトの端部を折り曲げて成形したものである。",
+   "長方形ダクトの板厚は、ダクトの長辺の長さにより決定した。",
+   "送風機の吐出口直後におけるダクトの曲げ方向は、送風機の回転方向と逆の方向とした。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_39",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 39,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "ダクト及びダクト付属品の施工に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "変風量(VAV)ユニットの入口側に、整流のためのダクト直管部を設けた。",
+   "風量測定口は、風量調整ダンパー下流の気流が整流されたところに設けた。",
+   "ユニバーサル形吹出口は、天井の汚れを防ぐため、天井と吹出口上端との間隔を150mm以上離して取り付けた。",
+   "防火区画と防火ダンパーとの間の被覆をしないダクトは、1.2mmの鋼板製とした。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_40",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 40,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "保温・塗装工事に関する記述のうち、適当でないものはどれか。",
+  "choices": [
+   "屋外の外装金属板の継目は、シーリング材によりシールを施す。",
+   "機器廻り配管の保温・保冷工事は、水圧試験後に行う。",
+   "ロックウール保温材は、グラスウール保温材に比べ、使用できる最高温度が低い。",
+   "アルミニウム面やステンレス面は、一般に、塗装を行わない。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_41",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 41,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "配管とその試験方法の組合せのうち、適当でないものはどれか。\n---(配管)----(試験方法)",
+  "choices": [
+   "給水配管----水圧試験",
+   "油配管-----水圧試験",
+   "冷媒配管----気密試験",
+   "ガス配管----気密試験"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_42",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 42,
+  "category": "施工管理法",
+  "required": false,
+  "selection_note": "14問中12問選択",
+  "stem": "測定対象と測定機器の組合せのうち、適当でないものはどれか。\n--(測定対象)------(測定機器)",
+  "choices": [
+   "風量---------熱線風速計",
+   "流量(石油類)-----容積流量計",
+   "騒音---------検知管",
+   "圧力---------マノメーター"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_43",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 43,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建設工事現場における安全管理体制に関する文中、 内に当てはまる「労働安全衛生法」上に定められている数値の組合せとして、正しいものはどれか。\n事業者は、労働者の数が常時 A 人以上の事業場においては、安全管理者を選任し、その者に法に定める業務のうち安全に係る技術的事項を管理させなければならない。また、労働者の数が常時 B 人以上 A 人未満の事業場においては、安全衛生推進者を選任しなければならない。\n--(A)-------(B)",
+  "choices": [
+   "50-------10",
+   "100-------20",
+   "100-------50",
+   "200-------50"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_44",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 44,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "休日及び有給休暇に関する文中、 内に当てはまる「労働基準法」上に定められている数値の組合せとして、正しいものはどれか。\n使用者は、労働者に対して、毎週少なくとも回の休日を与えなければならない。ただし、4週間を通じ A 日以上の休日を与える使用者については、この限りではない。また、使用者は、雇入れの日から起算して6箇月間継続勤務し、全労働日の8\f割以上出勤した労働者(一週間の所定労働時間が厚生労働省令で定める時間以上の者)に対して、継続し、又は分割した B 労働日の有給休暇を与えなければならない。\n--(A)-----(B)",
+  "choices": [
+   "4-------5",
+   "4-------10",
+   "6-------5",
+   "6-------10"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_45",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 45,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建築の用語に関する記述のうち、「建築基準法」上、誤っているものはどれか。",
+  "choices": [
+   "建築物に設ける煙突は、建築設備である。",
+   "モルタルは、不燃材料である。",
+   "熱源機器の過半を更新する工事は、大規模の修繕である。",
+   "継続的に使用される会議室は、居室である。"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_46",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 46,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建築物に設ける配管設備に関する記述のうち、「建築基準法」上、誤っているものはどれか。",
+  "choices": [
+   "地階に居室を有する建築物に設ける換気設備の風道は、防火上支障がある場合、難燃材料で造らなければならない。",
+   "雨水排水立て管は、通気管と兼用してはならない。",
+   "排水のための配管設備で、汚水に接する部分は、不浸透質の耐水材料で造らなければならない。",
+   "給水管及び排水管は、エレベーターの昇降路内に設けてはならない。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_47",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 47,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建設業の許可を受けた建設業者が、工事現場に掲げる標識の記載項目として、「建設業法」上、定められていないものはどれか。",
+  "choices": [
+   "許可年月日、許可番号及び許可を受けた建設業",
+   "現場代理人の氏名",
+   "主任技術者又は監理技術者の氏名",
+   "一般建設業又は特定建設業の別"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_48",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 48,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建設業の許可に関する記述のうち、「建設業法」上、誤っているものはどれか。",
+  "choices": [
+   "一般建設業の許可を受けた建設業者は、請け負おうとする工事を自ら施工する場合、請負金額の大小にかかわらず請け負うことができる。",
+   "建設業の許可を受けた建設業者は、工事の一部を下請負人として請け負った場合でも、主任技術者を置く必要がある。",
+   "2級管工事施工管理技士は、管工事業に係る一般建設業の許可を受ける建設業者が営業所ごとに専任で置く技術者としての要件を満たしている。",
+   "都道府県知事の許可を受けた建設業者は、許可を受けた都道府県以外では、工事を請け負うことができない。"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_49",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 49,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "危険物の種類と指定数量の組合せのうち、「消防法」上、誤っているものはどれか。\n--(危険物の種類)---(指定数量)",
+  "choices": [
+   "ガソリン------200 L",
+   "灯油--------500 L",
+   "軽油--------1,000 L",
+   "重油--------2,000 L"
+  ],
+  "answers": [
+   2
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_50",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 50,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "次の建築設備のうち、「エネルギーの使用の合理化等に関する法律」上、エネルギーの効率的利用のための措置を実施することが定められていないものはどれか。",
+  "choices": [
+   "給湯設備",
+   "照明設備",
+   "給水設備",
+   "空気調和設備"
+  ],
+  "answers": [
+   3
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_51",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 51,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "浄化槽工事に関する記述のうち、「浄化槽法」上、誤っているものはどれか。",
+  "choices": [
+   "浄化槽を設置した場合は、使用を開始する前に、指定検査機関の行う水質検査を受けなければならない。",
+   "浄化槽を工場で製造する場合、型式について、国土交通大臣の認定を受けた。",
+   "浄化槽工事を行う場合、浄化槽設備士の資格を有する浄化槽工事業者が自ら実地に監督した。",
+   "浄化槽工事業者は、営業所ごとに、氏名又は名称、登録番号等を記載した標識を見やすい場所に掲げなければならない。"
+  ],
+  "answers": [
+   1
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ },
+ {
+  "id": "H28_kouki_52",
+  "session": "H28_kouki",
+  "era": "平成28年度",
+  "year": 2016,
+  "term": "後期",
+  "exam": "学科試験",
+  "format": "old",
+  "number": 52,
+  "category": "法規",
+  "required": false,
+  "selection_note": "10問中8問選択",
+  "stem": "建設資材廃棄物の再資源化等に関する文中、 内に当てはまる数値及び語句の組合せとして、「建設工事に係る資材の再資源化等に関する法律」上、正しいものはどれか。\n床面積の合計が A m2以上の建築工事の新築に伴って副次的に生じた特定建設資材廃棄物は、再資源化等をしなければならない。なお、特定建設資材とは、コンクリート、コンクリート及び鉄から成る建設資材、 B 及びアスファルト・コンクリートである。\n--(A)-------(B)",
+  "choices": [
+   "50------プラスチック",
+   "50------木材",
+   "500------プラスチック",
+   "500------木材"
+  ],
+  "answers": [
+   4
+  ],
+  "multi_answer": false,
+  "has_figure": false,
+  "figures": [],
+  "explanation": null,
+  "source": {
+   "html": "data/raw/questions_html/H28_kouki.html",
+   "pdf": "data/raw/questions/H28_kouki_mondai.pdf"
+  }
+ }
+]
