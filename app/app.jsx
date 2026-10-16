@@ -291,7 +291,7 @@ function Castle({ style, rescued = false }) {
     </div>
   );
 }
-// 【確認用】タップで反応するキャラ。onPoke があるとき（debug時）だけ背景の中でもタップを受ける
+// タップで反応するキャラ。onPoke があるときだけ背景の中でもタップを受ける
 const POKE_MOVES = {
   hop: [{ transform: "translateY(0)" }, { transform: "translateY(-16px)", offset: 0.4 }, { transform: "translateY(0)" }],
   rattle: [0, -3, 3, -3, 3, -2, 0].map((x) => ({ transform: `translateX(${x}px) rotate(${x * 2}deg)` })),
@@ -886,7 +886,7 @@ function tone(seq, jingle = false) {
 const melody = (str, eighth) => seq(str).map(([n, l]) => [noteFreq(n), l * eighth]);
 const SFX = {
   coin: () => tone([[988, 0.07], [1319, 0.35]]),
-  // 【確認用】背景キャラをタップ：カロンの骨が「カタカタ」、プクプクが「ぷくっ」
+  // 背景キャラをタップ：カロンの骨が「カタカタ」、プクプクが「ぷくっ」
   kata: () => tone([[220, 0.03], [0, 0.03], [262, 0.03], [0, 0.03], [196, 0.04]]),
   puku: () => tone([[520, 0.09, 1250]]),
   damage: () => tone([[494, 0.1], [370, 0.1], [262, 0.25, 130]]),
@@ -1208,7 +1208,7 @@ export default function App() {
   // 【確認用・公開前に削除】?debug=1 でテスト中に「全問正解で終える」「6割正解で終える」、トップに「記録をリセット」
   const [debug] = useState(() => new URLSearchParams(location.search).get("debug") === "1");
   const [debugFinish, setDebugFinish] = useState(false);
-  // 【確認用】ホームの?ブロックを叩くとコインが1枚出る（debug時のみ）
+  // ホームの?ブロックを叩くとコインが1枚出る
   const [qCoins, setQCoins] = useState([]);   // { id, b(ブロック番号), i(何枚目), dx(左右の散り) }
   function hitQBlock(b, e) {
     e.currentTarget.animate([{ transform: "translateY(0)" }, { transform: "translateY(-8px)" }, { transform: "translateY(0)" }], { duration: 180, easing: "ease-out" });
@@ -1551,7 +1551,7 @@ export default function App() {
   );
   const styleTag = (
     <>
-    <Scenery home={screen === "home"} rescued={rescued} world={sceneWorld} onPoke={debug ? play : null} />
+    <Scenery home={screen === "home"} rescued={rescued} world={sceneWorld} onPoke={play} />
     {worldIntro && <WorldIntro world={worldIntro} />}
     {screen === "home" && <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 40, pointerEvents: "none", overflow: "hidden" }}><FlyingToad /></div>}{/* 目立つよう画面の手前を飛ぶ */}
     {screen !== "home" && <div style={{ position: "fixed", right: 12, bottom: 40, zIndex: 50, display: "flex", gap: 6 }}>{soundToggles}</div>}
@@ -1693,19 +1693,19 @@ export default function App() {
           {/* マリオとルイージが土管・?ブロックと並ぶ看板 */}
           <div aria-hidden="true" style={{ display: "flex", alignItems: "flex-end", justifyContent: "center", gap: 14, margin: "6px 0 2px", height: 64 }}>
             {rescued && <Pixel rows={PEACH} palette={PALETTES.peach} px={3} className="hero idle" style={{ animationDelay: ".3s" }} title="ピーチ" />}
-            <NamedHero who="mario" px={3} pose="idle" king={hasTreasure} onClick={debug ? () => play("jump") : undefined} />
-            <NamedHero who="luigi" px={3} pose="idle" style={{ animationDelay: ".6s" }} onClick={debug ? () => play("jump") : undefined} />
+            <NamedHero who="mario" px={3} pose="idle" king={hasTreasure} onClick={() => play("jump")} />
+            <NamedHero who="luigi" px={3} pose="idle" style={{ animationDelay: ".6s" }} onClick={() => play("jump")} />
             <span style={{ display: "flex", gap: 0, alignSelf: "flex-start" }}>
               {[0, 1, 2].map((b) => (
                 <span key={b} style={{ position: "relative", display: "inline-flex" }}>
-                  <QBlock onClick={debug ? (e) => hitQBlock(b, e) : undefined} />
+                  <QBlock onClick={(e) => hitQBlock(b, e)} />
                   {qCoins.filter((c) => c.b === b).map((c) => (
                     <Coin key={c.id} className="qcoin" style={{ left: 5, top: 0, "--dx": `${c.dx}px`, animationDelay: `${c.i * 70}ms` }} />
                   ))}
                 </span>
               ))}
             </span>
-            <Pipe onClick={debug ? () => play("warp") : undefined} />
+            <Pipe onClick={() => play("warp")} />
           </div>
           {/* アプリの軽い説明 */}
           <div style={{ margin: "4px 0 20px" }}>

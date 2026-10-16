@@ -515,7 +515,7 @@ function Castle({
     }
   })));
 }
-// 【確認用】タップで反応するキャラ。onPoke があるとき（debug時）だけ背景の中でもタップを受ける
+// タップで反応するキャラ。onPoke があるときだけ背景の中でもタップを受ける
 const POKE_MOVES = {
   hop: [{
     transform: "translateY(0)"
@@ -2038,7 +2038,7 @@ function tone(seq, jingle = false) {
 const melody = (str, eighth) => seq(str).map(([n, l]) => [noteFreq(n), l * eighth]);
 const SFX = {
   coin: () => tone([[988, 0.07], [1319, 0.35]]),
-  // 【確認用】背景キャラをタップ：カロンの骨が「カタカタ」、プクプクが「ぷくっ」
+  // 背景キャラをタップ：カロンの骨が「カタカタ」、プクプクが「ぷくっ」
   kata: () => tone([[220, 0.03], [0, 0.03], [262, 0.03], [0, 0.03], [196, 0.04]]),
   puku: () => tone([[520, 0.09, 1250]]),
   damage: () => tone([[494, 0.1], [370, 0.1], [262, 0.25, 130]]),
@@ -2553,7 +2553,7 @@ function App() {
   // 【確認用・公開前に削除】?debug=1 でテスト中に「全問正解で終える」「6割正解で終える」、トップに「記録をリセット」
   const [debug] = useState(() => new URLSearchParams(location.search).get("debug") === "1");
   const [debugFinish, setDebugFinish] = useState(false);
-  // 【確認用】ホームの?ブロックを叩くとコインが1枚出る（debug時のみ）
+  // ホームの?ブロックを叩くとコインが1枚出る
   const [qCoins, setQCoins] = useState([]); // { id, b(ブロック番号), i(何枚目), dx(左右の散り) }
   function hitQBlock(b, e) {
     e.currentTarget.animate([{
@@ -3139,7 +3139,7 @@ function App() {
     home: screen === "home",
     rescued: rescued,
     world: sceneWorld,
-    onPoke: debug ? play : null
+    onPoke: play
   }), worldIntro && /*#__PURE__*/React.createElement(WorldIntro, {
     world: worldIntro
   }), screen === "home" && /*#__PURE__*/React.createElement("div", {
@@ -3371,7 +3371,7 @@ function App() {
       px: 3,
       pose: "idle",
       king: hasTreasure,
-      onClick: debug ? () => play("jump") : undefined
+      onClick: () => play("jump")
     }), /*#__PURE__*/React.createElement(NamedHero, {
       who: "luigi",
       px: 3,
@@ -3379,7 +3379,7 @@ function App() {
       style: {
         animationDelay: ".6s"
       },
-      onClick: debug ? () => play("jump") : undefined
+      onClick: () => play("jump")
     }), /*#__PURE__*/React.createElement("span", {
       style: {
         display: "flex",
@@ -3393,7 +3393,7 @@ function App() {
         display: "inline-flex"
       }
     }, /*#__PURE__*/React.createElement(QBlock, {
-      onClick: debug ? e => hitQBlock(b, e) : undefined
+      onClick: e => hitQBlock(b, e)
     }), qCoins.filter(c => c.b === b).map(c => /*#__PURE__*/React.createElement(Coin, {
       key: c.id,
       className: "qcoin",
@@ -3404,7 +3404,7 @@ function App() {
         animationDelay: `${c.i * 70}ms`
       }
     }))))), /*#__PURE__*/React.createElement(Pipe, {
-      onClick: debug ? () => play("warp") : undefined
+      onClick: () => play("warp")
     })), /*#__PURE__*/React.createElement("div", {
       style: {
         margin: "4px 0 20px"
