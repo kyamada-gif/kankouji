@@ -31,6 +31,10 @@ const COIN = ["..KKKK..", ".KYYYYK.", "KYWYYYOK", "KYWYOYOK", "KYWYOYOK", "KYWYO
 // クリボー 16×16。B=頭 D=まゆ・足 W=白目 T=顔・胴
 const GOOMBA = ["......BBBB......", ".....BBBBBB.....", "....BBBBBBBB....", "...BBBBBBBBBB...", "..BDDBBBBBBDDB..", ".BBBWDBBBBDWBBB.", ".BBBWDDDDDDWBBB.", "BBBBWDWBBWDWBBBB", "BBBBWWWBBWWWBBBB", "BBBBBBBBBBBBBBBB", ".BBBBTTTTTTBBBB.", "....TTTTTTTT....", "....TTTTTTTTD...", "..DDDTTTTTTDDD..", ".DDDDDTTTTDDDDD.", ".DDDDDD..DDDDDD."];
 // ピーチ 12×20。C=王冠 R=宝石・口 Y=髪 S=肌 B=目 P=ドレス p=ドレスの影
+// キノピオ 12×16。W=かさ・ズボン R=かさの水玉 E=目 B=ベスト Y=ベストの縁 F=くつ
+const TOAD = ["....WWWW....", "..WWRRRRWW..", ".WRRRRRRRRW.", "WWRRWWWWRRWW", "WWWWWWWWWWWW", "WRRWWWWWWRRW", ".WWWWWWWWWW.", "..SSSSSSSS..", "..SESSSSES..", "..SESSSSES..", "...SSSSSS...", "..BBYSSYBB..", ".SBBWWWWBBS.", ".SBWWWWWWBS.", "...WWWWWW...", "..FFF..FFF.."];
+// スター 16×15（キノピオが乗る）。Y=黄 O=縁 K=目
+const STAR = [".......OO.......", "......OYYO......", "......OYYO......", ".....OYYYYO.....", "OOOOOOYYYYOOOOOO", ".OYYYYYYYYYYYYO.", "..OYYYKYYKYYYO..", "...OYYKYYKYYO...", "....OYYYYYYO....", "....OYYYYYYO....", "...OYYYYYYYYO...", "...OYYYOOYYYO...", "..OYYYO..OYYYO..", "..OYYO....OYYO..", ".OOO........OOO."];
 const PEACH = ["....C.C.C...", "....CCRCC...", "...YYYYYYY..", "..YYSSSSSYY.", "..YSSBSBSSY.", "..YSSSSSSSY.", "..YYSSRSSYY.", ".YYYYSSSYYYY", ".YYPPPPPPPYY", ".YYPpPPPpPYY", "..SPPPPPPPS.", "..SPPPPPPPS.", "...PPPPPPP..", "..PPPPPPPPP.", "..PPpPPPpPP.", ".PPPPPPPPPPP", ".PPPPPPPPPPP", "PPPPPPPPPPPP", "PpPPPPPPPPpP", "PPPPPPPPPPPP"];
 // クッパ 20×18（左向き）。H=角・爪・とげ R=髪 O=体 o=腹 K=目 G=甲羅
 const BOWSER = ["...H......RR........", "..HH....RRRRR.......", "..OOOO.RRRRRRR......", ".OOKOOORRRRRR.H.H...", "OOOOOOOORRRGGHGGH...", "HOHOOOOOOGGGGGGGGH..", "OOOOOOOOGGHGGGGHGG..", ".OOOOOooGGGGGGGGGGH.", "..OOOooooGGHGGGHGGG.", "..HOOoooooGGGGGGGGG.", ".HOOOoooooGGGGGGGGH.", "..OOOoooooOGGGGGGG..", "...OOoooooOOGGGGG...", "...OOOoooOOOO.......", "..OOOOOOOOOOOO......", "..OOO......OOO......", ".HOOO.....HOOO......", "HHOOO....HHOOO......"];
@@ -51,6 +55,20 @@ const PALETTES = {
     ...SKIN,
     H: "#20a030",
     C: "#20a030"
+  },
+  star: {
+    Y: "#fbd000",
+    O: "#d08800",
+    K: "#1a1a1a"
+  },
+  toad: {
+    W: "#ffffff",
+    R: "#e52521",
+    S: "#f8b878",
+    E: "#1a1a1a",
+    B: "#2038ec",
+    Y: "#fbd000",
+    F: "#8b4513"
   },
   coin: {
     K: "#6b3a00",
@@ -236,10 +254,23 @@ function Cloud({
     ry: "6"
   })));
 }
-// クッパ城（背景）。灰色の石積み＋凸凹の城壁＋黒い門と窓
+// クッパ城（背景）。灰色の石積み＋凸凹の城壁＋黒い門と窓。
+// 城壁の上（塔の左右）に、攫われたピーチとクッパ。救出後はピーチがいなくなり（マリオの横へ）、クッパが悔しがる
 function Castle({
-  style
+  style,
+  rescued = false
 }) {
+  const tiny = {
+    position: "absolute",
+    bottom: "100%",
+    left: "50%",
+    transform: "translateX(-50%)",
+    marginBottom: 3,
+    padding: "1px 5px",
+    fontSize: 9,
+    borderWidth: 2,
+    whiteSpace: "nowrap"
+  };
   const stone = {
     background: "#8c8c8c",
     backgroundImage: "linear-gradient(#4a4a4a 2px, transparent 2px), linear-gradient(90deg, #4a4a4a 2px, transparent 2px)",
@@ -307,8 +338,48 @@ function Castle({
       borderRadius: "5px 5px 0 0"
     }
   })), /*#__PURE__*/React.createElement("div", {
-    style: crenel(150)
-  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...crenel(150),
+      position: "relative"
+    }
+  }, !rescued && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      left: 6,
+      bottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "bubble",
+    style: {
+      ...tiny,
+      borderColor: "#f878b0"
+    }
+  }, "\u305F\u3059\u3051\u3066\u301C\uFF01"), /*#__PURE__*/React.createElement(Pixel, {
+    rows: PEACH,
+    palette: PALETTES.peach,
+    px: 2,
+    className: "hero idle"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "absolute",
+      right: 0,
+      bottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "bubble",
+    style: {
+      ...tiny,
+      borderColor: "#1f8a2a"
+    }
+  }, rescued ? "ぐぬぬ…" : "ガハハ！"), /*#__PURE__*/React.createElement(Pixel, {
+    rows: BOWSER.map(r => r.padEnd(20, ".")),
+    palette: PALETTES.bowser,
+    px: 2,
+    className: "hero idle",
+    style: {
+      animationDelay: ".4s"
+    }
+  }))), /*#__PURE__*/React.createElement("div", {
     style: {
       ...stone,
       width: 150,
@@ -370,8 +441,106 @@ function WalkingGoomba({
     title: "\u30AF\u30EA\u30DC\u30FC"
   }));
 }
+// 飛ぶ軌道（画面幅・高さに対する割合）：右上から入り、ゆるい弧を描いて画面中ほどまで下り、左上へ抜ける。小さく上下にふわふわ揺れる
+function toadAt(u) {
+  const x = 1.08 - 1.2 * u;
+  const y = 0.10 + 0.24 * Math.sin(Math.PI * u) + 0.012 * Math.sin(u * Math.PI * 8);
+  return [x, y];
+}
+// スターに乗ったキノピオ：トップを開くたびに5%の確率で、空を1回だけ飛んでいく（毎フレーム位置を計算してなめらかに）
+function FlyingToad() {
+  const [show, setShow] = useState(() => Math.random() < 0.05);
+  const ref = React.useRef(null),
+    faceRef = React.useRef(null),
+    trailRefs = React.useRef([]);
+  useEffect(() => {
+    if (!show) return;
+    const DUR = 3900,
+      DELAY = 1000;
+    let raf,
+      start = null,
+      faceLeft = true;
+    const step = now => {
+      if (start == null) start = now + DELAY;
+      const u = Math.max(0, (now - start) / DUR);
+      if (u >= 1) {
+        setShow(false);
+        return;
+      }
+      const W = window.innerWidth,
+        H = window.innerHeight;
+      const [x, y] = toadAt(u),
+        [x2, y2] = toadAt(Math.min(1, u + 0.004));
+      const dx = (x2 - x) * W,
+        dy = (y2 - y) * H;
+      if (Math.abs(dx) > 0.3) faceLeft = dx < 0; // 進む向きを向く
+      const tilt = Math.max(-25, Math.min(25, Math.atan2(dy, Math.abs(dx)) * 180 / Math.PI * 0.5)) * (faceLeft ? -1 : 1);
+      if (ref.current) ref.current.style.transform = `translate3d(${x * W - 16}px, ${y * H - 20}px, 0) rotate(${tilt}deg)`;
+      if (faceRef.current) faceRef.current.style.transform = faceLeft ? "scaleX(-1)" : "none";
+      trailRefs.current.forEach((el, k) => {
+        // 後ろに残るキラキラ
+        if (!el) return;
+        const [tx, ty] = toadAt(Math.max(0, u - 0.012 * (k + 1)));
+        el.style.transform = `translate3d(${tx * W + 4}px, ${ty * H + 26 + Math.sin(now / 90 + k) * 3}px, 0)`;
+        el.style.opacity = u > 0 ? String(0.8 - k * 0.14) : "0";
+      });
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [show]);
+  if (!show) return null;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, [0, 1, 2, 3, 4].map(k => /*#__PURE__*/React.createElement("span", {
+    key: k,
+    ref: el => trailRefs.current[k] = el,
+    style: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: 6 - k,
+      height: 6 - k,
+      background: "#fff6a0",
+      boxShadow: "0 0 6px #fbd000",
+      opacity: 0,
+      willChange: "transform"
+    }
+  })), /*#__PURE__*/React.createElement("div", {
+    ref: ref,
+    style: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      transform: "translate3d(-200px,-200px,0)",
+      willChange: "transform"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    ref: faceRef,
+    style: {
+      transform: "scaleX(-1)",
+      marginBottom: -12,
+      position: "relative",
+      zIndex: 1
+    }
+  }, /*#__PURE__*/React.createElement(Pixel, {
+    rows: TOAD,
+    palette: PALETTES.toad,
+    px: 2,
+    className: "hero",
+    title: "\u30AD\u30CE\u30D4\u30AA"
+  })), /*#__PURE__*/React.createElement(Pixel, {
+    rows: STAR,
+    palette: PALETTES.star,
+    px: 2,
+    className: "star-spin",
+    title: "\u30B9\u30BF\u30FC"
+  })));
+}
 function Scenery({
-  home = false
+  home = false,
+  rescued = false
 }) {
   return /*#__PURE__*/React.createElement("div", {
     "aria-hidden": "true",
@@ -386,7 +555,8 @@ function Scenery({
     style: {
       right: "3%",
       bottom: 33
-    }
+    },
+    rescued: rescued
   }), /*#__PURE__*/React.createElement(Cloud, {
     style: {
       top: 26,
@@ -1816,9 +1986,9 @@ function App() {
     setRetry(false);
   }
 
-  // BGM：覚える＝地上、テスト＝地下（クッパ城は城の曲）。いずれも小さく。ホーム・結果は無音
+  // BGM：トップ・覚える＝地上、テスト＝地下（クッパ城は城の曲）。いずれも小さく。結果は無音
   useEffect(() => {
-    const studying = screen === "study" && studySub === "learn";
+    const studying = screen === "study" && studySub === "learn" || screen === "home"; // トップも地上
     if (!bgmOn || screen !== "test" && !studying) {
       BGM.stop();
       return;
@@ -2010,8 +2180,18 @@ function App() {
     }
   }, soundOn ? "🔊" : "🔇"));
   const styleTag = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Scenery, {
-    home: screen === "home"
-  }), screen !== "home" && /*#__PURE__*/React.createElement("div", {
+    home: screen === "home",
+    rescued: rescued
+  }), screen === "home" && /*#__PURE__*/React.createElement("div", {
+    "aria-hidden": "true",
+    style: {
+      position: "fixed",
+      inset: 0,
+      zIndex: 40,
+      pointerEvents: "none",
+      overflow: "hidden"
+    }
+  }, /*#__PURE__*/React.createElement(FlyingToad, null)), screen !== "home" && /*#__PURE__*/React.createElement("div", {
     style: {
       position: "fixed",
       right: 12,
@@ -2036,6 +2216,8 @@ function App() {
       @keyframes jump{ 0%{transform:translateY(0)} 40%{transform:translateY(-26px)} 100%{transform:translateY(0)} }
       .goomba-walk{ animation-name: goomba-walk; animation-timing-function: linear; animation-iteration-count: infinite; }
       @keyframes goomba-walk{ from{ transform: translateX(calc(100vw + 10px)) } to{ transform: translateX(-40px) } }
+      .star-spin{ display:block; animation: star-twinkle .3s steps(2) infinite; }
+      @keyframes star-twinkle{ 50%{ filter: brightness(1.35) } }
       .goomba-step{ display:block; animation: goomba-step .5s steps(1) infinite; }
       @keyframes goomba-step{ 0%{ transform: scaleX(1) } 50%{ transform: scaleX(-1) } }
       .confetti{ position:absolute; opacity:0; border-radius:1px; animation-name: confetti; animation-timing-function: cubic-bezier(.2,.7,.4,1); animation-fill-mode: both; }
@@ -2100,67 +2282,8 @@ function App() {
         minWidth: 0
       }
     }, /*#__PURE__*/React.createElement("div", {
-      "aria-hidden": "true",
       style: {
-        display: "flex",
-        alignItems: "flex-end",
-        justifyContent: "center",
-        gap: 10,
-        paddingBottom: 0
-      }
-    }, !rescued && /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 4
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "bubble",
-      style: {
-        borderColor: "#f878b0",
-        padding: "3px 9px",
-        fontSize: 11.5
-      }
-    }, "\u305F\u3059\u3051\u3066\u301C\uFF01"), /*#__PURE__*/React.createElement(Pixel, {
-      rows: PEACH,
-      palette: PALETTES.peach,
-      px: 3,
-      className: "hero idle"
-    })), /*#__PURE__*/React.createElement("div", {
-      style: {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 4
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "bubble",
-      style: {
-        borderColor: "#1f8a2a",
-        padding: "3px 9px",
-        fontSize: 11.5
-      }
-    }, rescued ? "ぐぬぬ…次こそは！" : "ガハハ！合格はさせんぞ"), /*#__PURE__*/React.createElement(Pixel, {
-      rows: BOWSER.map(r => r.padEnd(20, ".")),
-      palette: PALETTES.bowser,
-      px: 3,
-      className: "hero idle",
-      style: {
-        animationDelay: ".4s"
-      }
-    }))), /*#__PURE__*/React.createElement("div", {
-      "aria-hidden": "true",
-      style: {
-        height: 12,
-        background: "#8c8c8c",
-        border: "2px solid #3a3a3a",
-        backgroundImage: "linear-gradient(#4a4a4a 2px, transparent 2px), linear-gradient(90deg, #4a4a4a 2px, transparent 2px)",
-        backgroundSize: "16px 6px"
-      }
-    }), /*#__PURE__*/React.createElement("div", {
-      style: {
-        marginTop: 14,
+        marginTop: 6,
         marginBottom: 10,
         display: "flex",
         alignItems: "center",
