@@ -199,6 +199,16 @@ function Pixel({ rows, palette, px = 3, style, className, title }) {
 function Hero({ who = "mario", px = 3, pose = "", style }) {
   return <Pixel rows={HERO} palette={PALETTES[who]} px={px} style={style} className={"hero " + pose} title={who === "mario" ? "マリオ" : "ルイージ"} />;
 }
+// 頭の上に小さく名前を付けたマリオ／ルイージ
+const HERO_NAMES = { mario: "ゆーくん", luigi: "みっちゃん" };
+function NamedHero({ who, style, ...rest }) {
+  return (
+    <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: 5 }}>
+      <span style={{ fontSize: 9, fontWeight: 800, color: "#000", lineHeight: 1, whiteSpace: "nowrap" }}>{HERO_NAMES[who]}</span>
+      <Hero who={who} style={style} {...rest} />
+    </span>
+  );
+}
 function Coin({ px = 2, style, className }) {
   return <Pixel rows={COIN} palette={PALETTES.coin} px={px} style={style} className={className} />;
 }
@@ -225,7 +235,7 @@ function Cloud({ style }) {
     </svg>
   );
 }
-// クッパ城（背景）。灰色の石積み＋凸凹の城壁＋黒い門と窓。
+// かめおの城（背景）。灰色の石積み＋凸凹の城壁＋黒い門と窓。
 // 城壁の上（塔の左右）に、攫われたピーチとクッパ。救出後はピーチがいなくなり（マリオの横へ）、クッパが悔しがる
 function Castle({ style, rescued = false }) {
   const tiny = { position: "absolute", bottom: "100%", left: "50%", transform: "translateX(-50%)", marginBottom: 3, padding: "1px 5px", fontSize: 9, borderWidth: 2, whiteSpace: "nowrap" };
@@ -320,19 +330,184 @@ function FlyingToad() {
     </>
   );
 }
-function Scenery({ home = false, rescued = false }) {
+// プクプク 16×15（右向き・ファミコン風）。R=体 W=背びれ・顔 T=ひれ・くちびる K=目・口
+const CHEEP = [
+  "......TTTTTT....",
+  "..WW.RRRRRR.....",
+  ".WWWRRRRRRRTT...",
+  ".WWWWRRRRWWWWT..",
+  "..WWWRRRWWWWWW..",
+  "..WWRRRRWWKWWK..",
+  "...WRRRRWWKWWK..",
+  "...RRRRRRWWWWWR.",
+  "..RRRRRRRRWWRR..",
+  "T.RRRRRRRRRTTTT.",
+  "TTRRRRRRRRTKKKT.",
+  "TTTRRRRRRTTKKK..",
+  "TT.RRRRRWWTTT...",
+  "T...RRRWWWW.....",
+  "......WWWW......",
+];
+// カロン 16×24（右向き・立ち姿）。K=輪郭 W=骨 Y=目 g=こうら S=こうらの白 B=くつ O=くつ底
+const DRYBONES = [
+  ".......KKKK.....",
+  "......KWWWWK....",
+  ".....KWWWWWWK...",
+  ".....KWWWKYWK...",
+  ".....KWWWKKWWK..",
+  "....KWWWWWWWWWK.",
+  "....KWWWWWWWWWWK",
+  "....KWWWWWgKKKK.",
+  ".....KWWWWWWWK..",
+  "......KKWWWKK...",
+  "......KWWWK.....",
+  "...KKKKWWWK.....",
+  "..KgggKWWWWK....",
+  ".KgSgSgKWWWK....",
+  ".KgggggKWWWKK...",
+  "KgSgSggKWWWWWK..",
+  "KgggggKWWWWWKK..",
+  "KggSggKWWWWK....",
+  ".KgggKWWWWWK....",
+  "..KKKKWWWWWK....",
+  "....KWWK.KWWK...",
+  "...KBBBK.KBBBK..",
+  "..KBBBBK.KBBBBK.",
+  "..KOOOOK.KOOOOK.",
+];
+const DRYBONES_PAL = { K: "#111111", W: "#f2eedc", Y: "#f8d800", g: "#9aa2ac", S: "#e8e8e0", B: "#a8d8e8", O: "#e07020" };
+// 羽（カロンの背中に付けてパタパタ）
+const WING = [
+  "...WWW",
+  ".WWWWW",
+  "WWWWWW",
+  ".WWWW.",
+  "..WW..",
+];
+// 溶岩のワールドを歩くカロン（左向きのまま、ひょこひょこ跳ねて歩く）
+function WalkingDryBones({ duration = 18, delay = 0 }) {
+  return (
+    <div className="goomba-walk" style={{ position: "absolute", bottom: 33, left: 0, animationDuration: `${duration}s`, animationDelay: `${delay}s` }}>
+      <div style={{ transform: "scaleX(-1)" }}>{/* 左向きに歩く */}
+        <Pixel rows={DRYBONES} palette={DRYBONES_PAL} px={2} className="hero idle walker" title="カロン" />
+      </div>
+    </div>
+  );
+}
+// 雲の上を飛ぶ羽つきカロン
+const PARA_FLY = [
+  { top: "26%", dur: 13, delay: 0 },
+  { top: "58%", dur: 17, delay: -9 },
+];
+function FlyingDryBones({ top, dur, delay }) {
+  return (
+    <div className="swim-left" style={{ position: "absolute", top, left: 0, animationDuration: `${dur}s`, animationDelay: `${delay}s` }}>
+      <div className="cheep-bob" style={{ position: "relative", animationDelay: `${delay / 3}s` }}>
+        <div style={{ position: "relative", transform: "scaleX(-1)" }}>{/* 左向きに飛ぶ。羽はこうら（背中）側 */}
+          <Pixel rows={WING} palette={{ W: "#ffffff" }} px={3} className="wing-flap" style={{ position: "absolute", left: -8, top: 12 }} />
+          <Pixel rows={DRYBONES} palette={DRYBONES_PAL} px={2} title="羽つきカロン" />
+        </div>
+      </div>
+    </div>
+  );
+}
+// 海のワールドを泳ぐプクプク（top=高さ、dur=横切る秒数、right=右向きに泳ぐ）
+const CHEEP_SWIM = [
+  { top: "22%", dur: 14, delay: 0, right: false },
+  { top: "48%", dur: 19, delay: -8, right: true },
+  { top: "70%", dur: 16, delay: -4, right: false },
+];
+function SwimmingCheep({ top, dur, delay, right }) {
+  return (
+    <div className={right ? "swim-right" : "swim-left"} style={{ position: "absolute", top, left: 0, animationDuration: `${dur}s`, animationDelay: `${delay}s` }}>
+      <div className="cheep-bob" style={{ animationDelay: `${delay / 3}s` }}>
+        <div style={{ transform: right ? "none" : "scaleX(-1)" }}>
+          <Pixel rows={CHEEP} palette={{ R: "#f01010", W: "#f8f8f8", T: "#d8b0a8", K: "#000000" }} px={2} title="プクプク" />
+        </div>
+      </div>
+    </div>
+  );
+}
+// ワールドごとの景色。bg=空の色、ground=地面の見た目、extra=景色の飾り
+const WORLD_THEMES = {
+  1: { name: "草原", bg: "linear-gradient(180deg,#6aa4ff 0%,#9cc8ff 70%,#b9dcff 100%)", clouds: 0.9 },
+  2: { name: "砂漠", bg: "linear-gradient(180deg,#f7b955 0%,#fcd98f 65%,#fff0c8 100%)", clouds: 0.35 },
+  3: { name: "海", bg: "linear-gradient(180deg,#4fb4f0 0%,#7fd0f8 55%,#b0e6ff 100%)", clouds: 0 },
+  4: { name: "雪原", bg: "linear-gradient(180deg,#a9cdf2 0%,#d6e9fb 70%,#f4f9ff 100%)", clouds: 0.7 },
+  5: { name: "雲の上", bg: "linear-gradient(180deg,#6cc0ff 0%,#bfe6ff 70%,#e8f6ff 100%)", clouds: 1 },
+  6: { name: "溶岩地帯", bg: "linear-gradient(180deg,#f2774a 0%,#ffa66e 60%,#ffd09a 100%)", clouds: 0 },
+};
+const worldTheme = (w) => WORLD_THEMES[w] || WORLD_THEMES[1];
+function Ground({ world }) {
+  const base = { position: "absolute", left: 0, right: 0, bottom: 0, height: 30 };
+  if (world === 2) return <div style={{ ...base, background: "#e0a448", borderTop: "3px solid #9a6420", backgroundImage: "radial-gradient(#b87a2c 1.5px, transparent 2px)", backgroundSize: "14px 9px" }} />;
+  if (world === 3) return <div style={{ ...base, background: "#f0d38e", borderTop: "3px solid #b8954a", backgroundImage: "radial-gradient(#d8b46a 1.5px, transparent 2px)", backgroundSize: "12px 8px" }} />;
+  if (world === 4) return <div style={{ ...base, background: "#ffffff", borderTop: "3px solid #8fb4d8", backgroundImage: "linear-gradient(#cfe0f2 2px, transparent 2px), linear-gradient(90deg, #cfe0f2 2px, transparent 2px)", backgroundSize: "30px 15px" }} />;
+  if (world === 5) return <div style={{ ...base, height: 34, background: "#ffffff", backgroundImage: "radial-gradient(circle at 15px 0, #ffffff 14px, transparent 15px)", backgroundSize: "30px 30px", boxShadow: "0 -6px 0 -2px #ffffff", borderTop: "none" }} />;
+  if (world === 6) return <div style={{ ...base, background: "#4a3434", borderTop: "4px solid #ff5a1a", boxShadow: "0 -6px 14px #ff6a2a88", backgroundImage: "linear-gradient(#2a1c1c 2px, transparent 2px), linear-gradient(90deg, #2a1c1c 2px, transparent 2px)", backgroundSize: "30px 15px" }} />;
+  return <div style={{ ...base, background: "#c84c0c", borderTop: "3px solid #3b2a1a", backgroundImage: "linear-gradient(#3b2a1a 2px, transparent 2px), linear-gradient(90deg, #3b2a1a 2px, transparent 2px)", backgroundSize: "30px 15px" }} />;
+}
+// 景色の飾り（ピラミッド・泡と海藻・雪山と雪・浮かぶ雲・火山と火の粉）。位置は固定の乱数で決める
+const DOTS = Array.from({ length: 14 }, (_, i) => ({ left: (i * 37 + 11) % 100, delay: -((i * 1.7) % 9), dur: 7 + (i * 1.3) % 5, size: 4 + (i * 3) % 7 }));
+function WorldDecor({ world }) {
+  const tri = (style) => <span style={{ position: "absolute", width: 0, height: 0, ...style }} />;
+  if (world === 2) return (<>
+    <span style={{ position: "absolute", top: 40, right: "12%", width: 54, height: 54, borderRadius: "50%", background: "#fff3b0", boxShadow: "0 0 30px #fff3b0" }} />
+    {tri({ left: "4%", bottom: 33, borderLeft: "70px solid transparent", borderRight: "70px solid transparent", borderBottom: "80px solid #d9963e" })}
+    {tri({ left: "calc(4% + 90px)", bottom: 33, borderLeft: "44px solid transparent", borderRight: "44px solid transparent", borderBottom: "52px solid #c98632" })}
+    <span style={{ position: "absolute", right: "28%", bottom: 33, width: 10, height: 44, background: "#3f9a3a", borderRadius: 5, boxShadow: "-12px -6px 0 -2px #3f9a3a, 12px -12px 0 -2px #3f9a3a" }} />
+  </>);
+  if (world === 3) return (<>
+    {DOTS.map((d, i) => <span key={i} className="bubble-up" style={{ left: `${d.left}%`, width: d.size + 4, height: d.size + 4, animationDuration: `${d.dur}s`, animationDelay: `${d.delay}s` }} />)}
+    {CHEEP_SWIM.map((c, i) => <SwimmingCheep key={"c" + i} {...c} />)}
+    {[6, 14, 82, 90].map((l, i) => <span key={"w" + i} className="seaweed" style={{ left: `${l}%`, height: 50 + (i % 2) * 22, animationDelay: `${-i * 0.7}s` }} />)}
+  </>);
+  if (world === 4) return (<>
+    {tri({ left: "-2%", bottom: 33, borderLeft: "110px solid transparent", borderRight: "110px solid transparent", borderBottom: "120px solid #e8f1fb" })}
+    {tri({ left: "calc(-2% + 150px)", bottom: 33, borderLeft: "80px solid transparent", borderRight: "80px solid transparent", borderBottom: "90px solid #dbe8f6" })}
+    {DOTS.map((d, i) => <span key={i} className="snow-fall" style={{ left: `${d.left}%`, width: d.size, height: d.size, animationDuration: `${d.dur + 3}s`, animationDelay: `${d.delay}s` }} />)}
+  </>);
+  if (world === 5) return (<>
+    {PARA_FLY.map((c, i) => <FlyingDryBones key={"p" + i} {...c} />)}
+    <Cloud style={{ top: "30%", right: "-14px", opacity: 0.95, transform: "scale(1.3)" }} />
+    <Cloud style={{ top: "62%", left: "4%", opacity: 0.85, transform: "scale(1.1)" }} />
+    <Cloud style={{ top: "78%", right: "18%", opacity: 0.9 }} />
+  </>);
+  if (world === 6) return (<>
+    {tri({ left: "2%", bottom: 33, borderLeft: "100px solid transparent", borderRight: "100px solid transparent", borderBottom: "110px solid #6a3030" })}
+    <span style={{ position: "absolute", left: "calc(2% + 86px)", bottom: 128, width: 28, height: 16, borderRadius: "50%", background: "#ff7a2a", boxShadow: "0 0 18px #ff7a2a" }} />
+    {DOTS.map((d, i) => <span key={i} className="ember-up" style={{ left: `${d.left}%`, width: 4, height: 4, animationDuration: `${d.dur - 2}s`, animationDelay: `${d.delay}s` }} />)}
+  </>);
+  return null;
+}
+function Scenery({ home = false, rescued = false, world = 1 }) {
+  const th = worldTheme(world);
   return (
     <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
+      <WorldDecor world={world} />
       {home && <Castle style={{ right: "3%", bottom: 33 }} rescued={rescued} />}
-      <Cloud style={{ top: 26, left: "6%", opacity: 0.9 }} />
-      <Cloud style={{ top: 92, right: "8%", opacity: 0.8, transform: "scale(.8)" }} />
-      <Cloud style={{ top: "46%", left: "-10px", opacity: 0.6, transform: "scale(.7)" }} />
-      <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 30, background: "#c84c0c",
-        borderTop: "3px solid #3b2a1a",
-        backgroundImage: "linear-gradient(#3b2a1a 2px, transparent 2px), linear-gradient(90deg, #3b2a1a 2px, transparent 2px)",
-        backgroundSize: "30px 15px" }} />
-      {home && <WalkingGoomba duration={18} />}
-      {home && <WalkingGoomba duration={18} delay={-7} />}
+      {th.clouds > 0 && <>
+        <Cloud style={{ top: 26, left: "6%", opacity: th.clouds }} />
+        <Cloud style={{ top: 92, right: "8%", opacity: th.clouds * 0.9, transform: "scale(.8)" }} />
+        <Cloud style={{ top: "46%", left: "-10px", opacity: th.clouds * 0.7, transform: "scale(.7)" }} />
+      </>}
+      <Ground world={world} />
+      {/* 地面を歩くキャラ：草原・砂漠・雪原はクリボー、溶岩はカロン、海と雲の上はなし */}
+      {home && [1, 2, 4].includes(world) && <><WalkingGoomba duration={18} /><WalkingGoomba duration={18} delay={-7} /></>}
+      {home && world === 6 && <><WalkingDryBones duration={20} /><WalkingDryBones duration={20} delay={-8} /></>}
+    </div>
+  );
+}
+// ワールドが変わる演出：黒い画面に「WORLD N」とマリオ（本家のステージ開始画面風）
+function WorldIntro({ world }) {
+  return (
+    <div className="world-intro" aria-live="polite" style={{ position: "fixed", inset: 0, zIndex: 120, background: "#000", color: "#fff", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18, fontFamily: "ui-monospace, Menlo, monospace" }}>
+      <div style={{ fontSize: 15, letterSpacing: 4, opacity: 0.8 }}>NEXT WORLD</div>
+      <div style={{ fontSize: 34, fontWeight: 900, letterSpacing: 4 }}>WORLD {world}-1</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+        <Hero who="mario" px={3} />
+        <span style={{ fontSize: 18, fontWeight: 800 }}>{worldTheme(world).name}</span>
+      </div>
     </div>
   );
 }
@@ -466,7 +641,7 @@ function CourseClear() {
   );
 }
 
-// ── クッパ城クリア演出：橋が崩れてクッパが溶岩へ → ピーチ登場 ──
+// ── かめおの城クリア演出：橋が崩れてクッパが溶岩へ → ピーチ登場 ──
 //   既定スタイル＝最終状態（reduced-motion でも結末が見える）。keyframes の from が開始状態。
 const BRIDGE_SEGS = 10;
 //   mode: "another"＝まだ救出前（ピーチは別の城）/ "rescue"＝今回で救出達成 / "thanks"＝救出済みで再挑戦
@@ -527,7 +702,7 @@ function CastleClear({ gold, mode = "another", remaining = 0 }) {
         )}
       </div>
       <div className="clear-title castle-title" style={{ fontSize: 26, fontWeight: 900, letterSpacing: 1, color: "#fff", textShadow: "2px 2px 0 #e52521, 4px 4px 0 #3b2a1a", marginTop: 10 }}>
-        {rescue ? "ピーチ姫を救出！" : "クッパをたおした！"}
+        {rescue ? "ピーチ姫を救出！" : "かめおをたおした！"}
       </div>
       <div style={{ fontSize: 15, fontWeight: 900, color: gold ? "#d98e00" : "#1f9e3a", marginTop: 4 }}>
         {gold ? "👑 王冠ゲット！" : "⭐ スターゲット！"}
@@ -593,7 +768,7 @@ const SFX = {
   flagpole: () => tone([[1568, 0.9, 196]], true),
   select: () => tone([[1047, 0.035], [1568, 0.05]]),
   back: () => tone([[1047, 0.06]]),
-  // コースクリア（旗のあと）／クッパ城クリア（落下のあと）：ステージクリアの曲
+  // コースクリア（旗のあと）／かめおの城クリア（落下のあと）：ステージクリアの曲
   stageClear: () => tone(melody("G3 C4 E4 G4 C5 E5 G5:3 E5:3 G#3 C4 D#4 G#4 C5 D#5 G#5:3 D#5:3 A#3 D4 F4 A#4 D5 F5 A#5:3 A#5 A#5 A#5 C6:6", 0.1), true),
   // 土管に入る（テスト開始）：低い「ボッ」を3回、それぞれ下へ滑らせる
   warp: () => tone([[330, 0.12, 110], [0, 0.05], [330, 0.12, 110], [0, 0.05], [330, 0.16, 98]]),
@@ -789,7 +964,7 @@ export default function App() {
   }, [soundOn]);
   const play = (name) => { if (soundOn) SFX[name](); };
   function toggleSound() { setSoundOn((v) => { if (!v) SFX.coin(); return !v; }); }
-  // 曲：覚える（暗記カード）＝地上、テスト（覚えるの10問テストも）＝地下、クッパ城＝城（全コース共通）
+  // 曲：覚える（暗記カード）＝地上、テスト（覚えるの10問テストも）＝地下、かめおの城＝城（全コース共通）
   function testTrack() {
     return testMode === "exam" || testMode === "exammiss" ? "castle" : "underground";
   }
@@ -884,6 +1059,22 @@ export default function App() {
   // ── 総合テストの修了バッジ表示 ──
   const examGoldCount = examSlots.filter((s) => s === "gold").length;
   const examComplete = examSlots.length >= EXAM_SLOTS;                 // 5枠コンプ
+  // 今いるワールド＝まだ3コースともクリアしていない一番若いワールド（全部クリアなら最後のワールド）
+  const groupNos = [...new Set(blocks.map((b) => b.group))];
+  const groupCleared = (g) => blocks.every((b, k) => b.group !== g || (records[k] && records[k].badge));
+  const clearedWorld = groupNos.find((g) => !groupCleared(g)) || groupNos[groupNos.length - 1] || 1;
+  const [pendingWorld, setPendingWorld] = useState(null);   // ワールドを全クリアした直後：ホームに戻ったら演出
+  const [worldIntro, setWorldIntro] = useState(null);       // 演出中のワールド番号
+  // 演出の途中は前のワールドの景色のまま、演出が終わってから新しい景色へ
+  const currentWorld = worldIntro ? worldIntro : pendingWorld ? pendingWorld - 1 : clearedWorld;
+  useEffect(() => {
+    if (screen === "home" && pendingWorld) { setWorldIntro(pendingWorld); setPendingWorld(null); }
+  }, [screen, pendingWorld]);
+  useEffect(() => {
+    if (!worldIntro) return;
+    const t = setTimeout(() => setWorldIntro(null), 2800);
+    return () => clearTimeout(t);
+  }, [worldIntro]);
   const examMastered = examComplete && examGoldCount >= EXAM_SLOTS;    // 全枠金＝完全制覇
   const rescued = examComplete;                                // 修了バッジが揃った＝ピーチ救出（ホームでマリオの横へ）
   // 5枠のコレクション帯（🥇金 / 🏅銀 / 空）。size でアイコンの大きさを変える。
@@ -905,7 +1096,7 @@ export default function App() {
   // ── スタイル（暗記特化: 落ち着いた濃紺、最小限のグロー） ──
   const wrap = {
     minHeight: "100vh", boxSizing: "border-box",
-    background: "linear-gradient(180deg,#6aa4ff 0%,#9cc8ff 70%,#b9dcff 100%)",
+    background: worldTheme(currentWorld).bg, transition: "background .6s",
     color: "#1f1a14", fontFamily: "system-ui, -apple-system, 'Hiragino Sans', sans-serif",
     display: "flex", flexDirection: "column", alignItems: "center", padding: "20px 16px 64px", overflowX: "hidden", position: "relative",
   };
@@ -1011,6 +1202,10 @@ export default function App() {
             return { ...rec, [secIdx]: { best: Math.max(prev.best, pct), badge: prev.badge || badge } };
           });
         }
+        // このコースで、ワールドの3コースが揃ってクリアになったら、次のワールドへの演出を予約
+        const g = blocks[secIdx] && blocks[secIdx].group;
+        const othersCleared = blocks.every((b, k) => b.group !== g || k === secIdx || (records[k] && records[k].badge));
+        if (badge && !(records[secIdx] && records[secIdx].badge) && othersCleared && groupNos.includes(g + 1)) setPendingWorld(g + 1);
         setLastScore({ correct, total, pct, badge, pass, full: fullBlock });
         setScreen("result");
       } else if (testMode === "exam") {     // 総合テスト（模試）: 合否＋修了バッジ
@@ -1068,7 +1263,7 @@ export default function App() {
     setTestPos(next); setPhase("answer"); setMultiSel([]); setLastOk(null); setRetry(false);
   }
 
-  // BGM：トップ・覚える＝地上、テスト＝地下（クッパ城は城の曲）。いずれも小さく。結果は無音
+  // BGM：トップ・覚える＝地上、テスト＝地下（かめおの城は城の曲）。いずれも小さく。結果は無音
   useEffect(() => {
     const studying = (screen === "study" && studySub === "learn") || screen === "home";  // トップも地上
     if (!bgmOn || (screen !== "test" && !studying)) { BGM.stop(); return; }
@@ -1084,7 +1279,7 @@ export default function App() {
       const t1 = setTimeout(() => play("popper"), 1300), t2 = setTimeout(() => play("stageClear"), 1450);
       return () => { clearTimeout(t1); clearTimeout(t2); stopJingles(); };
     }
-    if (screen === "result" && lastScore && lastScore.exam && lastScore.pass) {  // クッパ城：橋が崩れる → 落下 → ファンファーレ
+    if (screen === "result" && lastScore && lastScore.exam && lastScore.pass) {  // かめおの城：橋が崩れる → 落下 → ファンファーレ
       // 落下音（1.4秒から0.9秒間）が鳴り終わったところでステージクリアのファンファーレ
       const ts = [setTimeout(() => play("bridge"), 300), setTimeout(() => play("fall"), 1400), setTimeout(() => play("stageClear"), 2300)];
       if (lastScore.gold && !lastScore.rescue) ts.push(setTimeout(() => play("popper"), 2400));
@@ -1098,8 +1293,8 @@ export default function App() {
   // 結果表示用：マリオとルイージ（よくできた＝ジャンプ / 未達＝しょんぼり）
   const heroes = (good) => (
     <div aria-hidden="true" style={{ display: "flex", justifyContent: "center", gap: 18, marginTop: 14, height: 76, alignItems: "flex-end" }}>
-      <Hero who="mario" px={4} pose={good ? "jump" : "sad"} />
-      <Hero who="luigi" px={4} pose={good ? "jump" : "sad"} style={{ animationDelay: ".15s" }} />
+      <NamedHero who="mario" px={4} pose={good ? "jump" : "sad"} />
+      <NamedHero who="luigi" px={4} pose={good ? "jump" : "sad"} style={{ animationDelay: ".15s" }} />
     </div>
   );
 
@@ -1184,7 +1379,8 @@ export default function App() {
   );
   const styleTag = (
     <>
-    <Scenery home={screen === "home"} rescued={rescued} />
+    <Scenery home={screen === "home"} rescued={rescued} world={currentWorld} />
+    {worldIntro && <WorldIntro world={worldIntro} />}
     {screen === "home" && <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 40, pointerEvents: "none", overflow: "hidden" }}><FlyingToad /></div>}{/* 目立つよう画面の手前を飛ぶ */}
     {screen !== "home" && <div style={{ position: "fixed", right: 12, bottom: 40, zIndex: 50, display: "flex", gap: 6 }}>{soundToggles}</div>}
     <style>{`
@@ -1239,6 +1435,24 @@ export default function App() {
       .hideans{ filter: blur(6px); cursor: pointer; transition: filter .12s; border-radius: 5px; }
       .hideans:hover, .hideans.shown{ filter: none; }
       .row:hover{ border-color:#3b2a1a !important; }
+      .world-intro{ animation: world-intro 2.8s ease both; }
+      @keyframes world-intro{ 0%{ opacity:0 } 10%{ opacity:1 } 85%{ opacity:1 } 100%{ opacity:0 } }
+      .bubble-up{ position:absolute; bottom:30px; border-radius:50%; border:2px solid #ffffffcc; background:#ffffff33; animation: bubble-up linear infinite; }
+      @keyframes bubble-up{ from{ transform: translateY(0) } to{ transform: translateY(-105vh) } }
+      .hero.walker{ animation-duration: .45s; }
+      .wing-flap{ transform-origin: bottom left; animation: wing-flap .25s steps(2) infinite; }
+      @keyframes wing-flap{ 50%{ transform: scaleY(.45) } }
+      .swim-left{ animation: swim-left linear infinite; }
+      @keyframes swim-left{ from{ transform: translateX(calc(100vw + 20px)) } to{ transform: translateX(-60px) } }
+      .swim-right{ animation: swim-right linear infinite; }
+      @keyframes swim-right{ from{ transform: translateX(-60px) } to{ transform: translateX(calc(100vw + 20px)) } }
+      .cheep-bob{ animation: cheep-bob 1.6s ease-in-out infinite alternate; }
+      @keyframes cheep-bob{ from{ transform: translateY(-10px) rotate(-4deg) } to{ transform: translateY(10px) rotate(4deg) } }
+      .seaweed{ position:absolute; bottom:30px; width:10px; background:#2f9e4a; border-radius:6px 6px 0 0; transform-origin: bottom center; animation: sway 3s ease-in-out infinite alternate; }
+      @keyframes sway{ from{ transform: rotate(-8deg) } to{ transform: rotate(8deg) } }
+      .snow-fall{ position:absolute; top:-10px; border-radius:50%; background:#fff; animation: snow-fall linear infinite; }
+      @keyframes snow-fall{ from{ transform: translateY(0) } to{ transform: translateY(105vh) } }
+      .ember-up{ position:absolute; bottom:30px; background:#ffb03a; box-shadow:0 0 6px #ff7a2a; animation: bubble-up linear infinite; }
       .world-tag{ font-size:12px; font-weight:900; letter-spacing:1px; color:#fff; padding:3px 9px; border:2px solid #3b2a1a; border-radius:4px;
         background:#c84c0c; background-image: linear-gradient(#3b2a1a55 1px, transparent 1px), linear-gradient(90deg, #3b2a1a55 1px, transparent 1px); background-size: 12px 7px;
         text-shadow: 1px 1px 0 #3b2a1a; white-space:nowrap; }
@@ -1268,9 +1482,9 @@ export default function App() {
       <div style={wrap} className="wrap">
         {styleTag}
         <div style={{ maxWidth: 480, width: "100%", minWidth: 0 }}>
-          <div style={{ marginTop: 6, marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ marginTop: 6, marginBottom: 10, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
             <div style={{ display: "flex", flexDirection: "column", gap: 3, minWidth: 0 }}>
-              <h1 style={{ fontSize: 22, fontWeight: 900, letterSpacing: 1, margin: 0, whiteSpace: "nowrap", color: "#fff",
+              <h1 style={{ fontSize: "clamp(17px, 5.4vw, 22px)", fontWeight: 900, letterSpacing: 1, margin: 0, whiteSpace: "nowrap", color: "#fff",
                 textShadow: "2px 2px 0 #e52521, 4px 4px 0 #3b2a1a" }}>スーパー管工事ブラザーズ</h1>
               <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 2, color: "#1f1a14" }}>2級管工事 第一次検定</span>
             </div>
@@ -1287,8 +1501,8 @@ export default function App() {
           {/* マリオとルイージが土管・?ブロックと並ぶ看板 */}
           <div aria-hidden="true" style={{ display: "flex", alignItems: "flex-end", justifyContent: "center", gap: 14, margin: "6px 0 2px", height: 64 }}>
             {rescued && <Pixel rows={PEACH} palette={PALETTES.peach} px={3} className="hero idle" style={{ animationDelay: ".3s" }} title="ピーチ" />}
-            <Hero who="mario" px={3} pose="idle" />
-            <Hero who="luigi" px={3} pose="idle" style={{ animationDelay: ".6s" }} />
+            <NamedHero who="mario" px={3} pose="idle" />
+            <NamedHero who="luigi" px={3} pose="idle" style={{ animationDelay: ".6s" }} />
             <span style={{ display: "flex", gap: 0, alignSelf: "flex-start" }}><QBlock /><QBlock /><QBlock /></span>
             <Pipe />
           </div>
@@ -1371,7 +1585,7 @@ export default function App() {
           {/* 総合テスト（模試・下）：全範囲60問・本番形式。仕上げに挑戦。修了バッジを5個集める。 */}
           <div style={{ marginTop: 14, padding: "16px 16px 15px", borderRadius: 14, background: "linear-gradient(180deg,#e3f7df,#fff8e7)", border: `1px solid ${examMastered ? "#f0a00088" : examComplete ? "#1f9e3a55" : "#1f9e3a"}` }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-              <span style={{ fontSize: 15, fontWeight: 900, color: "#1f9e3a" }}>🏰 クッパ城（総合テスト）</span>
+              <span style={{ fontSize: 15, fontWeight: 900, color: "#1f9e3a" }}>🏰 かめおの城（総合テスト）</span>
               <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: 0.5, color: "#d98e00", background: "#fff4c2", border: "1px solid #f0a00055", borderRadius: 6, padding: "1px 6px" }}>仕上げ・本番形式</span>
             </div>
             <div style={{ fontSize: 11.5, fontWeight: 600, color: "#4a3d2e", marginBottom: 12 }}>全範囲から{EXAM_SIZE}問ランダム出題・{EXAM_PASS}問（6割）で合格＝スター⭐／{EXAM_GOLD}問以上で王冠👑</div>
@@ -1380,7 +1594,7 @@ export default function App() {
               {examMastered ? "🎉 完全制覇！" : `修了バッジ ${examSlots.length} / ${EXAM_SLOTS}`}
             </div>
             <button data-sfx="warp" onClick={startExam} style={{ width: "100%", marginTop: 13, padding: "13px 0", borderRadius: 11, fontSize: 15, fontWeight: 900, cursor: "pointer", color: "#ffffff", background: "linear-gradient(90deg,#1f9e3a,#1f9e3a)", border: "none", boxShadow: "0 0 20px #1f9e3a33" }}>
-              🏰 クッパ城に挑戦（{Math.min(EXAM_SIZE, questions.length)}問）
+              🏰 かめおの城に挑戦（{Math.min(EXAM_SIZE, questions.length)}問）
             </button>
           </div>
 
@@ -1660,7 +1874,7 @@ export default function App() {
     const isExamMiss = testMode === "exammiss";
     const isFlagged = testMode === "flagged";
     const coins = testResults.filter((r) => r.ok).length; // 一発正解の数＝コイン
-    const runTitle = isSection ? `${sectionLabels[secIdx]} テスト` : isExam ? "🏰 クッパ城（総合テスト）" : isExamMiss ? "🔁 総合テストの覚え直し" : isFlagged ? "🔖 要復習に挑戦" : isReview ? "🔁 間違えた問題に挑戦" : isRandom ? <><QBlock size={15} style={{ verticalAlign: "-0.2em", marginRight: 6 }} />{randomLabel} ランダム</> : `第${studyChunk + 1}セット チェック`;
+    const runTitle = isSection ? `${sectionLabels[secIdx]} テスト` : isExam ? "🏰 かめおの城（総合テスト）" : isExamMiss ? "🔁 総合テストの覚え直し" : isFlagged ? "🔖 要復習に挑戦" : isReview ? "🔁 間違えた問題に挑戦" : isRandom ? <><QBlock size={15} style={{ verticalAlign: "-0.2em", marginRight: 6 }} />{randomLabel} ランダム</> : `第${studyChunk + 1}セット チェック`;
     return (
       <div style={wrap} className="wrap">
         {styleTag}
@@ -1809,7 +2023,7 @@ export default function App() {
         <div style={wrap} className="wrap">
           {styleTag}
           <div style={{ maxWidth: 460, width: "100%", textAlign: "center", paddingTop: 30 }}>
-            <div style={{ fontSize: 13, letterSpacing: 3, opacity: 0.6 }}>🏰 クッパ城の結果</div>
+            <div style={{ fontSize: 13, letterSpacing: 3, opacity: 0.6 }}>🏰 かめおの城の結果</div>
             <div style={{ fontSize: 64, fontWeight: 900, lineHeight: 1.1, margin: "10px 0 0", color: s.pass ? (s.gold ? "#d98e00" : "#1f9e3a") : "#3b3024", textShadow: s.pass ? (s.gold ? "0 0 30px #d98e0066" : "0 0 28px #1f9e3a55") : "none" }}>
               {s.correct}<span style={{ fontSize: 24, opacity: 0.7 }}> / {s.total}</span>
             </div>
@@ -1837,7 +2051,7 @@ export default function App() {
               {s.missed && s.missed.length > 0 && (
                 <button data-sfx="warp" onClick={() => startExamMisses(s.missed)} style={primaryBtn("linear-gradient(90deg,#f0a000,#d98e00)")}>🔁 間違えた問題を覚える（{s.missed.length}問）</button>
               )}
-              <button onClick={startExam} style={primaryBtn("linear-gradient(90deg,#1f9e3a,#1f9e3a)")}>🏰 もう一度 クッパ城へ</button>
+              <button onClick={startExam} style={primaryBtn("linear-gradient(90deg,#1f9e3a,#1f9e3a)")}>🏰 もう一度 かめおの城へ</button>
               <button data-sfx="back" onClick={() => setScreen("home")} style={ghostBtn}>ホームへ</button>
             </div>
           </div>
