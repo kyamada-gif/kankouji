@@ -174,14 +174,19 @@ function NamedHero({
   who,
   style,
   king = false,
+  onClick,
   ...rest
 }) {
   return /*#__PURE__*/React.createElement("span", {
+    onClick: onClick,
     style: {
       display: "inline-flex",
       flexDirection: "column",
       alignItems: "center",
-      gap: king ? 9 : 5
+      gap: king ? 9 : 5,
+      ...(onClick ? {
+        cursor: "pointer"
+      } : null)
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
@@ -214,15 +219,20 @@ function Coin({
 // ?ブロック（装飾）
 function QBlock({
   size = 26,
-  style
+  style,
+  onClick
 }) {
   return /*#__PURE__*/React.createElement("span", {
     className: "qblock",
     "aria-hidden": "true",
+    onClick: onClick,
     style: {
       width: size,
       height: size,
       fontSize: size * 0.62,
+      ...(onClick ? {
+        cursor: "pointer"
+      } : null),
       ...style
     }
   }, "?");
@@ -231,14 +241,19 @@ function QBlock({
 function Pipe({
   w = 44,
   h = 34,
-  style
+  style,
+  onClick
 }) {
   return /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true",
+    onClick: onClick,
     style: {
       display: "inline-flex",
       flexDirection: "column",
       alignItems: "center",
+      ...(onClick ? {
+        cursor: "pointer"
+      } : null),
       ...style
     }
   }, /*#__PURE__*/React.createElement("span", {
@@ -500,10 +515,57 @@ function Castle({
     }
   })));
 }
+// 【確認用】タップで反応するキャラ。onPoke があるとき（debug時）だけ背景の中でもタップを受ける
+const POKE_MOVES = {
+  hop: [{
+    transform: "translateY(0)"
+  }, {
+    transform: "translateY(-16px)",
+    offset: 0.4
+  }, {
+    transform: "translateY(0)"
+  }],
+  rattle: [0, -3, 3, -3, 3, -2, 0].map(x => ({
+    transform: `translateX(${x}px) rotate(${x * 2}deg)`
+  })),
+  wobble: [{
+    transform: "translateY(0) scale(1)"
+  }, {
+    transform: "translateY(-8px) scale(1.15,.85)",
+    offset: 0.3
+  }, {
+    transform: "translateY(0) scale(.9,1.1)",
+    offset: 0.6
+  }, {
+    transform: "translateY(0) scale(1)"
+  }]
+};
+function Poke({
+  onPoke,
+  move,
+  sfx,
+  children
+}) {
+  if (!onPoke) return children;
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      pointerEvents: "auto",
+      cursor: "pointer"
+    },
+    onClick: e => {
+      e.currentTarget.animate(POKE_MOVES[move], {
+        duration: 420,
+        easing: "ease-out"
+      });
+      onPoke(sfx);
+    }
+  }, children);
+}
 // 地面を歩くクリボー（左右反転を繰り返す＝ファミコンの歩き方）
 function WalkingGoomba({
   duration = 16,
-  delay = 0
+  delay = 0,
+  onPoke
 }) {
   return /*#__PURE__*/React.createElement("div", {
     className: "goomba-walk",
@@ -514,13 +576,17 @@ function WalkingGoomba({
       animationDuration: `${duration}s`,
       animationDelay: `${delay}s`
     }
+  }, /*#__PURE__*/React.createElement(Poke, {
+    onPoke: onPoke,
+    move: "hop",
+    sfx: "jump"
   }, /*#__PURE__*/React.createElement(Pixel, {
     rows: GOOMBA,
     palette: PALETTES.goomba,
     px: 2,
     className: "goomba-step",
     title: "\u30AF\u30EA\u30DC\u30FC"
-  }));
+  })));
 }
 // 飛ぶ軌道（画面幅・高さに対する割合）：右上から入り、ゆるい弧を描いて画面中ほどまで下り、左上へ抜ける。小さく上下にふわふわ揺れる
 function toadAt(u) {
@@ -760,7 +826,8 @@ const WING = ["...WWW", ".WWWWW", "WWWWWW", ".WWWW.", "..WW.."];
 // 溶岩のワールドを歩くカロン（左向きのまま、ひょこひょこ跳ねて歩く）
 function WalkingDryBones({
   duration = 18,
-  delay = 0
+  delay = 0,
+  onPoke
 }) {
   return /*#__PURE__*/React.createElement("div", {
     className: "goomba-walk",
@@ -775,13 +842,17 @@ function WalkingDryBones({
     style: {
       transform: "scaleX(-1)"
     }
+  }, /*#__PURE__*/React.createElement(Poke, {
+    onPoke: onPoke,
+    move: "rattle",
+    sfx: "kata"
   }, /*#__PURE__*/React.createElement(Pixel, {
     rows: DRYBONES,
     palette: DRYBONES_PAL,
     px: 2,
     className: "hero idle walker",
     title: "\u30AB\u30ED\u30F3"
-  })));
+  }))));
 }
 // 雲の上を飛ぶ羽つきカロン
 const PARA_FLY = [{
@@ -796,7 +867,8 @@ const PARA_FLY = [{
 function FlyingDryBones({
   top,
   dur,
-  delay
+  delay,
+  onPoke
 }) {
   return /*#__PURE__*/React.createElement("div", {
     className: "swim-left",
@@ -818,6 +890,10 @@ function FlyingDryBones({
       position: "relative",
       transform: "scaleX(-1)"
     }
+  }, /*#__PURE__*/React.createElement(Poke, {
+    onPoke: onPoke,
+    move: "hop",
+    sfx: "kata"
   }, /*#__PURE__*/React.createElement(Pixel, {
     rows: WING,
     palette: {
@@ -835,7 +911,7 @@ function FlyingDryBones({
     palette: DRYBONES_PAL,
     px: 2,
     title: "\u7FBD\u3064\u304D\u30AB\u30ED\u30F3"
-  }))));
+  })))));
 }
 // 海のワールドを泳ぐプクプク（top=高さ、dur=横切る秒数、right=右向きに泳ぐ）
 const CHEEP_SWIM = [{
@@ -858,7 +934,8 @@ function SwimmingCheep({
   top,
   dur,
   delay,
-  right
+  right,
+  onPoke
 }) {
   return /*#__PURE__*/React.createElement("div", {
     className: right ? "swim-right" : "swim-left",
@@ -878,6 +955,10 @@ function SwimmingCheep({
     style: {
       transform: right ? "none" : "scaleX(-1)"
     }
+  }, /*#__PURE__*/React.createElement(Poke, {
+    onPoke: onPoke,
+    move: "wobble",
+    sfx: "puku"
   }, /*#__PURE__*/React.createElement(Pixel, {
     rows: CHEEP,
     palette: {
@@ -888,7 +969,7 @@ function SwimmingCheep({
     },
     px: 2,
     title: "\u30D7\u30AF\u30D7\u30AF"
-  }))));
+  })))));
 }
 // ワールドごとの景色。bg=空の色、ground=地面の見た目、extra=景色の飾り
 const WORLD_THEMES = {
@@ -1002,7 +1083,8 @@ const DOTS = Array.from({
   size: 4 + i * 3 % 7
 }));
 function WorldDecor({
-  world
+  world,
+  onPoke
 }) {
   const tri = style => /*#__PURE__*/React.createElement("span", {
     style: {
@@ -1059,7 +1141,9 @@ function WorldDecor({
     }
   })), CHEEP_SWIM.map((c, i) => /*#__PURE__*/React.createElement(SwimmingCheep, _extends({
     key: "c" + i
-  }, c))), [6, 14, 82, 90].map((l, i) => /*#__PURE__*/React.createElement("span", {
+  }, c, {
+    onPoke: onPoke
+  }))), [6, 14, 82, 90].map((l, i) => /*#__PURE__*/React.createElement("span", {
     key: "w" + i,
     className: "seaweed",
     style: {
@@ -1093,7 +1177,9 @@ function WorldDecor({
   })));
   if (world === 5) return /*#__PURE__*/React.createElement(React.Fragment, null, PARA_FLY.map((c, i) => /*#__PURE__*/React.createElement(FlyingDryBones, _extends({
     key: "p" + i
-  }, c))), /*#__PURE__*/React.createElement(Cloud, {
+  }, c, {
+    onPoke: onPoke
+  }))), /*#__PURE__*/React.createElement(Cloud, {
     style: {
       top: "30%",
       right: "-14px",
@@ -1147,7 +1233,8 @@ function WorldDecor({
 function Scenery({
   home = false,
   rescued = false,
-  world = 1
+  world = 1,
+  onPoke
 }) {
   const th = worldTheme(world);
   return /*#__PURE__*/React.createElement("div", {
@@ -1160,7 +1247,8 @@ function Scenery({
       overflow: "hidden"
     }
   }, /*#__PURE__*/React.createElement(WorldDecor, {
-    world: world
+    world: world,
+    onPoke: onPoke
   }), home && /*#__PURE__*/React.createElement(Castle, {
     style: {
       right: "3%",
@@ -1190,15 +1278,19 @@ function Scenery({
   })), /*#__PURE__*/React.createElement(Ground, {
     world: world
   }), home && [1, 2, 4].includes(world) && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WalkingGoomba, {
-    duration: 18
+    duration: 18,
+    onPoke: onPoke
   }), /*#__PURE__*/React.createElement(WalkingGoomba, {
     duration: 18,
-    delay: -7
+    delay: -7,
+    onPoke: onPoke
   })), home && world === 6 && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(WalkingDryBones, {
-    duration: 20
+    duration: 20,
+    onPoke: onPoke
   }), /*#__PURE__*/React.createElement(WalkingDryBones, {
     duration: 20,
-    delay: -8
+    delay: -8,
+    onPoke: onPoke
   })));
 }
 // ワールドが変わる演出：黒い画面に「WORLD N」とマリオ（本家のステージ開始画面風）
@@ -1946,6 +2038,9 @@ function tone(seq, jingle = false) {
 const melody = (str, eighth) => seq(str).map(([n, l]) => [noteFreq(n), l * eighth]);
 const SFX = {
   coin: () => tone([[988, 0.07], [1319, 0.35]]),
+  // 【確認用】背景キャラをタップ：カロンの骨が「カタカタ」、プクプクが「ぷくっ」
+  kata: () => tone([[220, 0.03], [0, 0.03], [262, 0.03], [0, 0.03], [196, 0.04]]),
+  puku: () => tone([[520, 0.09, 1250]]),
   damage: () => tone([[494, 0.1], [370, 0.1], [262, 0.25, 130]]),
   jump: () => tone([[300, 0.18, 900]]),
   clear: () => tone([[523, 0.1], [659, 0.1], [784, 0.1], [1047, 0.12], [784, 0.1], [1047, 0.35]], true),
@@ -2458,6 +2553,29 @@ function App() {
   // 【確認用・公開前に削除】?debug=1 でテスト中に「全問正解で終える」「6割正解で終える」、トップに「記録をリセット」
   const [debug] = useState(() => new URLSearchParams(location.search).get("debug") === "1");
   const [debugFinish, setDebugFinish] = useState(false);
+  // 【確認用】ホームの?ブロックを叩くとコインが1枚出る（debug時のみ）
+  const [qCoins, setQCoins] = useState([]); // { id, b(ブロック番号), i(何枚目), dx(左右の散り) }
+  function hitQBlock(b, e) {
+    e.currentTarget.animate([{
+      transform: "translateY(0)"
+    }, {
+      transform: "translateY(-8px)"
+    }, {
+      transform: "translateY(0)"
+    }], {
+      duration: 180,
+      easing: "ease-out"
+    });
+    const coin = {
+      id: `${Date.now()}-${Math.random()}`,
+      b,
+      i: 0,
+      dx: 0
+    };
+    setQCoins(c => [...c, coin]);
+    play("coin");
+    setTimeout(() => setQCoins(c => c.filter(x => x !== coin)), 900);
+  }
   function debugEnd(ratio) {
     const n = Math.ceil(testQueue.length * ratio);
     setTestResults(testQueue.map((q, k) => ({
@@ -3020,7 +3138,8 @@ function App() {
   const styleTag = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Scenery, {
     home: screen === "home",
     rescued: rescued,
-    world: sceneWorld
+    world: sceneWorld,
+    onPoke: debug ? play : null
   }), worldIntro && /*#__PURE__*/React.createElement(WorldIntro, {
     world: worldIntro
   }), screen === "home" && /*#__PURE__*/React.createElement("div", {
@@ -3090,6 +3209,10 @@ function App() {
       .rescue-scene{ animation: rescue-in .6s 3.3s ease-out both; }
       @keyframes rescue-in{ from{ opacity:0 } to{ opacity:1 } }
       .heart-pop{ display:inline-block; animation: clear-pop .5s 3.8s cubic-bezier(.3,1.6,.5,1) both; }
+      .qcoin{ position:absolute; z-index:2; pointer-events:none; opacity:0; animation: qcoin .85s ease-out both; }
+      @keyframes qcoin{ 0%{transform:translate(0,0) rotateY(0);opacity:0} 8%{opacity:1}
+        45%{transform:translate(calc(var(--dx)*.6),-58px) rotateY(360deg);opacity:1}
+        100%{transform:translate(var(--dx),6px) rotateY(720deg);opacity:0} }
       .coinpop{ position:absolute; animation: coinpop .6s ease-out forwards; pointer-events:none; }
       @keyframes coinpop{ 0%{transform:translateY(0);opacity:1} 70%{transform:translateY(-34px);opacity:1} 100%{transform:translateY(-40px);opacity:0} }
       .hideans{ filter: blur(6px); cursor: pointer; transition: filter .12s; border-radius: 5px; }
@@ -3247,21 +3370,42 @@ function App() {
       who: "mario",
       px: 3,
       pose: "idle",
-      king: hasTreasure
+      king: hasTreasure,
+      onClick: debug ? () => play("jump") : undefined
     }), /*#__PURE__*/React.createElement(NamedHero, {
       who: "luigi",
       px: 3,
       pose: "idle",
       style: {
         animationDelay: ".6s"
-      }
+      },
+      onClick: debug ? () => play("jump") : undefined
     }), /*#__PURE__*/React.createElement("span", {
       style: {
         display: "flex",
         gap: 0,
         alignSelf: "flex-start"
       }
-    }, /*#__PURE__*/React.createElement(QBlock, null), /*#__PURE__*/React.createElement(QBlock, null), /*#__PURE__*/React.createElement(QBlock, null)), /*#__PURE__*/React.createElement(Pipe, null)), /*#__PURE__*/React.createElement("div", {
+    }, [0, 1, 2].map(b => /*#__PURE__*/React.createElement("span", {
+      key: b,
+      style: {
+        position: "relative",
+        display: "inline-flex"
+      }
+    }, /*#__PURE__*/React.createElement(QBlock, {
+      onClick: debug ? e => hitQBlock(b, e) : undefined
+    }), qCoins.filter(c => c.b === b).map(c => /*#__PURE__*/React.createElement(Coin, {
+      key: c.id,
+      className: "qcoin",
+      style: {
+        left: 5,
+        top: 0,
+        "--dx": `${c.dx}px`,
+        animationDelay: `${c.i * 70}ms`
+      }
+    }))))), /*#__PURE__*/React.createElement(Pipe, {
+      onClick: debug ? () => play("warp") : undefined
+    })), /*#__PURE__*/React.createElement("div", {
       style: {
         margin: "4px 0 20px"
       }

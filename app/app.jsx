@@ -201,9 +201,9 @@ function Hero({ who = "mario", px = 3, pose = "", style }) {
 }
 // 頭の上に小さく名前を付けたマリオ／ルイージ
 const HERO_NAMES = { mario: "ゆーくん", luigi: "みっちゃん" };
-function NamedHero({ who, style, king = false, ...rest }) {
+function NamedHero({ who, style, king = false, onClick, ...rest }) {
   return (
-    <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: king ? 9 : 5 }}>
+    <span onClick={onClick} style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: king ? 9 : 5, ...(onClick ? { cursor: "pointer" } : null) }}>
       <span style={{ fontSize: 9, fontWeight: 800, color: "#000", lineHeight: 1, whiteSpace: "nowrap" }}>{HERO_NAMES[who]}</span>
       {king ? <KingHero style={style} {...rest} /> : <Hero who={who} style={style} {...rest} />}
     </span>
@@ -213,13 +213,13 @@ function Coin({ px = 2, style, className }) {
   return <Pixel rows={COIN} palette={PALETTES.coin} px={px} style={style} className={className} />;
 }
 // ?ブロック（装飾）
-function QBlock({ size = 26, style }) {
-  return <span className="qblock" aria-hidden="true" style={{ width: size, height: size, fontSize: size * 0.62, ...style }}>?</span>;
+function QBlock({ size = 26, style, onClick }) {
+  return <span className="qblock" aria-hidden="true" onClick={onClick} style={{ width: size, height: size, fontSize: size * 0.62, ...(onClick ? { cursor: "pointer" } : null), ...style }}>?</span>;
 }
 // 土管（装飾）
-function Pipe({ w = 44, h = 34, style }) {
+function Pipe({ w = 44, h = 34, style, onClick }) {
   return (
-    <span aria-hidden="true" style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", ...style }}>
+    <span aria-hidden="true" onClick={onClick} style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", ...(onClick ? { cursor: "pointer" } : null), ...style }}>
       <span className="pipe" style={{ width: w, height: 14 }} />
       <span className="pipe" style={{ width: w - 8, height: h, borderTop: "none" }} />
     </span>
@@ -291,11 +291,25 @@ function Castle({ style, rescued = false }) {
     </div>
   );
 }
+// 【確認用】タップで反応するキャラ。onPoke があるとき（debug時）だけ背景の中でもタップを受ける
+const POKE_MOVES = {
+  hop: [{ transform: "translateY(0)" }, { transform: "translateY(-16px)", offset: 0.4 }, { transform: "translateY(0)" }],
+  rattle: [0, -3, 3, -3, 3, -2, 0].map((x) => ({ transform: `translateX(${x}px) rotate(${x * 2}deg)` })),
+  wobble: [{ transform: "translateY(0) scale(1)" }, { transform: "translateY(-8px) scale(1.15,.85)", offset: 0.3 }, { transform: "translateY(0) scale(.9,1.1)", offset: 0.6 }, { transform: "translateY(0) scale(1)" }],
+};
+function Poke({ onPoke, move, sfx, children }) {
+  if (!onPoke) return children;
+  return (
+    <div style={{ pointerEvents: "auto", cursor: "pointer" }} onClick={(e) => { e.currentTarget.animate(POKE_MOVES[move], { duration: 420, easing: "ease-out" }); onPoke(sfx); }}>
+      {children}
+    </div>
+  );
+}
 // 地面を歩くクリボー（左右反転を繰り返す＝ファミコンの歩き方）
-function WalkingGoomba({ duration = 16, delay = 0 }) {
+function WalkingGoomba({ duration = 16, delay = 0, onPoke }) {
   return (
     <div className="goomba-walk" style={{ position: "absolute", bottom: 33, left: 0, animationDuration: `${duration}s`, animationDelay: `${delay}s` }}>
-      <Pixel rows={GOOMBA} palette={PALETTES.goomba} px={2} className="goomba-step" title="クリボー" />
+      <Poke onPoke={onPoke} move="hop" sfx="jump"><Pixel rows={GOOMBA} palette={PALETTES.goomba} px={2} className="goomba-step" title="クリボー" /></Poke>
     </div>
   );
 }
@@ -456,11 +470,11 @@ const WING = [
   "..WW..",
 ];
 // 溶岩のワールドを歩くカロン（左向きのまま、ひょこひょこ跳ねて歩く）
-function WalkingDryBones({ duration = 18, delay = 0 }) {
+function WalkingDryBones({ duration = 18, delay = 0, onPoke }) {
   return (
     <div className="goomba-walk" style={{ position: "absolute", bottom: 33, left: 0, animationDuration: `${duration}s`, animationDelay: `${delay}s` }}>
       <div style={{ transform: "scaleX(-1)" }}>{/* 左向きに歩く */}
-        <Pixel rows={DRYBONES} palette={DRYBONES_PAL} px={2} className="hero idle walker" title="カロン" />
+        <Poke onPoke={onPoke} move="rattle" sfx="kata"><Pixel rows={DRYBONES} palette={DRYBONES_PAL} px={2} className="hero idle walker" title="カロン" /></Poke>
       </div>
     </div>
   );
@@ -470,13 +484,15 @@ const PARA_FLY = [
   { top: "26%", dur: 13, delay: 0 },
   { top: "58%", dur: 17, delay: -9 },
 ];
-function FlyingDryBones({ top, dur, delay }) {
+function FlyingDryBones({ top, dur, delay, onPoke }) {
   return (
     <div className="swim-left" style={{ position: "absolute", top, left: 0, animationDuration: `${dur}s`, animationDelay: `${delay}s` }}>
       <div className="cheep-bob" style={{ position: "relative", animationDelay: `${delay / 3}s` }}>
         <div style={{ position: "relative", transform: "scaleX(-1)" }}>{/* 左向きに飛ぶ。羽はこうら（背中）側 */}
-          <Pixel rows={WING} palette={{ W: "#ffffff" }} px={3} className="wing-flap" style={{ position: "absolute", left: -8, top: 12 }} />
-          <Pixel rows={DRYBONES} palette={DRYBONES_PAL} px={2} title="羽つきカロン" />
+          <Poke onPoke={onPoke} move="hop" sfx="kata">
+            <Pixel rows={WING} palette={{ W: "#ffffff" }} px={3} className="wing-flap" style={{ position: "absolute", left: -8, top: 12 }} />
+            <Pixel rows={DRYBONES} palette={DRYBONES_PAL} px={2} title="羽つきカロン" />
+          </Poke>
         </div>
       </div>
     </div>
@@ -488,12 +504,12 @@ const CHEEP_SWIM = [
   { top: "48%", dur: 19, delay: -8, right: true },
   { top: "70%", dur: 16, delay: -4, right: false },
 ];
-function SwimmingCheep({ top, dur, delay, right }) {
+function SwimmingCheep({ top, dur, delay, right, onPoke }) {
   return (
     <div className={right ? "swim-right" : "swim-left"} style={{ position: "absolute", top, left: 0, animationDuration: `${dur}s`, animationDelay: `${delay}s` }}>
       <div className="cheep-bob" style={{ animationDelay: `${delay / 3}s` }}>
         <div style={{ transform: right ? "none" : "scaleX(-1)" }}>
-          <Pixel rows={CHEEP} palette={{ R: "#f01010", W: "#f8f8f8", T: "#d8b0a8", K: "#000000" }} px={2} title="プクプク" />
+          <Poke onPoke={onPoke} move="wobble" sfx="puku"><Pixel rows={CHEEP} palette={{ R: "#f01010", W: "#f8f8f8", T: "#d8b0a8", K: "#000000" }} px={2} title="プクプク" /></Poke>
         </div>
       </div>
     </div>
@@ -520,7 +536,7 @@ function Ground({ world }) {
 }
 // 景色の飾り（ピラミッド・泡と海藻・雪山と雪・浮かぶ雲・火山と火の粉）。位置は固定の乱数で決める
 const DOTS = Array.from({ length: 14 }, (_, i) => ({ left: (i * 37 + 11) % 100, delay: -((i * 1.7) % 9), dur: 7 + (i * 1.3) % 5, size: 4 + (i * 3) % 7 }));
-function WorldDecor({ world }) {
+function WorldDecor({ world, onPoke }) {
   const tri = (style) => <span style={{ position: "absolute", width: 0, height: 0, ...style }} />;
   if (world === 2) return (<>
     <span style={{ position: "absolute", top: 40, right: "12%", width: 54, height: 54, borderRadius: "50%", background: "#fff3b0", boxShadow: "0 0 30px #fff3b0" }} />
@@ -530,7 +546,7 @@ function WorldDecor({ world }) {
   </>);
   if (world === 3) return (<>
     {DOTS.map((d, i) => <span key={i} className="bubble-up" style={{ left: `${d.left}%`, width: d.size + 4, height: d.size + 4, animationDuration: `${d.dur}s`, animationDelay: `${d.delay}s` }} />)}
-    {CHEEP_SWIM.map((c, i) => <SwimmingCheep key={"c" + i} {...c} />)}
+    {CHEEP_SWIM.map((c, i) => <SwimmingCheep key={"c" + i} {...c} onPoke={onPoke} />)}
     {[6, 14, 82, 90].map((l, i) => <span key={"w" + i} className="seaweed" style={{ left: `${l}%`, height: 50 + (i % 2) * 22, animationDelay: `${-i * 0.7}s` }} />)}
   </>);
   if (world === 4) return (<>
@@ -539,7 +555,7 @@ function WorldDecor({ world }) {
     {DOTS.map((d, i) => <span key={i} className="snow-fall" style={{ left: `${d.left}%`, width: d.size, height: d.size, animationDuration: `${d.dur + 3}s`, animationDelay: `${d.delay}s` }} />)}
   </>);
   if (world === 5) return (<>
-    {PARA_FLY.map((c, i) => <FlyingDryBones key={"p" + i} {...c} />)}
+    {PARA_FLY.map((c, i) => <FlyingDryBones key={"p" + i} {...c} onPoke={onPoke} />)}
     <Cloud style={{ top: "30%", right: "-14px", opacity: 0.95, transform: "scale(1.3)" }} />
     <Cloud style={{ top: "62%", left: "4%", opacity: 0.85, transform: "scale(1.1)" }} />
     <Cloud style={{ top: "78%", right: "18%", opacity: 0.9 }} />
@@ -551,11 +567,11 @@ function WorldDecor({ world }) {
   </>);
   return null;
 }
-function Scenery({ home = false, rescued = false, world = 1 }) {
+function Scenery({ home = false, rescued = false, world = 1, onPoke }) {
   const th = worldTheme(world);
   return (
     <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none", overflow: "hidden" }}>
-      <WorldDecor world={world} />
+      <WorldDecor world={world} onPoke={onPoke} />
       {home && <Castle style={{ right: "3%", bottom: 33 }} rescued={rescued} />}
       {th.clouds > 0 && <>
         <Cloud style={{ top: 26, left: "6%", opacity: th.clouds }} />
@@ -564,8 +580,8 @@ function Scenery({ home = false, rescued = false, world = 1 }) {
       </>}
       <Ground world={world} />
       {/* 地面を歩くキャラ：草原・砂漠・雪原はクリボー、溶岩はカロン、海と雲の上はなし */}
-      {home && [1, 2, 4].includes(world) && <><WalkingGoomba duration={18} /><WalkingGoomba duration={18} delay={-7} /></>}
-      {home && world === 6 && <><WalkingDryBones duration={20} /><WalkingDryBones duration={20} delay={-8} /></>}
+      {home && [1, 2, 4].includes(world) && <><WalkingGoomba duration={18} onPoke={onPoke} /><WalkingGoomba duration={18} delay={-7} onPoke={onPoke} /></>}
+      {home && world === 6 && <><WalkingDryBones duration={20} onPoke={onPoke} /><WalkingDryBones duration={20} delay={-8} onPoke={onPoke} /></>}
     </div>
   );
 }
@@ -870,6 +886,9 @@ function tone(seq, jingle = false) {
 const melody = (str, eighth) => seq(str).map(([n, l]) => [noteFreq(n), l * eighth]);
 const SFX = {
   coin: () => tone([[988, 0.07], [1319, 0.35]]),
+  // 【確認用】背景キャラをタップ：カロンの骨が「カタカタ」、プクプクが「ぷくっ」
+  kata: () => tone([[220, 0.03], [0, 0.03], [262, 0.03], [0, 0.03], [196, 0.04]]),
+  puku: () => tone([[520, 0.09, 1250]]),
   damage: () => tone([[494, 0.1], [370, 0.1], [262, 0.25, 130]]),
   jump: () => tone([[300, 0.18, 900]]),
   clear: () => tone([[523, 0.1], [659, 0.1], [784, 0.1], [1047, 0.12], [784, 0.1], [1047, 0.35]], true),
@@ -1189,6 +1208,15 @@ export default function App() {
   // 【確認用・公開前に削除】?debug=1 でテスト中に「全問正解で終える」「6割正解で終える」、トップに「記録をリセット」
   const [debug] = useState(() => new URLSearchParams(location.search).get("debug") === "1");
   const [debugFinish, setDebugFinish] = useState(false);
+  // 【確認用】ホームの?ブロックを叩くとコインが1枚出る（debug時のみ）
+  const [qCoins, setQCoins] = useState([]);   // { id, b(ブロック番号), i(何枚目), dx(左右の散り) }
+  function hitQBlock(b, e) {
+    e.currentTarget.animate([{ transform: "translateY(0)" }, { transform: "translateY(-8px)" }, { transform: "translateY(0)" }], { duration: 180, easing: "ease-out" });
+    const coin = { id: `${Date.now()}-${Math.random()}`, b, i: 0, dx: 0 };
+    setQCoins((c) => [...c, coin]);
+    play("coin");
+    setTimeout(() => setQCoins((c) => c.filter((x) => x !== coin)), 900);
+  }
   function debugEnd(ratio) {
     const n = Math.ceil(testQueue.length * ratio);
     setTestResults(testQueue.map((q, k) => ({ id: q.id, ok: k < n })));
@@ -1523,7 +1551,7 @@ export default function App() {
   );
   const styleTag = (
     <>
-    <Scenery home={screen === "home"} rescued={rescued} world={sceneWorld} />
+    <Scenery home={screen === "home"} rescued={rescued} world={sceneWorld} onPoke={debug ? play : null} />
     {worldIntro && <WorldIntro world={worldIntro} />}
     {screen === "home" && <div aria-hidden="true" style={{ position: "fixed", inset: 0, zIndex: 40, pointerEvents: "none", overflow: "hidden" }}><FlyingToad /></div>}{/* 目立つよう画面の手前を飛ぶ */}
     {screen !== "home" && <div style={{ position: "fixed", right: 12, bottom: 40, zIndex: 50, display: "flex", gap: 6 }}>{soundToggles}</div>}
@@ -1576,6 +1604,10 @@ export default function App() {
       .rescue-scene{ animation: rescue-in .6s 3.3s ease-out both; }
       @keyframes rescue-in{ from{ opacity:0 } to{ opacity:1 } }
       .heart-pop{ display:inline-block; animation: clear-pop .5s 3.8s cubic-bezier(.3,1.6,.5,1) both; }
+      .qcoin{ position:absolute; z-index:2; pointer-events:none; opacity:0; animation: qcoin .85s ease-out both; }
+      @keyframes qcoin{ 0%{transform:translate(0,0) rotateY(0);opacity:0} 8%{opacity:1}
+        45%{transform:translate(calc(var(--dx)*.6),-58px) rotateY(360deg);opacity:1}
+        100%{transform:translate(var(--dx),6px) rotateY(720deg);opacity:0} }
       .coinpop{ position:absolute; animation: coinpop .6s ease-out forwards; pointer-events:none; }
       @keyframes coinpop{ 0%{transform:translateY(0);opacity:1} 70%{transform:translateY(-34px);opacity:1} 100%{transform:translateY(-40px);opacity:0} }
       .hideans{ filter: blur(6px); cursor: pointer; transition: filter .12s; border-radius: 5px; }
@@ -1661,10 +1693,19 @@ export default function App() {
           {/* マリオとルイージが土管・?ブロックと並ぶ看板 */}
           <div aria-hidden="true" style={{ display: "flex", alignItems: "flex-end", justifyContent: "center", gap: 14, margin: "6px 0 2px", height: 64 }}>
             {rescued && <Pixel rows={PEACH} palette={PALETTES.peach} px={3} className="hero idle" style={{ animationDelay: ".3s" }} title="ピーチ" />}
-            <NamedHero who="mario" px={3} pose="idle" king={hasTreasure} />
-            <NamedHero who="luigi" px={3} pose="idle" style={{ animationDelay: ".6s" }} />
-            <span style={{ display: "flex", gap: 0, alignSelf: "flex-start" }}><QBlock /><QBlock /><QBlock /></span>
-            <Pipe />
+            <NamedHero who="mario" px={3} pose="idle" king={hasTreasure} onClick={debug ? () => play("jump") : undefined} />
+            <NamedHero who="luigi" px={3} pose="idle" style={{ animationDelay: ".6s" }} onClick={debug ? () => play("jump") : undefined} />
+            <span style={{ display: "flex", gap: 0, alignSelf: "flex-start" }}>
+              {[0, 1, 2].map((b) => (
+                <span key={b} style={{ position: "relative", display: "inline-flex" }}>
+                  <QBlock onClick={debug ? (e) => hitQBlock(b, e) : undefined} />
+                  {qCoins.filter((c) => c.b === b).map((c) => (
+                    <Coin key={c.id} className="qcoin" style={{ left: 5, top: 0, "--dx": `${c.dx}px`, animationDelay: `${c.i * 70}ms` }} />
+                  ))}
+                </span>
+              ))}
+            </span>
+            <Pipe onClick={debug ? () => play("warp") : undefined} />
           </div>
           {/* アプリの軽い説明 */}
           <div style={{ margin: "4px 0 20px" }}>
