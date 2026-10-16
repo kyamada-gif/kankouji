@@ -1066,7 +1066,7 @@ export default function App() {
 
   // 効果音の ON/OFF（localStorageで永続化）
   const [soundOn, setSoundOn] = useState(() => {
-    try { return localStorage.getItem("kankouji-sound") !== "off"; } catch { return true; }
+    try { return localStorage.getItem("kankouji-sound") === "on"; } catch { return false; }  // 初めは効果音もオフ
   });
   useEffect(() => {
     try { localStorage.setItem("kankouji-sound", soundOn ? "on" : "off"); } catch (e) {}

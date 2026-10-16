@@ -2273,10 +2273,10 @@ function App() {
   // 効果音の ON/OFF（localStorageで永続化）
   const [soundOn, setSoundOn] = useState(() => {
     try {
-      return localStorage.getItem("kankouji-sound") !== "off";
+      return localStorage.getItem("kankouji-sound") === "on";
     } catch {
-      return true;
-    }
+      return false;
+    } // 初めは効果音もオフ
   });
   useEffect(() => {
     try {
