@@ -2848,7 +2848,8 @@ function App() {
         display: "flex",
         alignItems: "center",
         gap: 6,
-        flex: "0 0 auto"
+        flex: "0 0 auto",
+        marginLeft: "auto"
       }
     }, /*#__PURE__*/React.createElement("div", {
       style: {

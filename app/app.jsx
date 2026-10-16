@@ -1488,8 +1488,8 @@ export default function App() {
                 textShadow: "2px 2px 0 #e52521, 4px 4px 0 #3b2a1a" }}>スーパー管工事ブラザーズ</h1>
               <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: 2, color: "#1f1a14" }}>2級管工事 第一次検定</span>
             </div>
-            {/* 旗（ブロック合格）の数＋効果音の切替 */}
-            <div style={{ display: "flex", alignItems: "center", gap: 6, flex: "0 0 auto" }}>
+            {/* 旗（ブロック合格）の数＋効果音の切替。スマホで折り返したときも右寄せ */}
+            <div style={{ display: "flex", alignItems: "center", gap: 6, flex: "0 0 auto", marginLeft: "auto" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 11px", borderRadius: 999, background: "#ffffff", border: "2px solid #3b2a1a" }}>
                 <span aria-hidden="true">🚩</span>
                 <span style={{ fontSize: 13, fontWeight: 800, color: badgeCount > 0 ? "#1f9e3a" : "#3b3024" }}>{badgeCount}<span style={{ color: "#5e4f3c", fontWeight: 700 }}> / {sections.length}</span></span>
